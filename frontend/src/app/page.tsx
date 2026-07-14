@@ -119,7 +119,7 @@ export default function Home() {
             overflow: 'hidden', 
             textDecoration: 'none' 
           }}>
-            <div style={{ position: 'absolute', top: '24px', right: '24px', position: 'relative', width: '48px', height: '48px', opacity: 0.2 }}>
+            <div style={{ position: 'absolute', top: '24px', right: '24px', width: '48px', height: '48px', opacity: 0.2 }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, border: '4px solid var(--primary)', borderRadius: '8px' }} />
               <div style={{ position: 'absolute', top: '16px', left: '8px', width: '12px', height: '12px', background: 'var(--success)', borderRadius: '50%' }} />
             </div>
