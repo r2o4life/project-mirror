@@ -1,0 +1,95 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--primary), #a371f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.main h1 {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.main p {
+  font-size: 1.25rem;
+  color: #8b949e;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.grid > * {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.grid > *:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.grid h2 {
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+}
+
+.grid p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #8b949e;
+}

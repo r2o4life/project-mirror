@@ -1,0 +1,85 @@
+:root {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --primary: #58a6ff;
+  --primary-hover: #3182ce;
+  --surface: #161b22;
+  --border: #30363d;
+  --success: #2ea043;
+  --danger: #f85149;
+  --glass-bg: rgba(22, 27, 34, 0.6);
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.glass-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.global-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--primary), #a371f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.global-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.global-nav a {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.global-nav a:hover {
+  color: var(--primary);
+}

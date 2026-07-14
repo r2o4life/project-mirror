@@ -1,0 +1,3719 @@
+{
+  "future": {
+    "v3_fetcherPersist": false,
+    "v3_relativeSplatPath": false,
+    "v3_throwAbortReason": false,
+    "v3_routeConfig": false,
+    "v3_singleFetch": false,
+    "v3_lazyRouteDiscovery": false,
+    "unstable_optimizeDeps": false
+  },
+  "state": {
+    "loaderData": {
+      "root": {
+        "user": null
+      },
+      "routes/_index": {
+        "alternatives": [
+          {
+            "id": "cm0zfhwab00an94sn97v0xt35",
+            "name": "Godot",
+            "slug": "godot",
+            "airtableSlug": "godot-",
+            "website": "https://godotengine.org",
+            "repository": "godotengine/godot",
+            "tagline": "Your open-source game engine",
+            "description": "Develop 2D, 3D, and XR games cross-platform.",
+            "longFormContent": "Godot Engine is a powerful, open-source game engine designed for creating 2D, 3D, and XR (Extended Reality) games. Whether you're a hobbyist or a professional developer, Godot provides the tools and flexibility needed to bring your game ideas to life, all while being completely free and open-source.\n\n- **Innovative Design**: Godot's Node and Scene system offers unparalleled flexibility and power, allowing you to create anything from simple prototypes to complex games.\n- **Multi-language Support**: Keep your code modular with Godot's own GDScript, or use C#, C++, or even bring your own language using GDExtension.\n- **Dedicated 2D Engine**: Create crisp and performant 2D games with real 2D pixel coordinates and 2D nodes.\n- **Powerful 3D Engine**: Build, animate, and render 3D worlds and characters with Godot's comprehensive 3D nodes.\n- **Cross-platform Deployment**: Easily deploy your game on desktop, mobile, and web platforms. Godot also supports consoles through third-party publishers.\n- **Open Source**: Benefit from a truly open development model where anyone can contribute and improve the engine.\n\nGodot Engine stands out as a versatile and community-driven tool for game development. Its open-source nature ensures that it continuously evolves with contributions from developers worldwide, making it a robust and reliable choice for your next game project.",
+            "stars": 109681,
+            "forks": 25050,
+            "openIssues": 13171,
+            "contributors": 2658,
+            "isArchived": false,
+            "repoCreatedAt": "2014-01-04T15:05:36.000Z",
+            "lastCommitDate": "2026-04-18T12:28:38.000Z",
+            "relevance": 6.222535745712852,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://godotengine.org",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-godotengine-org-ukOor1c7Rz0RNzOLKtKTlNdLrPEa9Y.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T14:04:50.907Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.508Z",
+            "updatedAt": "2026-04-20T00:05:16.877Z",
+            "licenseId": "cm0zfi6as00pd94snuk3byy9o",
+            "rejectedAt": null,
+            "insightsSlug": "godotengine-godot",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw4x005i94snwkqpe31b",
+                "alternativeId": "cm0zfhwab00an94sn97v0xt35",
+                "category": {
+                  "label": "Gaming"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhw5w006d94snt2r61jyv",
+            "name": "Core",
+            "slug": "core",
+            "airtableSlug": "core",
+            "website": "https://www.home-assistant.io",
+            "repository": "home-assistant/core",
+            "tagline": "Local Control, Global Community",
+            "description": "Open source home automation prioritizing local control and privacy.",
+            "longFormContent": "Home Assistant is an open-source home automation platform designed to prioritize local control and privacy. It is powered by a global community of tinkerers and DIY enthusiasts, making it perfect for running on a Raspberry Pi or a local server. Whether you're a beginner or an advanced user, Home Assistant offers a versatile solution for automating your home environment without relying on cloud services. \n\n- **Local Control**: Home Assistant keeps your data local, ensuring that no information is stored in the cloud. \n- **Wide Integration**: Integrates with over 2,900 devices and services, allowing seamless control of various smart home products. \n- **Advanced Automation**: Utilize Home Assistant\u2019s automation engine to create complex routines and scenarios for your home. \n- **Energy Management**: Monitor and optimize your energy usage, making it easier to transition to sustainable energy sources. \n- **Voice Assistants**: Compatible with popular voice assistants like Alexa and Google Assistant for hands-free control. \n- **Device Organization**: Easily organize and manage your devices for a streamlined home automation experience. \n- **Dashboards**: Customizable dashboards to monitor and control your home environment. \n- **Community Support**: Backed by a worldwide community, offering forums, chats, and extensive documentation for troubleshooting and enhancements. \n\nHome Assistant is the go-to solution for those who value privacy and local control in their home automation setup. With its extensive integration capabilities and robust feature set, it provides a comprehensive platform for managing and automating your home environment.",
+            "stars": 86104,
+            "forks": 37280,
+            "openIssues": 2937,
+            "contributors": 3881,
+            "isArchived": false,
+            "repoCreatedAt": "2013-09-17T05:29:48.000Z",
+            "lastCommitDate": "2026-04-19T20:29:34.000Z",
+            "relevance": 6.009771603091729,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.home-assistant.io",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-home-assistant-io-AtHpxRUeqe6enQpGeLR8RV2zKuvsKg.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T13:40:29.129Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.349Z",
+            "updatedAt": "2026-04-20T00:10:59.062Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": "home-assistant-core",
+            "categories": [
+              {
+                "categoryId": "cm0zfhvys000794sn19jznnpj",
+                "alternativeId": "cm0zfhw5w006d94snt2r61jyv",
+                "category": {
+                  "label": "Automation"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwh800gy94snrtn43q31",
+            "name": "Odoo",
+            "slug": "odoo",
+            "airtableSlug": "odoo",
+            "website": "https://www.odoo.com",
+            "repository": "odoo/odoo",
+            "tagline": "All-in-one business suite",
+            "description": "Open source business apps for all needs.",
+            "longFormContent": "Odoo is a comprehensive suite of open source business applications designed to meet all your company needs. Whether it's CRM, eCommerce, accounting, inventory, point of sale, project management, or any other business function, Odoo has an app for it. The platform is both easy to use and fully integrated, making it a unique value proposition in the market.\n\n- **CRM**: Manage customer relationships and sales pipelines with ease.\n- **Accounting**: Streamline financial operations, from invoicing to expense tracking.\n- **Inventory**: Optimize stock levels and warehouse operations.\n- **eCommerce**: Build and manage online stores effortlessly.\n- **Project Management**: Plan, track, and collaborate on projects.\n- **Point of Sale**: Efficiently manage retail and restaurant operations.\n- **Website Builder**: Create stunning websites with drag-and-drop simplicity.\n- **Marketing Automation**: Automate email, SMS, and social media campaigns.\n- **HR**: Manage employee data, recruitment, and appraisals.\n- **Manufacturing**: Oversee production processes and quality control.\n\nBehind Odoo is a community of over 100,000 developers worldwide, united by the spirit of open source and a common vision to transform companies and empower employees. The platform is available in two editions: Community (100% free and open source) and Enterprise (with extra apps, infrastructure, and professional services). With over 40,000 community apps, Odoo is the world's largest business app store, offering a solution for every business need. The platform is highly customizable, allowing users to automate actions, design custom screens, reports, and web hooks using Odoo Studio. With fair pricing, no vendor lock-in, and a commitment to transparency, Odoo is the ideal choice for businesses looking to grow and optimize their operations.",
+            "stars": 50208,
+            "forks": 32126,
+            "openIssues": 3640,
+            "contributors": 2875,
+            "isArchived": false,
+            "repoCreatedAt": "2014-05-13T13:38:58.000Z",
+            "lastCommitDate": "2026-04-19T05:55:35.000Z",
+            "relevance": 5.925804902655813,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.odoo.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-odoo-com-r9UbFrtqzug9FSmHd7JlxOQKxcW16s.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:21:11.161Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.757Z",
+            "updatedAt": "2026-04-20T00:05:56.926Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": "odoo",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw4n005894sndkrmd9yy",
+                "alternativeId": "cm0zfhwh800gy94snrtn43q31",
+                "category": {
+                  "label": "CRM"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwai00as94sn4v24w5pe",
+            "name": "Grafana",
+            "slug": "grafana",
+            "airtableSlug": "grafana",
+            "website": "https://grafana.com",
+            "repository": "grafana/grafana",
+            "tagline": "Unified observability and visualization platform",
+            "description": "Open-source platform for metrics, logs, and traces.",
+            "longFormContent": "Grafana is an open-source, composable observability and data visualization platform that allows you to query, visualize, and alert on metrics, logs, and traces from multiple data sources. It integrates seamlessly with a wide array of backends like Prometheus, Loki, Elasticsearch, InfluxDB, and Postgres, among others, enabling a unified view of your entire stack.\n\n- **Metrics Visualization**: Query and visualize metrics from sources like Prometheus and Graphite.\n- **Log Aggregation**: Aggregate and search logs with Grafana Loki.\n- **Tracing**: Distributed tracing with Grafana Tempo.\n- **Dashboarding**: Create and share customizable dashboards.\n- **Alerting**: Set up and manage alerts to stay ahead of issues.\n- **Plugins**: Extend Grafana\u2019s capabilities with a wide variety of plugins.\n- **Synthetic Monitoring**: Monitor API and web application performance.\n- **Continuous Profiling**: Profile application performance with Grafana Pyroscope.\n- **Incident Management**: Manage incidents with Grafana OnCall and Grafana Incident.\n- **Frontend Observability**: Gain insights into frontend performance with Grafana Faro.\n\nGrafana\u2019s flexibility and wide range of integrations make it an indispensable tool for modern observability, catering to both small teams and large enterprises.",
+            "stars": 73299,
+            "forks": 13763,
+            "openIssues": 3176,
+            "contributors": 2939,
+            "isArchived": false,
+            "repoCreatedAt": "2013-12-11T14:59:56.000Z",
+            "lastCommitDate": "2026-04-18T09:34:16.000Z",
+            "relevance": 5.835268856392579,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://grafana.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-grafana-com-NRRqIbsm6aEgmJmiz3Tgh1sN1iiK2B.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T14:08:08.431Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.514Z",
+            "updatedAt": "2026-04-20T00:08:32.450Z",
+            "licenseId": "cm0zftngg00pz94snxajamc81",
+            "rejectedAt": null,
+            "insightsSlug": "grafana",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw3t004h94sn1megkwr8",
+                "alternativeId": "cm0zfhwai00as94sn4v24w5pe",
+                "category": {
+                  "label": "Observability and monitoring"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwm300l194snghbncgvk",
+            "name": "Rocket.Chat",
+            "slug": "rocket.chat",
+            "airtableSlug": "rocket-chat",
+            "website": "https://rocket.chat",
+            "repository": "RocketChat/Rocket.Chat",
+            "tagline": "Rocket.Chat v7.0 Roadmap Webinar",
+            "description": "Discover the new features and enhancements in Rocket.Chat v7.0.",
+            "longFormContent": "Rocket.Chat invites you to join us for an exclusive webinar, 'Roadmap Reveal: Uncovering The Secrets of Rocket.Chat v7.0.' This event will provide a deep dive into the upcoming features and enhancements in the latest version of Rocket.Chat, a leading communication platform that prioritizes data protection and security.\n\n- **Team Collaboration**: Enhanced tools for seamless collaboration among teams, improving productivity and communication.\n- **Customer Communication**: Advanced omnichannel capabilities to better connect with customers across various platforms.\n- **Hosting Options**: Flexible hosting solutions tailored to meet the specific needs of your organization.\n- **Security and Compliance**: Robust security measures and compliance features to safeguard sensitive data.\n- **Marketplace**: An expanded marketplace with more prebuilt and custom apps to extend Rocket.Chat's functionality.\n- **Apps-Engine**: Improved Apps-Engine for developers to create and integrate custom applications effortlessly.\n- **Federation and Bridges**: Enhanced cross-organizational collaboration features to connect different entities securely.\n- **Integrations**: Seamless integration with popular tools and services to streamline workflows.\n\nRocket.Chat v7.0 aims to elevate your communication experience by offering a comprehensive suite of features designed for security, flexibility, and scalability. Join our webinar to get an exclusive look at what\u2019s coming next and how it can benefit your organization.",
+            "stars": 45176,
+            "forks": 13526,
+            "openIssues": 2401,
+            "contributors": 904,
+            "isArchived": false,
+            "repoCreatedAt": "2015-05-19T05:36:09.000Z",
+            "lastCommitDate": "2026-04-17T23:37:02.000Z",
+            "relevance": 5.657317041959605,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://rocket.chat",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-rocket-chat-FbUsEUTNki19rxinFXg4cEfOOyxbNm.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:53:21.147Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.931Z",
+            "updatedAt": "2026-04-20T00:06:29.528Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": "jellyfin",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw26002z94sn2vbu3ljf",
+                "alternativeId": "cm0zfhwm300l194snghbncgvk",
+                "category": {
+                  "label": "Communication"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwek00em94snq686dtbk",
+            "name": "Mastodon",
+            "slug": "mastodon",
+            "airtableSlug": "mastodon",
+            "website": "https://joinmastodon.org",
+            "repository": "tootsuite/mastodon",
+            "tagline": "Decentralized social media platform",
+            "description": "Free, open-source, self-hosted social network.",
+            "longFormContent": "Mastodon is a free, open-source, decentralized social media platform that puts the control back in the hands of the users. Unlike traditional social networks, Mastodon is not controlled by any single entity, allowing for a more democratic and user-centric experience. It enables users to create and manage their own servers, known as instances, which can interconnect globally to form a unified social network without the influence of corporate algorithms or advertisements.\n\n- **Decentralized Network**: Each Mastodon server operates independently but can communicate with others, forming a global network.\n- **Self-Hosted**: Users can host their own Mastodon instances, providing full control over data and moderation.\n- **No Algorithms**: Content is displayed in chronological order, ensuring users see what they want, not what an algorithm thinks they should see.\n- **Privacy-Focused**: No ads, no tracking, and no data selling. Your data remains yours.\n- **Rich Media Support**: Supports audio, video, pictures, polls, content warnings, and more, allowing for diverse content sharing.\n- **Community-Driven**: Each instance can set its own rules and moderation policies, fostering unique communities with shared values.\n- **Open Source**: The platform is open-source, allowing anyone to contribute to its development and ensuring transparency.\n- **Interoperable**: Built on open web protocols, Mastodon can interact with other platforms using ActivityPub, expanding its reach.\n\nMastodon offers a refreshing alternative to traditional social media by prioritizing user autonomy, privacy, and community. It empowers individuals and organizations to create their own spaces online, free from corporate control and intrusive advertising, fostering a more authentic and engaging social experience.",
+            "stars": 49847,
+            "forks": 7434,
+            "openIssues": 4214,
+            "contributors": 937,
+            "isArchived": false,
+            "repoCreatedAt": "2016-02-22T14:01:25.000Z",
+            "lastCommitDate": "2026-04-17T16:57:38.000Z",
+            "relevance": 5.636427362619804,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://joinmastodon.org",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-joinmastodon-org-STkmRXMYTIwJlDr2O3MuSmBv46Pw1P.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:06:16.443Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.660Z",
+            "updatedAt": "2026-04-20T00:13:33.997Z",
+            "licenseId": "cm0zftngg00pz94snxajamc81",
+            "rejectedAt": null,
+            "insightsSlug": "mastodon",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw9o00a094snzpxe79ck",
+                "alternativeId": "cm0zfhwek00em94snq686dtbk",
+                "category": {
+                  "label": "Social Media"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhw54005p94sn8xmhsaqe",
+            "name": "ClickHouse",
+            "slug": "clickhouse",
+            "airtableSlug": "clickhouse",
+            "website": "https://clickhouse.com",
+            "repository": "ClickHouse/ClickHouse",
+            "tagline": "Real-time analytics DBMS",
+            "description": "ClickHouse: Fast, open-source, real-time analytics.",
+            "longFormContent": "ClickHouse is an open-source, real-time analytics database management system (DBMS) designed for high-performance data processing and analysis. It is optimized for handling large volumes of data and provides blazing-fast query performance, making it ideal for a wide range of use cases, including real-time analytics, machine learning, business intelligence, and more.\n\n- **Blazing Fast Performance**: ClickHouse is built for speed, enabling real-time data processing and query performance.\n- **Developer Friendly**: With a wide range of integrations and developer tools, ClickHouse is easy to use and integrate into existing workflows.\n- **Cost Effective**: ClickHouse offers significant cost savings compared to other DBMS solutions, providing excellent performance at a lower cost.\n- **Open Source**: As an open-source project, ClickHouse is freely available and benefits from a large and active community of contributors.\n- **Secure and Compliant**: ClickHouse prioritizes security and compliance, ensuring data is protected and regulatory requirements are met.\n- **Resource Optimized**: Efficiently manages resources to deliver high performance and scalability.\n- **Proven at Scale**: Trusted by leading companies across various industries for large-scale data processing and analytics.\n- **100+ Integrations**: Seamlessly integrates with a wide range of tools and platforms, making it versatile and adaptable to different environments.\n\nClickHouse is the go-to solution for organizations looking to build real-time data products that scale efficiently and reliably. Its robust performance, developer-friendly features, and cost-effectiveness make it a top choice for data-driven applications.",
+            "stars": 46964,
+            "forks": 8315,
+            "openIssues": 4798,
+            "contributors": 1656,
+            "isArchived": false,
+            "repoCreatedAt": "2016-06-02T06:28:18.000Z",
+            "lastCommitDate": "2026-04-19T20:59:44.000Z",
+            "relevance": 5.588348191600973,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://clickhouse.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-clickhouse-com-USXxETzFTfDSlAyYODKeTAvFu6A2JY.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T13:38:22.370Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.321Z",
+            "updatedAt": "2026-04-20T00:01:40.512Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": "clickhouse",
+            "categories": [
+              {
+                "categoryId": "cm0zfhvyo000494sngrhk3jhb",
+                "alternativeId": "cm0zfhw54005p94sn8xmhsaqe",
+                "category": {
+                  "label": "Analytics"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwr400oj94sn7gmuk6ww",
+            "name": "WooCommerce",
+            "slug": "woocommerce",
+            "airtableSlug": "woocommerce",
+            "website": "http://www.woocommerce.com",
+            "repository": "woocommerce/woocommerce",
+            "tagline": "Grow with WooCommerce",
+            "description": "Open-source ecommerce on WordPress.",
+            "longFormContent": "WooCommerce is a powerful, open-source ecommerce platform built on WordPress, designed to help merchants and developers create successful online businesses. Whether you're looking to sell products online, build stores for others, or enhance your existing store, WooCommerce offers a flexible and scalable solution that grows with your needs. Loved by millions of brands, WooCommerce is a trusted choice for ecommerce success.\n\n- **Customizable Platform**: Tailor your ecommerce store with hundreds of extensions and themes available in the WooCommerce Marketplace.\n- **WordPress Integration**: Seamlessly integrates with WordPress, offering a familiar and user-friendly environment for managing your store.\n- **Scalability**: Supports businesses of all sizes, from startups to large enterprises, with advanced features and dedicated support.\n- **Secure Payments**: Provides safe and secure payment options to ensure smooth transactions for your customers.\n- **Developer-Friendly**: Open-source nature allows developers to build and customize ecommerce solutions to meet specific business needs.\n- **Community Support**: Benefit from a robust community of users, developers, and experts, along with extensive documentation and resources.\n- **Global Reach**: WooCommerce supports multiple languages and currencies, enabling you to sell to customers worldwide.\n\nWooCommerce is the ideal platform for anyone looking to establish or expand their online presence. With its extensive range of features and strong community support, it empowers businesses to achieve long-term success in the ecommerce space.",
+            "stars": 10259,
+            "forks": 10704,
+            "openIssues": 2575,
+            "contributors": 1911,
+            "isArchived": false,
+            "repoCreatedAt": "2011-08-09T13:12:11.000Z",
+            "lastCommitDate": "2026-04-19T11:25:41.000Z",
+            "relevance": 5.565360783308346,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=http://www.woocommerce.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/http-www-woocommerce-com-qvNPqCgQuvWnDIbQ5p13MD56sAYx2c.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T18:29:23.655Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:36.113Z",
+            "updatedAt": "2026-04-20T00:09:20.507Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhw1p002k94snspt871gr",
+                "alternativeId": "cm0zfhwr400oj94sn7gmuk6ww",
+                "category": {
+                  "label": "E-commerce"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm2kuk8hg0a8wosr7kthdnupl",
+            "name": "TiDB",
+            "slug": "tidb",
+            "airtableSlug": null,
+            "website": "https://www.pingcap.com/",
+            "repository": "pingcap/tidb",
+            "tagline": "Open-source distributed SQL database",
+            "description": "TiDB offers scalable, cloud-native, MySQL-compatible database solutions for real-time analytics.",
+            "longFormContent": "TiDB is an open-source, cloud-native, distributed SQL database designed to provide elastic scaling and real-time analytics. It is MySQL-compatible, making it an attractive choice for organizations looking to modernize their data infrastructure without sacrificing existing investments in MySQL. TiDB offers flexibility in deployment, whether through fully-managed cloud services or self-managed infrastructure, catering to diverse business needs.\n\n- **MySQL Compatibility**: TiDB is 99% compatible with MySQL, ensuring a smooth transition and reduced overhead during migration.\n- **Elastic Scalability**: Designed to handle dynamic workloads, TiDB can scale effortlessly to accommodate growing data demands and traffic surges.\n- **Cloud-Native Architecture**: TiDB offers both serverless and dedicated cloud options, providing a fully-managed experience with predictable performance and dedicated resources.\n- **Real-Time Analytics**: With TiDB, you can perform real-time data analytics, gaining insights quickly and efficiently.\n- **Distributed SQL Database**: TiDB's distributed nature allows for high availability and fault tolerance, ensuring data reliability and performance.\n- **Integration with AI and Vector Search**: TiDB integrates with AI solutions for advanced data processing and vector search capabilities, enhancing data analytics.\n\nTiDB is a compelling choice for businesses seeking a robust, scalable, and flexible database solution. Its compatibility with MySQL makes it an easy upgrade path for existing MySQL users, while its distributed architecture ensures high availability and performance. Whether you're handling unpredictable traffic surges, processing payments reliably, or extracting operational insights, TiDB provides the infrastructure needed to support your business goals. Its cloud-native design and real-time analytics capabilities make it suitable for modern applications and dynamic workloads, making it a preferred choice for enterprises and developers alike.",
+            "stars": 39980,
+            "forks": 6165,
+            "openIssues": 4680,
+            "contributors": 919,
+            "isArchived": false,
+            "repoCreatedAt": "2015-09-06T04:01:52.000Z",
+            "lastCommitDate": "2026-04-19T05:00:09.000Z",
+            "relevance": 5.545125931619896,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.pingcap.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-pingcap-com-FVHThGEDcuR5Im1GkfN0GvUFzL5RiP.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": null,
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-10-22T19:37:23.283Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-10-22T19:37:10.900Z",
+            "updatedAt": "2026-04-20T00:12:32.585Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": "pingcap-tidb",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw0f001m94sngcd4b7gm",
+                "alternativeId": "cm2kuk8hg0a8wosr7kthdnupl",
+                "category": {
+                  "label": "Database"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwf400f494sneoggd9fv",
+            "name": "Metabase",
+            "slug": "metabase",
+            "airtableSlug": "metabase",
+            "website": "https://www.metabase.com",
+            "repository": "metabase/metabase",
+            "tagline": "Business Intelligence for Everyone",
+            "description": "The simplest way to get analytics.",
+            "longFormContent": "Metabase is an open-source business intelligence tool that makes analytics accessible to everyone in your company. With its user-friendly interface, you can explore data, create dashboards, and generate insights without needing extensive technical knowledge. Metabase simplifies the process of turning raw data into actionable insights, empowering both technical and non-technical users alike.\n\n- **Visual Query Builder**: Allows users to build complex queries without writing SQL, making data exploration accessible to everyone.\n- **Analytics Dashboards**: Easily create and share interactive dashboards with various visualization types to suit different needs.\n- **Embedded Analytics**: Integrate analytics seamlessly into your product, providing in-product insights for your users.\n- **SQL Editor**: For advanced users who prefer to write their own SQL queries, offering full control over data manipulation.\n- **Drill-through**: Enables users to pull threads in their data, diving deeper into specific data points for more granular insights.\n- **Usage Analytics**: Track who did what and when, providing a clear view of user activity and data interaction.\n- **Permissions**: Keep your data secure and private with robust permission controls, ensuring only authorized users have access.\n- **CSV Upload**: Go beyond basic data manipulation with advanced CSV upload capabilities, enhancing your data analysis.\n- **Sandboxing**: Set boundaries around your data to segment access and unlock multi-tenant analytics via row-level data sandboxes.\n- **Models**: Create metadata-rich, semantic models that let users query on their own, maintaining consistency and avoiding repetition.\n\nMetabase is designed to make self-service analytics a reality. Whether you're a startup or an enterprise, Metabase provides the tools you need to explore data, build dashboards, and gain insights quickly and efficiently.",
+            "stars": 46931,
+            "forks": 6385,
+            "openIssues": 3730,
+            "contributors": 413,
+            "isArchived": false,
+            "repoCreatedAt": "2015-02-02T18:25:47.000Z",
+            "lastCommitDate": "2026-04-19T23:22:04.000Z",
+            "relevance": 5.522069932081439,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.metabase.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-metabase-com-9OOVXJaNcDcQ3uw8kyYjYzWg5qp26F.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:10:01.402Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.680Z",
+            "updatedAt": "2026-04-20T00:03:56.345Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": "metabase",
+            "categories": [
+              {
+                "categoryId": "cm0zfhwf200f194sngnb5m260",
+                "alternativeId": "cm0zfhwf400f494sneoggd9fv",
+                "category": {
+                  "label": "Business intelligence"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwoo00mt94snuhro6l1n",
+            "name": "Superset",
+            "slug": "superset",
+            "airtableSlug": "superset",
+            "website": "https://superset.apache.org",
+            "repository": "apache/superset",
+            "tagline": "Data Visualization and Exploration",
+            "description": "Superset: intuitive data exploration and visualization.",
+            "longFormContent": "Apache Superset is a powerful, lightweight, and intuitive platform designed for data exploration and visualization. It caters to users of all skill levels, offering a wide range of options from simple line charts to detailed geospatial charts, making data analysis accessible and efficient for everyone. \n\n- **No-Code Viz Builder**: Easily explore data using a simple, no-code visualization builder.\n- **SQL IDE**: Advanced users can leverage a state-of-the-art SQL IDE for custom queries.\n- **Database Integration**: Connects seamlessly with any SQL-based database, including modern cloud-native databases.\n- **Scalable Architecture**: Lightweight and highly scalable, leveraging existing data infrastructure without adding another ingestion layer.\n- **Rich Visualizations**: Comes with 40+ pre-installed visualization types and a plug-in architecture for custom visualizations.\n- **Self-Serve Analytics**: Create physical and virtual datasets to scale chart creation with unified metric definitions.\n- **Interactive Dashboards**: Explore data and uncover insights through interactive dashboards.\n- **Drag and Drop Interface**: Create robust charts and tables effortlessly using drag and drop.\n- **Custom SQL Queries**: Write custom SQL queries, browse database metadata, and use Jinja templating for advanced data manipulation.\n\nApache Superset simplifies the process of data exploration and visualization, making it a versatile tool for analysts, data scientists, and business users alike. Its modern architecture and rich feature set ensure that it can handle a wide range of data analysis needs, from basic to highly complex scenarios.",
+            "stars": 72487,
+            "forks": 17067,
+            "openIssues": 647,
+            "contributors": 1166,
+            "isArchived": false,
+            "repoCreatedAt": "2015-07-21T16:55:34.000Z",
+            "lastCommitDate": "2026-04-19T14:40:19.000Z",
+            "relevance": 5.506813805330529,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://superset.apache.org",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-superset-apache-org-DebT7GidXzVHYYUCLrEUyFcRWNNhnc.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T18:16:22.076Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:36.025Z",
+            "updatedAt": "2026-04-20T00:04:12.150Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": "apache-superset",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw7o008294sndmbo5hoq",
+                "alternativeId": "cm0zfhwoo00mt94snuhro6l1n",
+                "category": {
+                  "label": "Visual Database"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwa400ah94sn1eo6z0l1",
+            "name": "Gitea",
+            "slug": "gitea",
+            "airtableSlug": "gitea",
+            "website": "https://gitea.io/en-us",
+            "repository": "go-gitea/gitea",
+            "tagline": "Accelerate DevOps with Gitea",
+            "description": "Private, fast, reliable DevOps platform.",
+            "longFormContent": "Gitea is a comprehensive, self-hosted software development service designed to streamline your DevOps processes. It offers a seamless experience from code hosting to deployment, making it easier for teams to collaborate and manage projects efficiently. Whether you're an individual developer or part of a corporate team, Gitea provides the tools you need to accelerate your development and deployment workflows.\n\n- **Git Hosting**: Secure and reliable Git repository hosting for your projects.\n- **Code Review**: Integrated code review system to ensure code quality and consistency.\n- **Team Collaboration**: Tools for team collaboration, including issue tracking and project management.\n- **Package Registry**: Manage and distribute packages with ease.\n- **CI/CD**: Built-in Continuous Integration and Continuous Deployment to automate your workflows.\n- **Versatile Integrations**: Integrate with your favorite tools and services to enhance your workflow.\n- **Universal Compatibility**: Deploy Gitea on any platform, ensuring flexibility and scalability.\n\nGitea is trusted by innovative teams around the world for its ease of use, robust features, and active development community. With Gitea, you can focus on writing code while the platform takes care of the rest.",
+            "stars": 54991,
+            "forks": 6589,
+            "openIssues": 2579,
+            "contributors": 1390,
+            "isArchived": false,
+            "repoCreatedAt": "2016-11-01T01:13:26.000Z",
+            "lastCommitDate": "2026-04-19T19:09:43.000Z",
+            "relevance": 5.470449080395749,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://gitea.io",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-gitea-io-en-us-wNf2HZdSOO79JBMGhbfwveEZiE4Y4i.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T14:00:11.673Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.500Z",
+            "updatedAt": "2026-04-20T00:03:24.206Z",
+            "licenseId": "cm0zfi6as00pd94snuk3byy9o",
+            "rejectedAt": null,
+            "insightsSlug": "go-gitea-gitea",
+            "categories": [
+              {
+                "categoryId": "cm0zfhvzi000v94sniyatysco",
+                "alternativeId": "cm0zfhwa400ah94sn1eo6z0l1",
+                "category": {
+                  "label": "Developer Tools"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwgf00g794sny6g8s6eg",
+            "name": "Neovim",
+            "slug": "neovim",
+            "airtableSlug": "neovim",
+            "website": "https://neovim.io",
+            "repository": "neovim/neovim",
+            "tagline": "Hyperextensible Vim-based text editor",
+            "description": "Vim-fork focused on extensibility and usability.",
+            "longFormContent": "Neovim is a hyperextensible, Vim-based text editor designed to maximize usability and extensibility. It aims to fix every issue users have with Vim, providing a more modern and powerful editing experience while maintaining compatibility with existing Vim plugins and configurations.\n\n- **Extensible**: Neovim is built with extensibility in mind, featuring a discoverable, versioned, and documented API. It supports MessagePack for remote plugins and Lua for scripting.\n- **Usable**: Neovim includes a built-in Language Server Protocol (LSP) client, sensible defaults, and a terminal emulator, making it highly usable out of the box.\n- **Drop-in Vim**: Neovim is designed to be a drop-in replacement for Vim, ensuring seamless transition and compatibility.\n\nNeovim continues to evolve with contributions from a vibrant community, ensuring it remains the world's most advanced Vimscript engine. Whether you are a seasoned developer or a new user, Neovim offers a robust and flexible editing environment.",
+            "stars": 98864,
+            "forks": 6819,
+            "openIssues": 1631,
+            "contributors": 1343,
+            "isArchived": false,
+            "repoCreatedAt": "2014-01-31T12:39:22.000Z",
+            "lastCommitDate": "2026-04-19T23:05:51.000Z",
+            "relevance": 5.431353478508199,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://neovim.io",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-neovim-io-udD39TXQw7qL6I1woU9ch3vvXdMVEI.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:16:11.743Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.728Z",
+            "updatedAt": "2026-04-20T00:13:30.595Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": "neovim",
+            "categories": [
+              {
+                "categoryId": "cm0zfhvzi000v94sniyatysco",
+                "alternativeId": "cm0zfhwgf00g794sny6g8s6eg",
+                "category": {
+                  "label": "Developer Tools"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwrt00p594sn9o9j6pme",
+            "name": "Zulip",
+            "slug": "zulip",
+            "airtableSlug": "zulip",
+            "website": "https://zulip.com",
+            "repository": "zulip/zulip",
+            "tagline": "Organized team chat",
+            "description": "Open-source team chat for productivity.",
+            "longFormContent": "Zulip is an open-source team chat platform designed to help teams stay productive and focused. By organizing conversations into topics, Zulip makes it easy to follow discussions and manage communication efficiently. Whether you are a small business, a large enterprise, or a community project, Zulip offers a structured way to keep your team's communication clear and organized.\n\n- **Threaded Conversations**: Zulip's unique threading model allows users to organize conversations by topics, making it easier to follow multiple discussions simultaneously.\n- **Cross-Platform Apps**: Available on desktop and mobile, Zulip ensures you can stay connected with your team wherever you are.\n- **Integrations**: Zulip supports numerous integrations, allowing you to connect with your favorite tools and streamline your workflow.\n- **API Access**: Zulip provides a robust API, enabling developers to customize and extend the platform to meet their specific needs.\n- **Self-Hosting**: For those who prefer ultimate control and compliance, Zulip offers an easy-to-install self-hosting option.\n- **Security**: With features like end-to-end encryption, Zulip ensures your team's communication remains secure.\n- **Migration Tools**: Switching to Zulip is made easy with tools to import data and integrations from other platforms like Slack.\n- **Community Support**: As an open-source project, Zulip has a vibrant community that contributes to its continuous improvement.\n\nZulip's organized approach to team communication helps reduce chaos and stress, making it a preferred choice for teams that need to stay productive and focused. Its flexible deployment options and strong security features make it suitable for a wide range of use cases, from business and education to open-source projects and research collaborations.",
+            "stars": 25049,
+            "forks": 9792,
+            "openIssues": 1159,
+            "contributors": 2199,
+            "isArchived": false,
+            "repoCreatedAt": "2015-09-25T14:37:25.000Z",
+            "lastCommitDate": "2026-04-19T02:40:29.000Z",
+            "relevance": 5.419320447330628,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://zulip.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-zulip-com-JjHhVHp0C3xhqfLkpHUOoTHrsAO165.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T18:30:33.080Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:36.137Z",
+            "updatedAt": "2026-04-20T00:10:27.344Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhw26002z94sn2vbu3ljf",
+                "alternativeId": "cm0zfhwrt00p594sn9o9j6pme",
+                "category": {
+                  "label": "Communication"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhw08001g94sn60hpk572",
+            "name": "Appsmith",
+            "slug": "appsmith",
+            "airtableSlug": "appsmith",
+            "website": "https://www.appsmith.com",
+            "repository": "appsmithorg/appsmith",
+            "tagline": "Low-code custom app builder",
+            "description": "Build custom apps quickly with Appsmith.",
+            "longFormContent": "Appsmith is a powerful low-code platform designed to help developers build, deploy, and maintain custom software applications more efficiently. Whether you need to create admin panels, internal tools, or dashboards, Appsmith provides the tools and flexibility to get the job done faster and more effectively. Integrate with over 25 databases and any API to consolidate your data into one seamless application. \n\n- **Connect**: Source data from any database, SaaS tool, or REST/GraphQL API. Self-host for secure access to internal data.\n- **Build**: Use drag-and-drop widgets to quickly assemble responsive UIs. Create your own custom widgets using JS/HTML/CSS.\n- **Customize**: Manipulate data, appearance, and business logic in JavaScript. Import and utilize external libraries in your apps.\n- **Deploy and Maintain**: Version control and merge updates with Git. Automatically deploy merged changes from designated environment branches.\n\nAppsmith is a developer-first low-code platform that eliminates the need for over-abstraction, custom scripting, and proprietary SDLC processes. With features like a centralized JS IDE, external JavaScript library support, and Git integration, Appsmith ensures a seamless development experience. Its open-source edition, under the Apache 2.0 license, is community-supported and maintained, offering high transparency and low vendor risk. For enterprise use, Appsmith provides robust security and governance features, including self-hosting options, SAML and OIDC SSO, role-based access controls, SCIM-based user provisioning, audit logging, and SOC 2 Type II compliance. Appsmith is lightweight, fast, and developer-focused, making it easy to get started and build custom applications tailored to your business needs.",
+            "stars": 39653,
+            "forks": 4550,
+            "openIssues": 4411,
+            "contributors": 334,
+            "isArchived": false,
+            "repoCreatedAt": "2020-06-30T02:07:36.000Z",
+            "lastCommitDate": "2026-04-17T11:24:36.000Z",
+            "relevance": 5.412941018521583,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.appsmith.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-appsmith-com-M9svFkahqVG6IrNvaWJneNm9l52I8b.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T13:22:08.549Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.145Z",
+            "updatedAt": "2026-04-20T00:00:44.591Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhw03001c94sn9eie9nzu",
+                "alternativeId": "cm0zfhw08001g94sn60hpk572",
+                "category": {
+                  "label": "Internal Tool"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhw7r008594snndkue56a",
+            "name": "Erpnext",
+            "slug": "erpnext",
+            "airtableSlug": "erpnext",
+            "website": "https://erpnext.com",
+            "repository": "frappe/erpnext",
+            "tagline": "The most agile ERP",
+            "description": "World's best free and open source ERP",
+            "longFormContent": "ERPNext is a comprehensive, free, and open-source Enterprise Resource Planning (ERP) system designed to streamline and optimize business processes across various industries. It offers a versatile and powerful solution for financial accounting, order management, HR and payroll, manufacturing, CRM, projects, helpdesk, asset management, and website management. ERPNext is used by more than 10,000 companies worldwide, making it a trusted choice for businesses of all sizes.\n\n- **Financial Accounting**: Get a real-time view of your cash flow with a full-fledged accounting module covering every aspect of bookkeeping.\n- **Order Management**: Increase productivity and lower costs by managing your sales and purchase cycles, from purchase to sales orders.\n- **HR and Payroll**: Manage the full employee life cycle, from onboarding to separation, including payroll, attendance, and expense claims.\n- **Manufacturing**: Effectively maintain and manage multilevel bill of materials, production planning, job cards, and inventory.\n- **CRM**: Optimize the sales process to win and retain more customers by tracking leads, opportunities, and sending quotes on the go.\n- **Projects**: Deliver both internal and external projects on time, within budget, and with profitability by tracking tasks, timesheets, and issues by project.\n- **Helpdesk**: Deliver a better service experience with an intuitive issue tracker and an integrated knowledge base.\n- **Asset Management**: Maintain and manage details of assets, their movement, value adjustment, and depreciation.\n- **Website**: ERPNext comes with fully-featured content management including blogs, web pages, and forms.\n\nERPNext's extensive features and integrations make it a powerful tool for businesses looking to enhance efficiency and productivity. With its user-friendly interface and robust functionality, ERPNext is designed to cater to the needs of various industries, ensuring seamless operations and improved business outcomes.",
+            "stars": 33039,
+            "forks": 10975,
+            "openIssues": 2009,
+            "contributors": 553,
+            "isArchived": false,
+            "repoCreatedAt": "2011-06-08T06:20:56.000Z",
+            "lastCommitDate": "2026-04-19T12:02:58.000Z",
+            "relevance": 5.405452353357047,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://erpnext.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-erpnext-com-TgP5450F8HpTLbwcpIDxkuTednNQqU.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T13:47:25.858Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.415Z",
+            "updatedAt": "2026-04-20T00:13:40.095Z",
+            "licenseId": "cm0zfiowb00pj94snnh6jzvs0",
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhw4n005894sndkrmd9yy",
+                "alternativeId": "cm0zfhw7r008594snndkue56a",
+                "category": {
+                  "label": "CRM"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwef00eh94snibmgrblg",
+            "name": "Magento",
+            "slug": "magento",
+            "airtableSlug": "magento-",
+            "website": "https://business.adobe.com/products/magento/magento-commerce.html",
+            "repository": "magento/magento2",
+            "tagline": "Adobe Contributor License Agreement",
+            "description": "Sign the Adobe Contributor License Agreement.",
+            "longFormContent": "The Adobe Contributor License Agreement (CLA) is a prerequisite for making any contributions to Adobe Inc. and its affiliates. This agreement outlines the terms and conditions under which your submissions will be accepted and used by Adobe. By signing the CLA, you ensure that your contributions are legally compliant and can be integrated into Adobe's projects without any legal complications. The CLA is available for review and signing at Adobe's open-source website.\n\n- **Legal Compliance**: Ensures all contributions are legally compliant and free from any intellectual property issues.\n- **Clear Terms**: Outlines clear terms and conditions for submissions, providing transparency and clarity.\n- **Streamlined Process**: Simplifies the process of contributing to Adobe's open-source projects.\n- **Affiliates Coverage**: Covers contributions to Adobe and its affiliates, assigns, and subsidiaries.\n\nThe Adobe Contributor License Agreement is essential for maintaining the integrity and legal standing of contributions made to Adobe's open-source projects.",
+            "stars": 12089,
+            "forks": 9388,
+            "openIssues": 1201,
+            "contributors": 3020,
+            "isArchived": false,
+            "repoCreatedAt": "2011-11-30T14:30:13.000Z",
+            "lastCommitDate": "2026-04-14T19:18:29.000Z",
+            "relevance": 5.399322019778397,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://business.adobe.com",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-business-adobe-com-products-magento-magento-commerce-html-9WBmlq5TOPR8aiqOnXtSktsmW1HPmt.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:05:40.606Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.655Z",
+            "updatedAt": "2026-04-20T00:04:14.126Z",
+            "licenseId": "cm0zg1ln40000u5totzocblke",
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhw1p002k94snspt871gr",
+                "alternativeId": "cm0zfhwef00eh94snibmgrblg",
+                "category": {
+                  "label": "E-commerce"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwms00lj94snarduenxf",
+            "name": "Sentry",
+            "slug": "sentry",
+            "airtableSlug": "sentry",
+            "website": "https://sentry.io",
+            "repository": "getsentry/sentry",
+            "tagline": "Fix code faster with Sentry",
+            "description": "Developer-first error tracking and performance monitoring.",
+            "longFormContent": "Sentry is a comprehensive application monitoring platform designed to help developers identify, debug, and resolve issues faster. By providing a wide range of tools for error monitoring, session replay, tracing, profiling, cron monitoring, code coverage, and user feedback, Sentry ensures that your application remains reliable and performant. With support for various languages and frameworks, Sentry is built to integrate seamlessly into your development workflow.\n\n- **Error Monitoring**: Identify, debug, and resolve application errors with detailed context, including environment, device, OS, and the specific commit that introduced the error.\n- **Tracing**: Gain complete visibility into the end-to-end path that data takes through your distributed system, pinpointing the exact origin of issues and tracking slow transactions.\n- **Session Replay**: Debug with visual context by navigating your application\u2019s console output, network calls, and DOM tree, while protecting user privacy with robust controls.\n- **Code Coverage**: Get test coverage insights directly in your pull requests, shortening review cycles and catching issues early in the development process.\n- **User Feedback**: Collect and prioritize user feedback to understand the impact of issues and improve your application\u2019s user experience.\n- **Integrations**: Seamlessly integrate with tools like Slack, Jira, GitHub, Vercel, and Netlify to automate alerts, sync issues, and track releases.\n\nSentry empowers developers to maintain high application performance and reliability by offering an array of features tailored to their needs. Whether you\u2019re working on web, mobile, or gaming applications, Sentry\u2019s comprehensive monitoring solutions ensure you can fix issues quickly and efficiently, keeping your users happy and your development process smooth.",
+            "stars": 43616,
+            "forks": 4654,
+            "openIssues": 1807,
+            "contributors": 799,
+            "isArchived": false,
+            "repoCreatedAt": "2010-08-30T20:06:41.000Z",
+            "lastCommitDate": "2026-04-19T04:18:50.000Z",
+            "relevance": 5.388219458517511,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://sentry.io",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-sentry-io-5mJeVOGvCevrqS4ZgFPqg9ck62XSdV.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T17:59:47.967Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.957Z",
+            "updatedAt": "2026-04-20T00:03:14.050Z",
+            "licenseId": null,
+            "rejectedAt": null,
+            "insightsSlug": "sentry-javascript",
+            "categories": [
+              {
+                "categoryId": "cm0zfhvzi000v94sniyatysco",
+                "alternativeId": "cm0zfhwms00lj94snarduenxf",
+                "category": {
+                  "label": "Developer Tools"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhw9y00ab94sn0bhwqjlt",
+            "name": "Ghidra",
+            "slug": "ghidra",
+            "airtableSlug": "ghidra",
+            "website": "https://ghidra-sre.org/\n",
+            "repository": "NationalSecurityAgency/ghidra",
+            "tagline": "Powerful SRE tool suite",
+            "description": "Ghidra: NSA-developed software reverse engineering tools.",
+            "longFormContent": "Ghidra is a comprehensive software reverse engineering (SRE) suite developed by the NSA's Research Directorate to support their Cybersecurity mission. It provides a robust framework for analyzing and understanding binary programs, making it a valuable resource for cybersecurity professionals, researchers, and hobbyists alike.\n\n- **Multi-Platform Support**: Ghidra runs on various operating systems including Windows, macOS, and Linux, ensuring broad accessibility.\n- **Interactive Graphical Interface**: Features an intuitive GUI that simplifies navigation and analysis of complex software binaries.\n- **Extensible Architecture**: Users can extend Ghidra's capabilities with their own scripts and plugins, enabling custom analysis workflows.\n- **Collaboration Tools**: Supports collaborative analysis, allowing multiple users to work on the same project simultaneously.\n- **Rich Documentation**: Comprehensive guides and context-sensitive help make it easier to get started and master advanced features.\n- **Open Source**: The complete source code is available, allowing for transparency and community contributions.\n\nGhidra is designed to be a versatile and powerful tool for software reverse engineering, offering a wide range of features to facilitate in-depth analysis and understanding of binary programs. Its open-source nature encourages community involvement and continuous improvement.",
+            "stars": 67412,
+            "forks": 7409,
+            "openIssues": 1543,
+            "contributors": 297,
+            "isArchived": false,
+            "repoCreatedAt": "2019-03-01T02:27:48.000Z",
+            "lastCommitDate": "2026-04-19T09:03:29.000Z",
+            "relevance": 5.38751214779893,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://ghidra-sre.org",
+            "screenshotUrl": null,
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T13:59:13.152Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.494Z",
+            "updatedAt": "2026-04-20T00:02:20.784Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": "nationalsecurityagency-ghidra",
+            "categories": [
+              {
+                "categoryId": "cm0zfhw4u005f94snohm32x16",
+                "alternativeId": "cm0zfhw9y00ab94sn0bhwqjlt",
+                "category": {
+                  "label": "Cybersecurity"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cm0zfhwcw00d094sndp8hu5kn",
+            "name": "KeyCloak",
+            "slug": "keycloak",
+            "airtableSlug": "keycloak",
+            "website": "https://www.keycloak.org",
+            "repository": "keycloak/keycloak",
+            "tagline": "Open Source Identity Management",
+            "description": "Secure applications with minimal effort.",
+            "longFormContent": "Keycloak is an open-source identity and access management solution designed to add authentication to applications and secure services with minimal effort. It eliminates the need for developers to handle user storage or authentication processes themselves.\n\n- **Single-Sign On**: Users authenticate with Keycloak rather than individual applications, facilitating seamless access across multiple applications.\n- **Identity Brokering and Social Login**: Easily enable social network logins and authenticate users with existing OpenID Connect or SAML 2.0 Identity Providers.\n- **User Federation**: Connect to existing LDAP or Active Directory servers, or implement custom providers for other user stores.\n- **Admin Console**: Centrally manage all aspects of the Keycloak server, including user federation, identity brokering, and fine-grained authorization policies.\n- **Account Management Console**: Allow users to manage their profiles, passwords, two-factor authentication, sessions, and account history.\n- **Standard Protocols**: Supports OpenID Connect, OAuth 2.0, and SAML for seamless integration.\n- **Authorization Services**: Beyond role-based authorization, Keycloak provides fine-grained authorization services for detailed policy management.\n\nKeycloak is a Cloud Native Computing Foundation incubation project, continuously evolving to meet modern authentication and authorization needs.",
+            "stars": 33958,
+            "forks": 8258,
+            "openIssues": 2363,
+            "contributors": 1145,
+            "isArchived": false,
+            "repoCreatedAt": "2013-07-02T11:38:51.000Z",
+            "lastCommitDate": "2026-04-17T16:59:59.000Z",
+            "relevance": 5.384388406374125,
+            "bump": null,
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.keycloak.org",
+            "screenshotUrl": "https://lafptocsuil8sakp.public.blob.vercel-storage.com/screenshot/https-www-keycloak-org-kHpf7BtIpklEYbPWkMkDwqfIG1MTTv.png",
+            "isFeatured": false,
+            "submitterEmail": "jonathan@octolens.com",
+            "submitterNote": "Seeder",
+            "discountCode": null,
+            "excluded": false,
+            "discountAmount": null,
+            "approvedAt": "2024-09-12T16:51:44.968Z",
+            "contentUpdatedAt": null,
+            "createdAt": "2024-09-12T13:12:35.601Z",
+            "updatedAt": "2026-04-20T00:09:47.791Z",
+            "licenseId": "cm0zfrz5200pu94snwyqzpqx7",
+            "rejectedAt": null,
+            "insightsSlug": null,
+            "categories": [
+              {
+                "categoryId": "cm0zfhvyx000b94snfp38wmpf",
+                "alternativeId": "cm0zfhwcw00d094sndp8hu5kn",
+                "category": {
+                  "label": "Auth & SSO"
+                }
+              }
+            ]
+          }
+        ],
+        "totalCount": 505,
+        "availableCategories": [
+          {
+            "label": "Utilities",
+            "slug": "utilities",
+            "count": 5
+          },
+          {
+            "label": "Analytics",
+            "slug": "analytics",
+            "count": 16
+          },
+          {
+            "label": "Automation",
+            "slug": "automation",
+            "count": 18
+          },
+          {
+            "label": "Auth & SSO",
+            "slug": "auth-and-sso",
+            "count": 11
+          },
+          {
+            "label": "Project Management",
+            "slug": "project-management",
+            "count": 12
+          },
+          {
+            "label": "ELT/ETL",
+            "slug": "eltetl",
+            "count": 4
+          },
+          {
+            "label": "Accounting",
+            "slug": "accounting",
+            "count": 1
+          },
+          {
+            "label": "Notetaking",
+            "slug": "notetaking",
+            "count": 16
+          },
+          {
+            "label": "Streaming",
+            "slug": "streaming",
+            "count": 4
+          },
+          {
+            "label": "Developer Tools",
+            "slug": "developer-tools",
+            "count": 49
+          },
+          {
+            "label": "API Platform",
+            "slug": "api-platform",
+            "count": 9
+          },
+          {
+            "label": "CMS",
+            "slug": "cms",
+            "count": 14
+          },
+          {
+            "label": "Enterprise Search",
+            "slug": "enterprise-search",
+            "count": 9
+          },
+          {
+            "label": "Documentation",
+            "slug": "documentation",
+            "count": 18
+          },
+          {
+            "label": "Internal Tool",
+            "slug": "internal-tool",
+            "count": 10
+          },
+          {
+            "label": "Backend service",
+            "slug": "backend-service",
+            "count": 7
+          },
+          {
+            "label": "Database",
+            "slug": "database",
+            "count": 28
+          },
+          {
+            "label": "3D Modelling",
+            "slug": "3d-modelling",
+            "count": 4
+          },
+          {
+            "label": "Product Management",
+            "slug": "product-management",
+            "count": 10
+          },
+          {
+            "label": "Music",
+            "slug": "music",
+            "count": 8
+          },
+          {
+            "label": "Password Managers",
+            "slug": "password-managers",
+            "count": 10
+          },
+          {
+            "label": "Browser",
+            "slug": "browser",
+            "count": 2
+          },
+          {
+            "label": "Video",
+            "slug": "video",
+            "count": 16
+          },
+          {
+            "label": "E-commerce",
+            "slug": "e-commerce",
+            "count": 18
+          },
+          {
+            "label": "KYC",
+            "slug": "kyc",
+            "count": 1
+          },
+          {
+            "label": "Communication",
+            "slug": "communication",
+            "count": 36
+          },
+          {
+            "label": "Finances",
+            "slug": "finances",
+            "count": 5
+          },
+          {
+            "label": "Scheduling",
+            "slug": "scheduling",
+            "count": 5
+          },
+          {
+            "label": "Observability and monitoring",
+            "slug": "observability-and-monitoring",
+            "count": 8
+          },
+          {
+            "label": "Deployment",
+            "slug": "deployment",
+            "count": 8
+          },
+          {
+            "label": "Reverse ETL",
+            "slug": "reverse-etl",
+            "count": 1
+          },
+          {
+            "label": "Cloud Storage",
+            "slug": "cloud-storage",
+            "count": 4
+          },
+          {
+            "label": "CRM",
+            "slug": "crm",
+            "count": 9
+          },
+          {
+            "label": "Cybersecurity",
+            "slug": "cybersecurity",
+            "count": 18
+          },
+          {
+            "label": "Gaming",
+            "slug": "gaming",
+            "count": 8
+          },
+          {
+            "label": "Platform as a service",
+            "slug": "platform-as-a-service",
+            "count": 8
+          },
+          {
+            "label": "ML Ops",
+            "slug": "ml-ops",
+            "count": 4
+          },
+          {
+            "label": "Customer Data",
+            "slug": "customer-data",
+            "count": 3
+          },
+          {
+            "label": "Cloud",
+            "slug": "cloud",
+            "count": 6
+          },
+          {
+            "label": "Metric store",
+            "slug": "metric-store",
+            "count": 4
+          },
+          {
+            "label": "Design",
+            "slug": "design",
+            "count": 16
+          },
+          {
+            "label": "Community",
+            "slug": "community",
+            "count": 8
+          },
+          {
+            "label": "ERP",
+            "slug": "erp",
+            "count": 2
+          },
+          {
+            "label": "Link Shortener",
+            "slug": "link-shortener",
+            "count": 2
+          },
+          {
+            "label": "Visual Database",
+            "slug": "visual-database",
+            "count": 5
+          },
+          {
+            "label": "File Hosting",
+            "slug": "file-hosting",
+            "count": 3
+          },
+          {
+            "label": "Social Media",
+            "slug": "social-media",
+            "count": 12
+          },
+          {
+            "label": "VPN",
+            "slug": "vpn",
+            "count": 3
+          },
+          {
+            "label": "Log Management",
+            "slug": "log-management",
+            "count": 1
+          },
+          {
+            "label": "Smart Home",
+            "slug": "smart-home",
+            "count": 1
+          },
+          {
+            "label": "VoiceChat",
+            "slug": "voicechat",
+            "count": 1
+          },
+          {
+            "label": "Email marketing",
+            "slug": "email-marketing",
+            "count": 4
+          },
+          {
+            "label": "Food",
+            "slug": "food",
+            "count": 1
+          },
+          {
+            "label": "OS",
+            "slug": "os",
+            "count": 1
+          },
+          {
+            "label": "Remote Desktop",
+            "slug": "remote-desktop",
+            "count": 4
+          },
+          {
+            "label": "Business intelligence",
+            "slug": "business-intelligence",
+            "count": 1
+          },
+          {
+            "label": "Blogging",
+            "slug": "blogging",
+            "count": 3
+          },
+          {
+            "label": "Form Builder",
+            "slug": "form-builder",
+            "count": 3
+          },
+          {
+            "label": "Web Mapping Platform",
+            "slug": "web-mapping-platform",
+            "count": 1
+          },
+          {
+            "label": "Customer Engagement",
+            "slug": "customer-engagement",
+            "count": 2
+          },
+          {
+            "label": "Virtual Space",
+            "slug": "virtual-space",
+            "count": 1
+          },
+          {
+            "label": "Graph database",
+            "slug": "graph-database",
+            "count": 1
+          },
+          {
+            "label": "Robotic Process Automation (RPA)",
+            "slug": "robotic-process-automation-(rpa)",
+            "count": 1
+          }
+        ],
+        "availableTools": [
+          {
+            "name": "Autodesk",
+            "slug": "autodesk",
+            "count": 3
+          },
+          {
+            "name": "Prezi",
+            "slug": "prezi",
+            "count": 2
+          },
+          {
+            "name": "Roam Research",
+            "slug": "roam-research",
+            "count": 5
+          },
+          {
+            "name": "IDA",
+            "slug": "ida",
+            "count": 1
+          },
+          {
+            "name": "Aseprite",
+            "slug": "aseprite",
+            "count": 1
+          },
+          {
+            "name": "Miro",
+            "slug": "miro",
+            "count": 1
+          },
+          {
+            "name": "Safari",
+            "slug": "safari",
+            "count": 1
+          },
+          {
+            "name": "LogRocket",
+            "slug": "logrocket",
+            "count": 3
+          },
+          {
+            "name": "GameMaker",
+            "slug": "gamemaker",
+            "count": 1
+          },
+          {
+            "name": "Lyket.dev",
+            "slug": "lyket.dev",
+            "count": 1
+          },
+          {
+            "name": "Gmail",
+            "slug": "gmail",
+            "count": 1
+          },
+          {
+            "name": "Agora",
+            "slug": "agora",
+            "count": 1
+          },
+          {
+            "name": "Finale",
+            "slug": "finale",
+            "count": 1
+          },
+          {
+            "name": "Figma",
+            "slug": "figma",
+            "count": 2
+          },
+          {
+            "name": "Google Meet",
+            "slug": "google-meet",
+            "count": 3
+          },
+          {
+            "name": "Ampache",
+            "slug": "ampache",
+            "count": 1
+          },
+          {
+            "name": "Nagios",
+            "slug": "nagios",
+            "count": 1
+          },
+          {
+            "name": "Obsidian",
+            "slug": "obsidian",
+            "count": 1
+          },
+          {
+            "name": "Bundlephobia",
+            "slug": "bundlephobia",
+            "count": 1
+          },
+          {
+            "name": "Orbastack/Tart/Lima",
+            "slug": "orbastacktartlima",
+            "count": 1
+          },
+          {
+            "name": "Looker",
+            "slug": "looker",
+            "count": 4
+          },
+          {
+            "name": "Oracle Fusion ERP Cloud",
+            "slug": "oracle-fusion-erp-cloud",
+            "count": 3
+          },
+          {
+            "name": "Doodle",
+            "slug": "doodle",
+            "count": 2
+          },
+          {
+            "name": "Adobe Substance",
+            "slug": "adobe-substance",
+            "count": 1
+          },
+          {
+            "name": "Cryptomator",
+            "slug": "cryptomator",
+            "count": 1
+          },
+          {
+            "name": "NewRelic",
+            "slug": "newrelic",
+            "count": 4
+          },
+          {
+            "name": "LinkTree",
+            "slug": "linktree",
+            "count": 1
+          },
+          {
+            "name": "GitHub",
+            "slug": "github",
+            "count": 8
+          },
+          {
+            "name": "Drone CI",
+            "slug": "drone-ci",
+            "count": 1
+          },
+          {
+            "name": "Snorkel AI",
+            "slug": "snorkel-ai",
+            "count": 1
+          },
+          {
+            "name": "Fairgate",
+            "slug": "fairgate",
+            "count": 1
+          },
+          {
+            "name": "\tOpenVPN Access Server",
+            "slug": "openvpn-access-server",
+            "count": 1
+          },
+          {
+            "name": "VMware",
+            "slug": "vmware",
+            "count": 1
+          },
+          {
+            "name": "Imply",
+            "slug": "imply",
+            "count": 1
+          },
+          {
+            "name": "Zoom",
+            "slug": "zoom",
+            "count": 5
+          },
+          {
+            "name": "Lightshot",
+            "slug": "lightshot",
+            "count": 2
+          },
+          {
+            "name": "SocialPilot",
+            "slug": "socialpilot",
+            "count": 1
+          },
+          {
+            "name": "MultiSim",
+            "slug": "multisim",
+            "count": 2
+          },
+          {
+            "name": "UiPath",
+            "slug": "uipath",
+            "count": 2
+          },
+          {
+            "name": "Comodo Firewall",
+            "slug": "comodo-firewall",
+            "count": 1
+          },
+          {
+            "name": "Fivetran",
+            "slug": "fivetran",
+            "count": 4
+          },
+          {
+            "name": "Datadog",
+            "slug": "datadog",
+            "count": 6
+          },
+          {
+            "name": "Sprig",
+            "slug": "sprig",
+            "count": 1
+          },
+          {
+            "name": "Hasura",
+            "slug": "hasura",
+            "count": 1
+          },
+          {
+            "name": "Asana",
+            "slug": "asana",
+            "count": 3
+          },
+          {
+            "name": "Clubdesk",
+            "slug": "clubdesk",
+            "count": 1
+          },
+          {
+            "name": "Traktor Pro 3",
+            "slug": "traktor-pro-3",
+            "count": 1
+          },
+          {
+            "name": "Suite CRM",
+            "slug": "suite-crm",
+            "count": 2
+          },
+          {
+            "name": "Uptime Robot",
+            "slug": "uptime-robot",
+            "count": 3
+          },
+          {
+            "name": "Microsoft Teams",
+            "slug": "microsoft-teams",
+            "count": 8
+          },
+          {
+            "name": "YouTube",
+            "slug": "youtube",
+            "count": 7
+          },
+          {
+            "name": "Emby",
+            "slug": "emby",
+            "count": 1
+          },
+          {
+            "name": "Quizlet",
+            "slug": "quizlet",
+            "count": 1
+          },
+          {
+            "name": "YNAB",
+            "slug": "ynab",
+            "count": 1
+          },
+          {
+            "name": "Docsend",
+            "slug": "docsend",
+            "count": 1
+          },
+          {
+            "name": "Google Vertex AI",
+            "slug": "google-vertex-ai",
+            "count": 2
+          },
+          {
+            "name": "Apple HomeKit",
+            "slug": "apple-homekit",
+            "count": 1
+          },
+          {
+            "name": "Google Drive",
+            "slug": "google-drive",
+            "count": 7
+          },
+          {
+            "name": "Canny",
+            "slug": "canny",
+            "count": 4
+          },
+          {
+            "name": "WHMCS",
+            "slug": "whmcs",
+            "count": 1
+          },
+          {
+            "name": "Rollup",
+            "slug": "rollup",
+            "count": 1
+          },
+          {
+            "name": "Pushover",
+            "slug": "pushover",
+            "count": 1
+          },
+          {
+            "name": "Esbuild",
+            "slug": "esbuild",
+            "count": 1
+          },
+          {
+            "name": "WIX",
+            "slug": "wix",
+            "count": 1
+          },
+          {
+            "name": "Slack",
+            "slug": "slack",
+            "count": 9
+          },
+          {
+            "name": "Oracle Peoplesoft",
+            "slug": "oracle-peoplesoft",
+            "count": 1
+          },
+          {
+            "name": "PlanetScale",
+            "slug": "planetscale",
+            "count": 1
+          },
+          {
+            "name": "Supabase",
+            "slug": "supabase",
+            "count": 2
+          },
+          {
+            "name": "Nhost",
+            "slug": "nhost",
+            "count": 1
+          },
+          {
+            "name": "Salsify",
+            "slug": "salsify",
+            "count": 1
+          },
+          {
+            "name": "ImgIX",
+            "slug": "imgix",
+            "count": 2
+          },
+          {
+            "name": "Google Cloud IoT Core",
+            "slug": "google-cloud-iot-core",
+            "count": 1
+          },
+          {
+            "name": "Voicemod",
+            "slug": "voicemod",
+            "count": 1
+          },
+          {
+            "name": "Hightouch",
+            "slug": "hightouch",
+            "count": 1
+          },
+          {
+            "name": "Hotjar",
+            "slug": "hotjar",
+            "count": 1
+          },
+          {
+            "name": "FL Studio",
+            "slug": "fl-studio",
+            "count": 1
+          },
+          {
+            "name": "Apigee",
+            "slug": "apigee",
+            "count": 1
+          },
+          {
+            "name": "Snyk",
+            "slug": "snyk",
+            "count": 1
+          },
+          {
+            "name": "Scrivener",
+            "slug": "scrivener",
+            "count": 1
+          },
+          {
+            "name": "BigQuery ML ",
+            "slug": "bigquery-ml",
+            "count": 2
+          },
+          {
+            "name": "Eventbrite",
+            "slug": "eventbrite",
+            "count": 1
+          },
+          {
+            "name": "Adobe Lightroom",
+            "slug": "adobe-lightroom",
+            "count": 1
+          },
+          {
+            "name": "Kahoot",
+            "slug": "kahoot",
+            "count": 1
+          },
+          {
+            "name": "Jira",
+            "slug": "jira",
+            "count": 3
+          },
+          {
+            "name": "Amazon S3",
+            "slug": "amazon-s3",
+            "count": 4
+          },
+          {
+            "name": "Qlik",
+            "slug": "qlik",
+            "count": 2
+          },
+          {
+            "name": "Pocket",
+            "slug": "pocket",
+            "count": 2
+          },
+          {
+            "name": "Hootsuite",
+            "slug": "hootsuite",
+            "count": 1
+          },
+          {
+            "name": "Buffer",
+            "slug": "buffer",
+            "count": 1
+          },
+          {
+            "name": "XMind",
+            "slug": "xmind",
+            "count": 1
+          },
+          {
+            "name": "Glasswire",
+            "slug": "glasswire",
+            "count": 1
+          },
+          {
+            "name": "Orbit",
+            "slug": "orbit",
+            "count": 1
+          },
+          {
+            "name": "Google Analytics",
+            "slug": "google-analytics",
+            "count": 13
+          },
+          {
+            "name": "Quickbooks",
+            "slug": "quickbooks",
+            "count": 1
+          },
+          {
+            "name": "Atlassian Confluence",
+            "slug": "atlassian-confluence",
+            "count": 4
+          },
+          {
+            "name": "Sophos Firewall",
+            "slug": "sophos-firewall",
+            "count": 2
+          },
+          {
+            "name": "IDM",
+            "slug": "idm",
+            "count": 1
+          },
+          {
+            "name": "Azure AD",
+            "slug": "azure-ad",
+            "count": 1
+          },
+          {
+            "name": "Typeform",
+            "slug": "typeform",
+            "count": 4
+          },
+          {
+            "name": "Markup",
+            "slug": "markup",
+            "count": 2
+          },
+          {
+            "name": "Ecwid",
+            "slug": "ecwid",
+            "count": 3
+          },
+          {
+            "name": "McAfee",
+            "slug": "mcafee",
+            "count": 1
+          },
+          {
+            "name": "Akeneo",
+            "slug": "akeneo",
+            "count": 1
+          },
+          {
+            "name": "Element",
+            "slug": "element",
+            "count": 1
+          },
+          {
+            "name": "Greynoise",
+            "slug": "greynoise",
+            "count": 1
+          },
+          {
+            "name": "Google Docs",
+            "slug": "google-docs",
+            "count": 8
+          },
+          {
+            "name": "Wordle",
+            "slug": "wordle",
+            "count": 1
+          },
+          {
+            "name": "Rundeck",
+            "slug": "rundeck",
+            "count": 1
+          },
+          {
+            "name": "Segment",
+            "slug": "segment",
+            "count": 2
+          },
+          {
+            "name": "BlackBoard",
+            "slug": "blackboard",
+            "count": 1
+          },
+          {
+            "name": "BitBucket",
+            "slug": "bitbucket",
+            "count": 7
+          },
+          {
+            "name": "Chromatic",
+            "slug": "chromatic",
+            "count": 1
+          },
+          {
+            "name": "Ninja Download Manager",
+            "slug": "ninja-download-manager",
+            "count": 1
+          },
+          {
+            "name": "Docuware",
+            "slug": "docuware",
+            "count": 1
+          },
+          {
+            "name": "Calendly",
+            "slug": "calendly",
+            "count": 1
+          },
+          {
+            "name": "Bitly",
+            "slug": "bitly",
+            "count": 2
+          },
+          {
+            "name": "Unreal Engine (UE4)",
+            "slug": "unreal-engine-(ue4)",
+            "count": 3
+          },
+          {
+            "name": "Alexa",
+            "slug": "alexa",
+            "count": 1
+          },
+          {
+            "name": "Google Camera",
+            "slug": "google-camera",
+            "count": 1
+          },
+          {
+            "name": "Webflow",
+            "slug": "webflow",
+            "count": 3
+          },
+          {
+            "name": "Circle",
+            "slug": "circle",
+            "count": 5
+          },
+          {
+            "name": "Salesforce",
+            "slug": "salesforce",
+            "count": 9
+          },
+          {
+            "name": "Snowflake",
+            "slug": "snowflake",
+            "count": 1
+          },
+          {
+            "name": "Spotify",
+            "slug": "spotify",
+            "count": 2
+          },
+          {
+            "name": "GCP Cloud Asset inventory ",
+            "slug": "gcp-cloud-asset-inventory",
+            "count": 1
+          },
+          {
+            "name": "Phrase",
+            "slug": "phrase",
+            "count": 1
+          },
+          {
+            "name": "AWS GuardDuty",
+            "slug": "aws-guardduty",
+            "count": 1
+          },
+          {
+            "name": "Trello",
+            "slug": "trello",
+            "count": 7
+          },
+          {
+            "name": "Fusion360",
+            "slug": "fusion360",
+            "count": 1
+          },
+          {
+            "name": "Berty",
+            "slug": "berty",
+            "count": 3
+          },
+          {
+            "name": "Wowza",
+            "slug": "wowza",
+            "count": 1
+          },
+          {
+            "name": "SumSub",
+            "slug": "sumsub",
+            "count": 1
+          },
+          {
+            "name": "LaunchDarkly",
+            "slug": "launchdarklycom",
+            "count": 1
+          },
+          {
+            "name": "Retool",
+            "slug": "retool",
+            "count": 5
+          },
+          {
+            "name": "Men&Mice",
+            "slug": "menandmice",
+            "count": 1
+          },
+          {
+            "name": "Basecamp",
+            "slug": "basecamp",
+            "count": 1
+          },
+          {
+            "name": "Adobe Illustrator",
+            "slug": "adobe-illustrator",
+            "count": 1
+          },
+          {
+            "name": "Heroku",
+            "slug": "heroku",
+            "count": 10
+          },
+          {
+            "name": "Powerapps",
+            "slug": "powerapps",
+            "count": 3
+          },
+          {
+            "name": "Google Tag Manager",
+            "slug": "google-tag-manager",
+            "count": 1
+          },
+          {
+            "name": "Selenium",
+            "slug": "selenium",
+            "count": 2
+          },
+          {
+            "name": "BigCommerce",
+            "slug": "bigcommerce",
+            "count": 11
+          },
+          {
+            "name": "Reddit",
+            "slug": "reddit",
+            "count": 2
+          },
+          {
+            "name": "Lokalise",
+            "slug": "lokalise",
+            "count": 2
+          },
+          {
+            "name": "Google AutoML Tables",
+            "slug": "google-automl-tables",
+            "count": 1
+          },
+          {
+            "name": "Windows media player",
+            "slug": "windows-media-player",
+            "count": 2
+          },
+          {
+            "name": "substack",
+            "slug": "substack",
+            "count": 1
+          },
+          {
+            "name": "Dorico",
+            "slug": "dorico",
+            "count": 1
+          },
+          {
+            "name": "VtigerCRM",
+            "slug": "vtigercrm",
+            "count": 1
+          },
+          {
+            "name": "Semgrep",
+            "slug": "semgrep",
+            "count": 1
+          },
+          {
+            "name": "N8N",
+            "slug": "n8n",
+            "count": 1
+          },
+          {
+            "name": "GoogleForms",
+            "slug": "googleforms",
+            "count": 1
+          },
+          {
+            "name": "Azure",
+            "slug": "azure",
+            "count": 1
+          },
+          {
+            "name": "Pencil2D",
+            "slug": "pencil2d",
+            "count": 1
+          },
+          {
+            "name": "Okta",
+            "slug": "okta",
+            "count": 6
+          },
+          {
+            "name": "Stytch",
+            "slug": "stytch",
+            "count": 1
+          },
+          {
+            "name": "Kdb+",
+            "slug": "kdb+",
+            "count": 4
+          },
+          {
+            "name": "CamScanner",
+            "slug": "camscanner",
+            "count": 1
+          },
+          {
+            "name": "ZohoCRM",
+            "slug": "zohocrm",
+            "count": 2
+          },
+          {
+            "name": ".Net Maui",
+            "slug": ".net-maui",
+            "count": 1
+          },
+          {
+            "name": "JAWS",
+            "slug": "jaws",
+            "count": 1
+          },
+          {
+            "name": "Crowdin",
+            "slug": "crowdin",
+            "count": 1
+          },
+          {
+            "name": "Amazon API Gateway",
+            "slug": "amazon-api-gateway",
+            "count": 1
+          },
+          {
+            "name": "Visual Studio Code",
+            "slug": "visual-studio-code",
+            "count": 1
+          },
+          {
+            "name": "Vanta",
+            "slug": "vantacom",
+            "count": 1
+          },
+          {
+            "name": "Gmail",
+            "slug": "mailgooglecom",
+            "count": 1
+          },
+          {
+            "name": "Neo4j",
+            "slug": "neo4j",
+            "count": 2
+          },
+          {
+            "name": "FrontEgg",
+            "slug": "frontegg",
+            "count": 1
+          },
+          {
+            "name": "Coyim",
+            "slug": "coyim",
+            "count": 3
+          },
+          {
+            "name": "ClubHouse",
+            "slug": "clubhouse",
+            "count": 1
+          },
+          {
+            "name": "Toggl Track",
+            "slug": "toggl-track",
+            "count": 1
+          },
+          {
+            "name": "CurseForge",
+            "slug": "curseforge",
+            "count": 1
+          },
+          {
+            "name": "Infoblox",
+            "slug": "infoblox",
+            "count": 1
+          },
+          {
+            "name": "FullStory",
+            "slug": "fullstory",
+            "count": 2
+          },
+          {
+            "name": "AWS SageMaker",
+            "slug": "aws-sagemaker",
+            "count": 3
+          },
+          {
+            "name": "Substance Painter",
+            "slug": "substance-painter",
+            "count": 1
+          },
+          {
+            "name": "TablePlus",
+            "slug": "tableplus",
+            "count": 1
+          },
+          {
+            "name": "Prtg",
+            "slug": "prtg",
+            "count": 1
+          },
+          {
+            "name": "VSCode Binaries",
+            "slug": "vscode-binaries",
+            "count": 2
+          },
+          {
+            "name": "Skype",
+            "slug": "skype",
+            "count": 2
+          },
+          {
+            "name": "Pinot",
+            "slug": "pinot",
+            "count": 1
+          },
+          {
+            "name": "Photoshop",
+            "slug": "photoshop",
+            "count": 2
+          },
+          {
+            "name": "Device42",
+            "slug": "device42",
+            "count": 1
+          },
+          {
+            "name": "LucidChart",
+            "slug": "lucidchart",
+            "count": 2
+          },
+          {
+            "name": "Docker",
+            "slug": "docker",
+            "count": 1
+          },
+          {
+            "name": "POEditor",
+            "slug": "poeditor",
+            "count": 1
+          },
+          {
+            "name": "Airtable",
+            "slug": "airtable",
+            "count": 5
+          },
+          {
+            "name": "Vmix",
+            "slug": "vmix",
+            "count": 1
+          },
+          {
+            "name": "Disqus",
+            "slug": "disqus",
+            "count": 3
+          },
+          {
+            "name": "Waymo",
+            "slug": "waymo",
+            "count": 1
+          },
+          {
+            "name": "Memcached",
+            "slug": "memcached",
+            "count": 1
+          },
+          {
+            "name": "CCleaner",
+            "slug": "ccleaner",
+            "count": 1
+          },
+          {
+            "name": "CMS",
+            "slug": "cms",
+            "count": 2
+          },
+          {
+            "name": "Stack Overflow",
+            "slug": "stack-overflow",
+            "count": 1
+          },
+          {
+            "name": "Firebase Analytics",
+            "slug": "firebase-analytics",
+            "count": 1
+          },
+          {
+            "name": "Panther",
+            "slug": "panther",
+            "count": 1
+          },
+          {
+            "name": "Zabbix",
+            "slug": "zabbix",
+            "count": 1
+          },
+          {
+            "name": "Notion",
+            "slug": "notion",
+            "count": 9
+          },
+          {
+            "name": "WooCommerce",
+            "slug": "woocommerce",
+            "count": 1
+          },
+          {
+            "name": "Rollout.io",
+            "slug": "rollout.io",
+            "count": 1
+          },
+          {
+            "name": "Bring",
+            "slug": "bring",
+            "count": 1
+          },
+          {
+            "name": "Sublime Text",
+            "slug": "sublime-text",
+            "count": 3
+          },
+          {
+            "name": "MS SQL",
+            "slug": "ms-sql",
+            "count": 1
+          },
+          {
+            "name": "Tribe",
+            "slug": "tribe",
+            "count": 5
+          },
+          {
+            "name": "Threema",
+            "slug": "threema",
+            "count": 5
+          },
+          {
+            "name": "Cloudflare Workers",
+            "slug": "cloudflare-workers",
+            "count": 1
+          },
+          {
+            "name": "Twilio",
+            "slug": "twilio",
+            "count": 2
+          },
+          {
+            "name": "Signal",
+            "slug": "signal",
+            "count": 2
+          },
+          {
+            "name": "Webpack",
+            "slug": "webpack",
+            "count": 1
+          },
+          {
+            "name": "Qualtrics",
+            "slug": "qualtrics",
+            "count": 1
+          },
+          {
+            "name": "QnA Maker",
+            "slug": "qna-maker",
+            "count": 1
+          },
+          {
+            "name": "Microsoft Active Directory",
+            "slug": "microsoft-active-directory",
+            "count": 1
+          },
+          {
+            "name": "Google Home",
+            "slug": "google-home",
+            "count": 1
+          },
+          {
+            "name": "Stepzen",
+            "slug": "stepzen",
+            "count": 1
+          },
+          {
+            "name": "Tenable Nessus",
+            "slug": "tenable-nessus",
+            "count": 1
+          },
+          {
+            "name": "TinkerCAD",
+            "slug": "tinkercad",
+            "count": 1
+          },
+          {
+            "name": "Rewind",
+            "slug": "rewind",
+            "count": 1
+          },
+          {
+            "name": "SolidWorks",
+            "slug": "solidworks",
+            "count": 1
+          },
+          {
+            "name": "TeamViewer",
+            "slug": "teamviewer",
+            "count": 5
+          },
+          {
+            "name": "Bandicam",
+            "slug": "bandicam",
+            "count": 1
+          },
+          {
+            "name": "Adobe Acrobat",
+            "slug": "adobe-acrobat",
+            "count": 1
+          },
+          {
+            "name": "Pushbullet",
+            "slug": "pushbullet",
+            "count": 1
+          },
+          {
+            "name": "Stripe Billing",
+            "slug": "stripe-billing",
+            "count": 2
+          },
+          {
+            "name": "Twitter",
+            "slug": "twitter",
+            "count": 3
+          },
+          {
+            "name": "Percy",
+            "slug": "percy",
+            "count": 2
+          },
+          {
+            "name": "HCL Connections",
+            "slug": "hcl-connections",
+            "count": 1
+          },
+          {
+            "name": "Roboflow",
+            "slug": "roboflow",
+            "count": 1
+          },
+          {
+            "name": "Logseq",
+            "slug": "logseq",
+            "count": 1
+          },
+          {
+            "name": "Intercom",
+            "slug": "intercom",
+            "count": 3
+          },
+          {
+            "name": "WordPress",
+            "slug": "wordpress",
+            "count": 1
+          },
+          {
+            "name": "Google Docs",
+            "slug": "docsgooglecom",
+            "count": 1
+          },
+          {
+            "name": "Dropbox",
+            "slug": "dropbox",
+            "count": 1
+          },
+          {
+            "name": "Google Cloud",
+            "slug": "google-cloud",
+            "count": 1
+          },
+          {
+            "name": "Terraform",
+            "slug": "terraform",
+            "count": 1
+          },
+          {
+            "name": "Upsource",
+            "slug": "upsource",
+            "count": 6
+          },
+          {
+            "name": "Microsoft Lens",
+            "slug": "microsoft-lens",
+            "count": 1
+          },
+          {
+            "name": "Dataclay Templater Bot",
+            "slug": "dataclay-templater-bot",
+            "count": 1
+          },
+          {
+            "name": "Alfred",
+            "slug": "alfred",
+            "count": 1
+          },
+          {
+            "name": "Zoho",
+            "slug": "zoho",
+            "count": 1
+          },
+          {
+            "name": "Medium",
+            "slug": "medium",
+            "count": 3
+          },
+          {
+            "name": "npm",
+            "slug": "npm",
+            "count": 1
+          },
+          {
+            "name": "WorkOS",
+            "slug": "workos",
+            "count": 1
+          },
+          {
+            "name": "ActiveCampaign",
+            "slug": "activecampaign",
+            "count": 1
+          },
+          {
+            "name": "Postman",
+            "slug": "postman",
+            "count": 4
+          },
+          {
+            "name": "Claude code",
+            "slug": "claude-code",
+            "count": 1
+          },
+          {
+            "name": "Plex",
+            "slug": "plex",
+            "count": 2
+          },
+          {
+            "name": "Apollo GraphQL",
+            "slug": "apollo-graphql",
+            "count": 1
+          },
+          {
+            "name": "Netlify",
+            "slug": "netlify",
+            "count": 1
+          },
+          {
+            "name": "ArcGIS",
+            "slug": "arcgis",
+            "count": 1
+          },
+          {
+            "name": "Google Chrome",
+            "slug": "google-chrome",
+            "count": 2
+          },
+          {
+            "name": "Facebook",
+            "slug": "facebook",
+            "count": 4
+          },
+          {
+            "name": "Bloomberg Terminal",
+            "slug": "bloomberg-terminal",
+            "count": 1
+          },
+          {
+            "name": "3DS MAX",
+            "slug": "3ds-max",
+            "count": 1
+          },
+          {
+            "name": "IBM Watson Discovery",
+            "slug": "ibm-watson-discovery",
+            "count": 1
+          },
+          {
+            "name": "Solarwinds",
+            "slug": "solarwinds",
+            "count": 1
+          },
+          {
+            "name": "Microsoft Dynamics",
+            "slug": "microsoft-dynamics",
+            "count": 2
+          },
+          {
+            "name": "Office Online",
+            "slug": "office-online",
+            "count": 5
+          },
+          {
+            "name": "Framer",
+            "slug": "framer",
+            "count": 1
+          },
+          {
+            "name": "Amazon Neptune ",
+            "slug": "amazon-neptune",
+            "count": 5
+          },
+          {
+            "name": "Azure DevOps",
+            "slug": "azure-devops",
+            "count": 3
+          },
+          {
+            "name": "AWS WAF",
+            "slug": "aws-waf",
+            "count": 1
+          },
+          {
+            "name": "ELO Office",
+            "slug": "elo-office",
+            "count": 1
+          },
+          {
+            "name": "SAP",
+            "slug": "sap",
+            "count": 6
+          },
+          {
+            "name": "Archbee",
+            "slug": "archbee",
+            "count": 2
+          },
+          {
+            "name": "https://appian.com/",
+            "slug": "httpsappiancom",
+            "count": 1
+          },
+          {
+            "name": "SketchUp",
+            "slug": "sketchup",
+            "count": 2
+          },
+          {
+            "name": "AWS Kendra",
+            "slug": "aws-kendra",
+            "count": 1
+          },
+          {
+            "name": "Discord",
+            "slug": "discord",
+            "count": 12
+          },
+          {
+            "name": "Odoo",
+            "slug": "odoo",
+            "count": 3
+          },
+          {
+            "name": "Quicken",
+            "slug": "quicken",
+            "count": 1
+          },
+          {
+            "name": "Session",
+            "slug": "session",
+            "count": 3
+          },
+          {
+            "name": "Feedzai",
+            "slug": "feedzai",
+            "count": 1
+          },
+          {
+            "name": "Pipedream",
+            "slug": "pipedream",
+            "count": 1
+          },
+          {
+            "name": "Pastebin",
+            "slug": "pastebin",
+            "count": 1
+          },
+          {
+            "name": "MicroStrategy",
+            "slug": "microstrategy",
+            "count": 2
+          },
+          {
+            "name": "Excel",
+            "slug": "excel",
+            "count": 1
+          },
+          {
+            "name": "Google Keep",
+            "slug": "google-keep",
+            "count": 1
+          },
+          {
+            "name": "Taliscale",
+            "slug": "taliscale",
+            "count": 2
+          },
+          {
+            "name": "Toad",
+            "slug": "toad",
+            "count": 2
+          },
+          {
+            "name": "Firebase",
+            "slug": "firebase",
+            "count": 7
+          },
+          {
+            "name": "Maya",
+            "slug": "maya",
+            "count": 2
+          },
+          {
+            "name": "Adobe Animate",
+            "slug": "adobe-animate",
+            "count": 1
+          },
+          {
+            "name": "Ansible Tower",
+            "slug": "ansible-tower",
+            "count": 1
+          },
+          {
+            "name": "Shopify",
+            "slug": "shopify",
+            "count": 15
+          },
+          {
+            "name": "Twitch",
+            "slug": "twitch",
+            "count": 1
+          },
+          {
+            "name": "Docker Desktop",
+            "slug": "docker-desktop",
+            "count": 1
+          },
+          {
+            "name": "Gitbook",
+            "slug": "gitbook",
+            "count": 1
+          },
+          {
+            "name": "AppWrite",
+            "slug": "appwrite",
+            "count": 1
+          },
+          {
+            "name": "WolframAlpha",
+            "slug": "wolframalpha",
+            "count": 1
+          },
+          {
+            "name": "NordVPN",
+            "slug": "nordvpn",
+            "count": 1
+          },
+          {
+            "name": "RescueTime",
+            "slug": "rescuetime",
+            "count": 2
+          },
+          {
+            "name": "Gather",
+            "slug": "gather",
+            "count": 1
+          },
+          {
+            "name": "Splunk",
+            "slug": "splunk",
+            "count": 3
+          },
+          {
+            "name": "cPanel",
+            "slug": "cpanel",
+            "count": 3
+          },
+          {
+            "name": "Wetransfer",
+            "slug": "wetransfer",
+            "count": 1
+          },
+          {
+            "name": "Unity3D",
+            "slug": "unity3d",
+            "count": 4
+          },
+          {
+            "name": "Boxcryptor",
+            "slug": "boxcryptor",
+            "count": 2
+          },
+          {
+            "name": "Polypane",
+            "slug": "polypane",
+            "count": 1
+          },
+          {
+            "name": " UniFi Security Gateway",
+            "slug": "unifi-security-gateway",
+            "count": 2
+          },
+          {
+            "name": "Camunda",
+            "slug": "camunda",
+            "count": 1
+          },
+          {
+            "name": "Xenforo",
+            "slug": "xenforo",
+            "count": 1
+          },
+          {
+            "name": "Render",
+            "slug": "render",
+            "count": 6
+          },
+          {
+            "name": "Elasticsearch",
+            "slug": "elasticsearch",
+            "count": 4
+          },
+          {
+            "name": "Telegram",
+            "slug": "telegram",
+            "count": 6
+          },
+          {
+            "name": "Adobe Scan",
+            "slug": "adobe-scan",
+            "count": 1
+          },
+          {
+            "name": "Amazon Redshift",
+            "slug": "amazon-redshift",
+            "count": 1
+          },
+          {
+            "name": "Netflix",
+            "slug": "netflix",
+            "count": 1
+          },
+          {
+            "name": "Microsoft Edge",
+            "slug": "microsoft-edge",
+            "count": 1
+          },
+          {
+            "name": "Instagram",
+            "slug": "instagram",
+            "count": 1
+          },
+          {
+            "name": "Proteus",
+            "slug": "proteus",
+            "count": 2
+          },
+          {
+            "name": "Adobe Premiere Pro ",
+            "slug": "adobe-premiere-pro",
+            "count": 4
+          },
+          {
+            "name": "Sibelius",
+            "slug": "sibelius",
+            "count": 1
+          },
+          {
+            "name": "LastPass",
+            "slug": "lastpass",
+            "count": 9
+          },
+          {
+            "name": "Hungry",
+            "slug": "hungry",
+            "count": 1
+          },
+          {
+            "name": "Zerotier",
+            "slug": "zerotier",
+            "count": 1
+          },
+          {
+            "name": "1Password",
+            "slug": "1password",
+            "count": 10
+          },
+          {
+            "name": "IOS",
+            "slug": "ios",
+            "count": 1
+          },
+          {
+            "name": "Amplitude",
+            "slug": "amplitude",
+            "count": 1
+          },
+          {
+            "name": "FDM",
+            "slug": "fdm",
+            "count": 1
+          },
+          {
+            "name": "Google photos",
+            "slug": "google-photos",
+            "count": 3
+          },
+          {
+            "name": "WhatsApp",
+            "slug": "whatsapp",
+            "count": 9
+          },
+          {
+            "name": "Landbot",
+            "slug": "landbot",
+            "count": 1
+          },
+          {
+            "name": "Auth0",
+            "slug": "auth0",
+            "count": 10
+          },
+          {
+            "name": "Cruise",
+            "slug": "cruise",
+            "count": 1
+          },
+          {
+            "name": "vBulletin",
+            "slug": "vbulletin",
+            "count": 1
+          },
+          {
+            "name": "Stackstrom",
+            "slug": "stackstrom",
+            "count": 1
+          },
+          {
+            "name": "Appsheet",
+            "slug": "appsheet",
+            "count": 2
+          },
+          {
+            "name": "Bubble",
+            "slug": "bubble",
+            "count": 1
+          },
+          {
+            "name": "YouTrack",
+            "slug": "youtrack",
+            "count": 1
+          },
+          {
+            "name": "Algolia",
+            "slug": "algolia",
+            "count": 8
+          },
+          {
+            "name": "Airplane.dev",
+            "slug": "airplane.dev",
+            "count": 1
+          },
+          {
+            "name": "TigerGraph",
+            "slug": "tigergraph",
+            "count": 5
+          },
+          {
+            "name": "Socrata",
+            "slug": "socrata",
+            "count": 1
+          },
+          {
+            "name": "Zapier",
+            "slug": "zapier",
+            "count": 8
+          },
+          {
+            "name": "Microsoft 365",
+            "slug": "microsoft-365",
+            "count": 1
+          },
+          {
+            "name": "Google Sheets",
+            "slug": "google-sheets",
+            "count": 2
+          },
+          {
+            "name": "Adobe Audition",
+            "slug": "adobe-audition",
+            "count": 1
+          },
+          {
+            "name": "Google Maps",
+            "slug": "google-maps",
+            "count": 1
+          },
+          {
+            "name": "Onenote",
+            "slug": "onenote",
+            "count": 3
+          },
+          {
+            "name": "Power BI",
+            "slug": "power-bi",
+            "count": 2
+          },
+          {
+            "name": "Tesla autopilot",
+            "slug": "tesla-autopilot",
+            "count": 1
+          },
+          {
+            "name": "Make",
+            "slug": "make",
+            "count": 5
+          },
+          {
+            "name": "LaunchDarkly",
+            "slug": "launchdarkly",
+            "count": 5
+          },
+          {
+            "name": "Salt",
+            "slug": "salt",
+            "count": 1
+          },
+          {
+            "name": "Access Manager",
+            "slug": "access-manager",
+            "count": 1
+          },
+          {
+            "name": "Shogun",
+            "slug": "shogun",
+            "count": 1
+          },
+          {
+            "name": "Postgraphile",
+            "slug": "postgraphile",
+            "count": 1
+          },
+          {
+            "name": "Mailchimp",
+            "slug": "mailchimp",
+            "count": 5
+          },
+          {
+            "name": "Contentful",
+            "slug": "contentful",
+            "count": 8
+          },
+          {
+            "name": "Vercel",
+            "slug": "vercel",
+            "count": 1
+          },
+          {
+            "name": "Zendesk",
+            "slug": "zendesk",
+            "count": 5
+          },
+          {
+            "name": "IFTTT",
+            "slug": "ifttt",
+            "count": 1
+          },
+          {
+            "name": "AutoCAD",
+            "slug": "autocad",
+            "count": 3
+          },
+          {
+            "name": "Data Studio",
+            "slug": "data-studio",
+            "count": 1
+          },
+          {
+            "name": "Sendinblue",
+            "slug": "sendinblue",
+            "count": 3
+          },
+          {
+            "name": "Common Room",
+            "slug": "common-room",
+            "count": 1
+          },
+          {
+            "name": "openHAB",
+            "slug": "openhab",
+            "count": 1
+          },
+          {
+            "name": "Redis",
+            "slug": "redis",
+            "count": 1
+          },
+          {
+            "name": "Informatica",
+            "slug": "informatica",
+            "count": 1
+          },
+          {
+            "name": "Microsoft Office",
+            "slug": "microsoft-office",
+            "count": 2
+          },
+          {
+            "name": "Transifex",
+            "slug": "transifex",
+            "count": 1
+          },
+          {
+            "name": "Raindrop",
+            "slug": "raindrop",
+            "count": 1
+          },
+          {
+            "name": "HubSpot",
+            "slug": "hubspot",
+            "count": 3
+          },
+          {
+            "name": "AWS Config",
+            "slug": "aws-config",
+            "count": 1
+          },
+          {
+            "name": "Evernote",
+            "slug": "evernote",
+            "count": 7
+          },
+          {
+            "name": "tableau",
+            "slug": "tableau",
+            "count": 3
+          },
+          {
+            "name": "Documentation",
+            "slug": "documentation",
+            "count": 2
+          },
+          {
+            "name": "Vanta",
+            "slug": "vanta",
+            "count": 2
+          },
+          {
+            "name": "Onshape",
+            "slug": "onshape",
+            "count": 2
+          },
+          {
+            "name": "Typora",
+            "slug": "typora",
+            "count": 3
+          },
+          {
+            "name": "ML Kit ",
+            "slug": "ml-kit",
+            "count": 1
+          },
+          {
+            "name": "Revoltchat",
+            "slug": "revoltchat",
+            "count": 1
+          },
+          {
+            "name": "Ableton",
+            "slug": "ableton",
+            "count": 1
+          },
+          {
+            "name": "DaVinci Resolve",
+            "slug": "davinci-resolve",
+            "count": 3
+          },
+          {
+            "name": "MongoDB",
+            "slug": "mongodb",
+            "count": 1
+          }
+        ],
+        "availableLanguages": [
+          {
+            "name": "Python",
+            "slug": "python",
+            "count": 96
+          },
+          {
+            "name": "Inno Setup",
+            "slug": "inno-setup",
+            "count": 4
+          },
+          {
+            "name": "Batchfile",
+            "slug": "batchfile",
+            "count": 3
+          },
+          {
+            "name": "JavaScript",
+            "slug": "javascript",
+            "count": 260
+          },
+          {
+            "name": "SCSS",
+            "slug": "scss",
+            "count": 52
+          },
+          {
+            "name": "Dockerfile",
+            "slug": "dockerfile",
+            "count": 20
+          },
+          {
+            "name": "Ruby",
+            "slug": "ruby",
+            "count": 19
+          },
+          {
+            "name": "HTML",
+            "slug": "html",
+            "count": 121
+          },
+          {
+            "name": "Java",
+            "slug": "java",
+            "count": 42
+          },
+          {
+            "name": "Roff",
+            "slug": "roff",
+            "count": 5
+          },
+          {
+            "name": "TypeScript",
+            "slug": "typescript",
+            "count": 213
+          },
+          {
+            "name": "Rust",
+            "slug": "rust",
+            "count": 34
+          },
+          {
+            "name": "Kotlin",
+            "slug": "kotlin",
+            "count": 11
+          },
+          {
+            "name": "PHP",
+            "slug": "php",
+            "count": 68
+          },
+          {
+            "name": "Blade",
+            "slug": "blade",
+            "count": 10
+          },
+          {
+            "name": "Vue",
+            "slug": "vue",
+            "count": 45
+          },
+          {
+            "name": "Shell",
+            "slug": "shell",
+            "count": 91
+          },
+          {
+            "name": "C",
+            "slug": "c",
+            "count": 88
+          },
+          {
+            "name": "Makefile",
+            "slug": "makefile",
+            "count": 15
+          },
+          {
+            "name": "M4",
+            "slug": "m4",
+            "count": 2
+          },
+          {
+            "name": "Lua",
+            "slug": "lua",
+            "count": 8
+          },
+          {
+            "name": "Go",
+            "slug": "go",
+            "count": 81
+          },
+          {
+            "name": "CSS",
+            "slug": "css",
+            "count": 104
+          },
+          {
+            "name": "Dart",
+            "slug": "dart",
+            "count": 6
+          },
+          {
+            "name": "Liquid",
+            "slug": "liquid",
+            "count": 1
+          },
+          {
+            "name": "Less",
+            "slug": "less",
+            "count": 7
+          },
+          {
+            "name": "CoffeeScript",
+            "slug": "coffeescript",
+            "count": 2
+          },
+          {
+            "name": "MDX",
+            "slug": "mdx",
+            "count": 25
+          },
+          {
+            "name": "Scala",
+            "slug": "scala",
+            "count": 3
+          },
+          {
+            "name": "TSQL",
+            "slug": "tsql",
+            "count": 2
+          },
+          {
+            "name": "Handlebars",
+            "slug": "handlebars",
+            "count": 7
+          },
+          {
+            "name": "NSIS",
+            "slug": "nsis",
+            "count": 2
+          },
+          {
+            "name": "Swift",
+            "slug": "swift",
+            "count": 5
+          },
+          {
+            "name": "Svelte",
+            "slug": "svelte",
+            "count": 7
+          },
+          {
+            "name": "RAML",
+            "slug": "raml",
+            "count": 1
+          },
+          {
+            "name": "Sass",
+            "slug": "sass",
+            "count": 1
+          },
+          {
+            "name": "EJS",
+            "slug": "ejs",
+            "count": 3
+          },
+          {
+            "name": "Raku",
+            "slug": "raku",
+            "count": 2
+          },
+          {
+            "name": "Smarty",
+            "slug": "smarty",
+            "count": 11
+          },
+          {
+            "name": "HCL",
+            "slug": "hcl",
+            "count": 6
+          },
+          {
+            "name": "FreeMarker",
+            "slug": "freemarker",
+            "count": 2
+          },
+          {
+            "name": "Fluent",
+            "slug": "fluent",
+            "count": 3
+          },
+          {
+            "name": "LookML",
+            "slug": "lookml",
+            "count": 1
+          },
+          {
+            "name": "ANTLR",
+            "slug": "antlr",
+            "count": 1
+          },
+          {
+            "name": "Jinja",
+            "slug": "jinja",
+            "count": 5
+          },
+          {
+            "name": "CMake",
+            "slug": "cmake",
+            "count": 15
+          },
+          {
+            "name": "Twig",
+            "slug": "twig",
+            "count": 11
+          },
+          {
+            "name": "Elixir",
+            "slug": "elixir",
+            "count": 5
+          },
+          {
+            "name": "CUE",
+            "slug": "cue",
+            "count": 2
+          },
+          {
+            "name": "XSLT",
+            "slug": "xslt",
+            "count": 3
+          },
+          {
+            "name": "Groovy",
+            "slug": "groovy",
+            "count": 3
+          },
+          {
+            "name": "QMake",
+            "slug": "qmake",
+            "count": 2
+          },
+          {
+            "name": "Scheme",
+            "slug": "scheme",
+            "count": 1
+          },
+          {
+            "name": "Rich Text Format",
+            "slug": "rich-text-format",
+            "count": 1
+          },
+          {
+            "name": "Nix",
+            "slug": "nix",
+            "count": 3
+          },
+          {
+            "name": "Pascal",
+            "slug": "pascal",
+            "count": 1
+          },
+          {
+            "name": "TeX",
+            "slug": "tex",
+            "count": 3
+          },
+          {
+            "name": "Haml",
+            "slug": "haml",
+            "count": 2
+          },
+          {
+            "name": "Perl",
+            "slug": "perl",
+            "count": 4
+          },
+          {
+            "name": "Crystal",
+            "slug": "crystal",
+            "count": 2
+          },
+          {
+            "name": "Gherkin",
+            "slug": "gherkin",
+            "count": 8
+          },
+          {
+            "name": "QML",
+            "slug": "qml",
+            "count": 5
+          },
+          {
+            "name": "PLpgSQL",
+            "slug": "plpgsql",
+            "count": 11
+          },
+          {
+            "name": "Clojure",
+            "slug": "clojure",
+            "count": 3
+          },
+          {
+            "name": "CartoCSS",
+            "slug": "cartocss",
+            "count": 1
+          },
+          {
+            "name": "ASP.NET",
+            "slug": "asp-net",
+            "count": 1
+          },
+          {
+            "name": "Vim Script",
+            "slug": "vim-script",
+            "count": 1
+          },
+          {
+            "name": "Pug",
+            "slug": "pug",
+            "count": 2
+          },
+          {
+            "name": "GLSL",
+            "slug": "glsl",
+            "count": 2
+          },
+          {
+            "name": "OpenSCAD",
+            "slug": "openscad",
+            "count": 1
+          },
+          {
+            "name": "Volt",
+            "slug": "volt",
+            "count": 1
+          },
+          {
+            "name": "GDScript",
+            "slug": "gdscript",
+            "count": 1
+          },
+          {
+            "name": "Jupyter Notebook",
+            "slug": "jupyter-notebook",
+            "count": 5
+          },
+          {
+            "name": "Yacc",
+            "slug": "yacc",
+            "count": 2
+          },
+          {
+            "name": "Mustache",
+            "slug": "mustache",
+            "count": 2
+          },
+          {
+            "name": "SWIG",
+            "slug": "swig",
+            "count": 1
+          },
+          {
+            "name": "RobotFramework",
+            "slug": "robotframework",
+            "count": 2
+          },
+          {
+            "name": "Cap'n Proto",
+            "slug": "cap-n-proto",
+            "count": 1
+          },
+          {
+            "name": "OCaml",
+            "slug": "ocaml",
+            "count": 3
+          },
+          {
+            "name": "Assembly",
+            "slug": "assembly",
+            "count": 3
+          },
+          {
+            "name": "Objective-C",
+            "slug": "objective-c",
+            "count": 4
+          },
+          {
+            "name": "Prolog",
+            "slug": "prolog",
+            "count": 1
+          },
+          {
+            "name": "PowerShell",
+            "slug": "powershell",
+            "count": 3
+          },
+          {
+            "name": "ASP.NET",
+            "slug": "aspnet",
+            "count": 1
+          },
+          {
+            "name": "Cap'n Proto",
+            "slug": "capn-proto",
+            "count": 2
+          },
+          {
+            "name": "Starlark",
+            "slug": "starlark",
+            "count": 1
+          },
+          {
+            "name": "Clarity",
+            "slug": "clarity",
+            "count": 1
+          },
+          {
+            "name": "Procfile",
+            "slug": "procfile",
+            "count": 1
+          },
+          {
+            "name": "Slint",
+            "slug": "slint",
+            "count": 1
+          },
+          {
+            "name": "GDShader",
+            "slug": "gdshader",
+            "count": 1
+          },
+          {
+            "name": "Standard ML",
+            "slug": "standard-ml",
+            "count": 1
+          },
+          {
+            "name": "Jsonnet",
+            "slug": "jsonnet",
+            "count": 1
+          },
+          {
+            "name": "Stylus",
+            "slug": "stylus",
+            "count": 1
+          },
+          {
+            "name": "Cypher",
+            "slug": "cypher",
+            "count": 1
+          },
+          {
+            "name": "Hurl",
+            "slug": "hurl",
+            "count": 1
+          },
+          {
+            "name": "Go Template",
+            "slug": "go-template",
+            "count": 10
+          },
+          {
+            "name": "SurrealQL",
+            "slug": "surrealql",
+            "count": 1
+          },
+          {
+            "name": "Answer Set Programming",
+            "slug": "answer-set-programming",
+            "count": 1
+          },
+          {
+            "name": "Astro",
+            "slug": "astro",
+            "count": 1
+          }
+        ],
+        "availableLicenses": [
+          {
+            "name": "OSL-3.0",
+            "slug": "osl-3-0",
+            "count": 3
+          },
+          {
+            "name": "AGPL-3.0",
+            "slug": "agpl-3-0",
+            "count": 86
+          },
+          {
+            "name": "MPL-2.0",
+            "slug": "mpl-2-0",
+            "count": 11
+          },
+          {
+            "name": "LGPL-2.1",
+            "slug": "lgpl-2-1",
+            "count": 3
+          },
+          {
+            "name": "GPL-2.0",
+            "slug": "gpl-2-0",
+            "count": 23
+          },
+          {
+            "name": "NOASSERTION",
+            "slug": "noassertion",
+            "count": 7
+          },
+          {
+            "name": "LGPL-3.0",
+            "slug": "lgpl-3-0",
+            "count": 2
+          },
+          {
+            "name": "BSD-3-Clause",
+            "slug": "bsd-3-clause",
+            "count": 13
+          },
+          {
+            "name": "MIT",
+            "slug": "mit",
+            "count": 92
+          },
+          {
+            "name": "GPL-3.0",
+            "slug": "gpl-3-0",
+            "count": 54
+          },
+          {
+            "name": "Apache-2.0",
+            "slug": "apache-2-0",
+            "count": 98
+          },
+          {
+            "name": "BSD-2-Clause",
+            "slug": "bsd-2-clause",
+            "count": 2
+          }
+        ],
+        "totalPages": 26,
+        "currentPage": 1,
+        "starsRangeToFilter": [
+          0,
+          184740
+        ],
+        "forksRangeToFilter": [
+          0,
+          56966
+        ],
+        "orderBy": "relevance",
+        "otherTools": [
+          {
+            "id": "cm0zfhw9b009j94sn5w5hwho1",
+            "name": "Typeform",
+            "slug": "typeform",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.typeform.com",
+            "description": "Customize your cookie settings for tailored content.",
+            "alternativesCount": 4
+          },
+          {
+            "id": "cm0zfhw3g004594snuxebfhaz",
+            "name": "Contentful",
+            "slug": "contentful",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.contentful.com",
+            "description": "NewContentful acquires Ninetailed to boost AI-driven personalization.",
+            "alternativesCount": 8
+          },
+          {
+            "id": "cm0zfhw1d002b94snopgbafyx",
+            "name": "1Password",
+            "slug": "1password",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://1password.com",
+            "description": "Empower teams with secure access management.",
+            "alternativesCount": 10
+          },
+          {
+            "id": "cm0zfhw20002u94sn7w218yd6",
+            "name": "Airtable",
+            "slug": "airtable",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.airtable.com",
+            "description": "Empower teams to create custom apps without coding.",
+            "alternativesCount": 5
+          },
+          {
+            "id": "cm0zfhvz1000f94snyoxsjiup",
+            "name": "Notion",
+            "slug": "notion",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.notion.so",
+            "description": "All-in-one workspace with AI integration.",
+            "alternativesCount": 11
+          },
+          {
+            "id": "cm0zfhwf300f294snl51iecz4",
+            "name": "tableau",
+            "slug": "tableau",
+            "faviconUrl": "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.tableau.com",
+            "description": "Tableau helps people see, understand, and act on data.",
+            "alternativesCount": 3
+          }
+        ]
+      }
+    },
+    "actionData": null,
+    "errors": null
+  }
+}
