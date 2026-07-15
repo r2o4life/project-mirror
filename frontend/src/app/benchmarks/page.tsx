@@ -7,7 +7,9 @@ async function fetchBenchmarksData(token?: string) {
   try {
     const res = await fetch('http://127.0.0.1:8000/api/core/benchmarks/', {
       headers,
-      cache: 'no-store'
+      // CRITICAL: Changed cache strategy to enforce ATEMPORAL_PERMANENCE.
+      // Data is treated as historical/static, revalidated weekly.
+      next: { revalidate: 3600 * 24 * 7 } // Revalidate every 7 days
     });
     
     if (!res.ok) return [];
@@ -19,17 +21,17 @@ async function fetchBenchmarksData(token?: string) {
 
 // Helper function to provide a conceptual description of feature parity
 function getParityDescription(score: number): string {
-  if (score >= 90) return "Near-complete";
-  if (score >= 70) return "Strong alignment";
-  if (score >= 50) return "Moderate alignment";
-  return "Foundational";
+  if (score >= 90) return "Near-complete feature parity achieved.";
+  if (score >= 70) return "Strong alignment with core features.";
+  if (score >= 50) return "Moderate feature alignment identified.";
+  return "Foundational feature set established.";
 }
 
 // Helper to get a color for the score for visual density
 function getParityColor(score: number): string {
   if (score >= 90) return "var(--success)";
-  if (score >= 70) return "orange";
-  if (score >= 50) return "#ff8c00"; // Dark orange
+  if (score >= 70) return "var(--warning)"; // Standardized to use CSS variable
+  if (score >= 50) return "var(--orange)"; // Assuming a custom orange CSS variable
   return "var(--danger)";
 }
 
@@ -39,152 +41,292 @@ export default async function Benchmarks() {
   
   const products = await fetchBenchmarksData(session?.access_token);
 
-  // System metrics
+  // System metrics - these are now static, conceptual aggregates for bento blocks
   const totalProprietaryProducts = products.length;
   const totalTrackedAlternatives = products.reduce((acc: number, p: any) => acc + (p.alternatives?.length || 0), 0);
 
+  // Prepare data for APPLE_STYLE_BENTO_GRID blocks
+  const bentoBlocks: any[] = [];
+
+  // Add summary blocks first, aligning with "High-impact macro grouping of disparate value propositions."
+  bentoBlocks.push({
+    type: 'summary',
+    title: 'Proprietary Monopolies',
+    value: totalProprietaryProducts,
+    description: 'Total proprietary products currently tracked.',
+    color: 'var(--foreground)',
+    span: 'col-span-1' // Smaller block for conceptual compaction
+  });
+
+  bentoBlocks.push({
+    type: 'summary',
+    title: 'Open Alternatives',
+    value: totalTrackedAlternatives,
+    description: 'Total open-source alternatives identified.',
+    color: 'var(--success)',
+    span: 'col-span-1' // Smaller block for conceptual compaction
+  });
+
+  // Add benchmark and opportunity blocks
+  products.forEach((p: any) => {
+    if (p.alternatives && p.alternatives.length > 0) {
+      p.alternatives.forEach((alt: any) => {
+        bentoBlocks.push({
+          type: 'benchmark',
+          proprietaryName: p.name,
+          proprietaryCategory: p.category,
+          alternativeName: alt.name,
+          parityScore: alt.feature_parity_score,
+          description: getParityDescription(alt.feature_parity_score),
+          status: alt.feature_parity_score >= 90 ? 'Deployment Ready' : 'In Progress',
+          span: 'col-span-2' // Larger block for detailed benchmark
+        });
+      });
+    } else {
+      bentoBlocks.push({
+        type: 'opportunity',
+        proprietaryName: p.name,
+        proprietaryCategory: p.category,
+        span: 'col-span-2' // Larger block for opportunity
+      });
+    }
+  });
+
   return (
-    <div style={{ padding: '64px 48px', maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+    <div style={{ 
+      padding: '64px 48px', 
+      maxWidth: '1400px', 
+      margin: '0 auto', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      gap: '32px' 
+    }}>
       
-      {/* Header aligned with SYNTACTIC Granular Precision */}
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--border)', paddingBottom: '16px' }}>
-        <div>
-          <h1 style={{ fontSize: '2rem', fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>
-            Competitive Benchmarks
-          </h1>
-          <p style={{ color: '#8b949e', marginTop: '8px', fontSize: '0.9rem' }}>
-            High-density tracking of open-source parity against proprietary monopolies.
-          </p>
-        </div>
-        
-        {/* LINEAR_STYLE_COMMAND_K_MATRIX: System Telemetry Stats */}
-        <div style={{ display: 'flex', gap: '24px' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <span style={{ fontSize: '0.8rem', color: '#8b949e', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Proprietary Monopolies</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--foreground)' }}>{totalProprietaryProducts}</span>
-          </div>
-          <div style={{ width: '1px', background: 'var(--border)' }}></div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            <span style={{ fontSize: '0.8rem', color: '#8b949e', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Open Alternatives</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--success)' }}>{totalTrackedAlternatives}</span>
-          </div>
-        </div>
+      {/* Header - concise and static, aligning with ISOLATED_NODE and CONCEPTUAL_COMPACTION */}
+      <header style={{ marginBottom: '16px' }}>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
+          Competitive Benchmarks
+        </h1>
+        <p style={{ color: '#8b949e', marginTop: '12px', fontSize: '1.1rem', lineHeight: '1.6' }}>
+          A conceptual overview of open-source feature parity against proprietary solutions.
+          All metrics are historical snapshots, reflecting a specific point in time.
+        </p>
       </header>
 
-      {/* High-Density Columnar Schema (VERCEL_STYLE_DEPLOYMENT_TELEMETRY) */}
-      <div style={{ border: '1px solid var(--border)', borderRadius: '8px', overflow: 'hidden', background: 'rgba(22, 27, 34, 0.5)' }}>
-        
-        {/* Table Header */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '2fr 2fr 1fr 1fr 1fr', 
-          gap: '16px', 
-          padding: '12px 24px', 
-          background: 'var(--surface)', 
-          borderBottom: '1px solid var(--border)',
-          fontSize: '0.8rem',
-          color: '#8b949e',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-          fontWeight: 600
-        }}>
-          <div>Proprietary Target</div>
-          <div>Open-Source Rival</div>
-          <div>Parity Score</div>
-          <div>Telemetry (30d)</div>
-          <div style={{ textAlign: 'right' }}>Status</div>
-        </div>
+      {/* APPLE_STYLE_BENTO_GRID implementation */}
+      <div style={{
+        display: 'grid',
+        // CRITICAL: Uneven layout matrix grid for high-impact macro grouping
+        gridTemplateColumns: 'repeat(4, 1fr)', // Base 4-column grid
+        gridAutoRows: 'minmax(180px, auto)', // Minimum row height for bento feel
+        gap: '20px',
+        alignItems: 'stretch', // Ensure items stretch to fill grid area
+      }}>
+        {bentoBlocks.map((block, index) => {
+          const isSummary = block.type === 'summary';
+          const isOpportunity = block.type === 'opportunity';
+          const isBenchmark = block.type === 'benchmark';
 
-        {products.length === 0 ? (
-           <div style={{ padding: '48px', textAlign: 'center', color: '#8b949e', fontSize: '0.9rem' }}>
-             No benchmark relationships currently defined.
-           </div>
-        ) : (
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {products.map((p: any) => (
-              <div key={p.id} style={{ display: 'contents' }}>
-                {p.alternatives && p.alternatives.length > 0 ? (
-                  p.alternatives.map((alt: any, i: number) => (
-                    <div key={alt.id} style={{ 
-                      display: 'grid', 
-                      gridTemplateColumns: '2fr 2fr 1fr 1fr 1fr', 
-                      gap: '16px', 
-                      padding: '16px 24px', 
-                      borderBottom: '1px solid var(--border)',
-                      alignItems: 'center',
-                      background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'
-                    }}>
-                      
-                      {/* Target */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                        <span style={{ color: 'var(--foreground)', fontWeight: 600 }}>{p.name}</span>
-                        <span style={{ color: '#8b949e', fontSize: '0.8rem' }}>{p.category}</span>
-                      </div>
+          // Determine grid span for uneven layout, favoring LATERAL_DISCOVERY
+          let gridColumnSpan = 'span 1'; // Default for summary blocks
+          let gridRowSpan = 'span 1';
 
-                      {/* Rival */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                        <span style={{ color: 'var(--primary)', fontWeight: 600 }}>{alt.name}</span>
-                        <span style={{ color: '#8b949e', fontSize: '0.8rem' }}>{getParityDescription(alt.feature_parity_score)}</span>
-                      </div>
+          if (isBenchmark || isOpportunity) {
+            gridColumnSpan = 'span 2'; // Larger blocks for detailed benchmarks/opportunities
+          }
+          // Introduce more unevenness for visual interest and varied information density
+          if (index % 3 === 0 && (isBenchmark || isOpportunity)) { 
+            gridColumnSpan = 'span 3'; // Every third large block is extra wide
+          } else if (index % 4 === 1 && (isBenchmark || isOpportunity)) { 
+            gridRowSpan = 'span 2'; // Every fourth large block is taller
+          }
 
-                      {/* Parity Score */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <div style={{ 
-                          width: '10px', 
-                          height: '10px', 
-                          borderRadius: '50%', 
-                          background: getParityColor(alt.feature_parity_score),
-                          boxShadow: `0 0 8px ${getParityColor(alt.feature_parity_score)}`
-                        }} />
-                        <span style={{ color: 'var(--foreground)', fontWeight: 600 }}>{alt.feature_parity_score}%</span>
-                      </div>
 
-                      {/* Chronological Velocity (Mock Telemetry) */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <span style={{ color: alt.feature_parity_score > 70 ? 'var(--success)' : 'orange', fontWeight: 600, fontSize: '0.9rem' }}>
-                          {alt.feature_parity_score > 70 ? '↑ +5%' : '↑ +2%'}
-                        </span>
-                        <span style={{ color: '#8b949e', fontSize: '0.8rem' }}>30d</span>
-                      </div>
-
-                      {/* Operational Status */}
-                      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <span style={{ 
-                          padding: '4px 10px', 
-                          background: 'rgba(255,255,255,0.1)', 
-                          borderRadius: '6px', 
-                          color: '#e0e0e0', 
-                          fontSize: '0.8rem', 
-                          fontWeight: 500 
-                        }}>
-                          {alt.feature_parity_score >= 90 ? 'Deployment Ready' : 'In Progress'}
-                        </span>
-                      </div>
-
-                    </div>
-                  ))
-                ) : (
+          return (
+            <div 
+              key={index} 
+              style={{
+                gridColumn: gridColumnSpan,
+                gridRow: gridRowSpan,
+                background: 'rgba(22, 27, 34, 0.7)', // Darker background for bento blocks
+                border: '1px solid var(--border)',
+                borderRadius: '12px',
+                padding: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                gap: '16px',
+                position: 'relative',
+                overflow: 'hidden',
+                // PASSIVE_CONSUMPTION: No dynamic interactions or complex hover states
+              }}
+            >
+              {isSummary && (
+                <>
                   <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: '2fr 3fr', 
-                    gap: '16px', 
-                    padding: '16px 24px', 
-                    borderBottom: '1px solid var(--border)',
-                    alignItems: 'center'
+                    fontSize: '0.9rem', 
+                    color: '#8b949e', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.05em',
+                    fontWeight: 500
                   }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                      <span style={{ color: 'var(--foreground)', fontWeight: 600 }}>{p.name}</span>
-                      <span style={{ color: '#8b949e', fontSize: '0.8rem' }}>{p.category}</span>
+                    {block.title}
+                  </div>
+                  <div style={{ 
+                    fontSize: '3rem', 
+                    fontWeight: 800, 
+                    color: block.color, 
+                    lineHeight: 1 
+                  }}>
+                    {block.value}
+                  </div>
+                  <p style={{ 
+                    fontSize: '0.9rem', 
+                    color: '#8b949e', 
+                    marginTop: '8px' 
+                  }}>
+                    {block.description}
+                  </p>
+                </>
+              )}
+
+              {isBenchmark && (
+                <>
+                  {/* Macro Icon / Visual Element for CONCEPTUAL_COMPACTION */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '12px', 
+                    marginBottom: '12px' 
+                  }}>
+                    <div style={{ 
+                      width: '48px', 
+                      height: '48px', 
+                      borderRadius: '10px', 
+                      background: getParityColor(block.parityScore), 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      fontSize: '1.5rem',
+                      fontWeight: 700,
+                      color: 'var(--background)',
+                      boxShadow: `0 0 15px ${getParityColor(block.parityScore)}40`
+                    }}>
+                      {block.alternativeName.charAt(0).toUpperCase()}
                     </div>
-                    <div style={{ color: '#8b949e', fontSize: '0.9rem', fontStyle: 'italic' }}>
-                      No viable alternative tracked. Opportunity identified.
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <h3 style={{ 
+                        fontSize: '1.5rem', 
+                        fontWeight: 700, 
+                        color: 'var(--primary)', 
+                        margin: 0 
+                      }}>
+                        {block.alternativeName}
+                      </h3>
+                      <p style={{ 
+                        fontSize: '0.9rem', 
+                        color: '#8b949e', 
+                        margin: '4px 0 0 0' 
+                      }}>
+                        vs. {block.proprietaryName} ({block.proprietaryCategory})
+                      </p>
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+
+                  {/* Short Narrative Sentence for ATEMPORAL_PERMANENCE */}
+                  <p style={{ 
+                    fontSize: '1rem', 
+                    color: 'var(--foreground)', 
+                    lineHeight: '1.5', 
+                    flexGrow: 1 
+                  }}>
+                    {block.description}
+                  </p>
+
+                  {/* Key Metric & Status (Static, not dynamic) */}
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'flex-end', 
+                    marginTop: '16px' 
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                      <span style={{ 
+                        fontSize: '2.5rem', 
+                        fontWeight: 800, 
+                        color: getParityColor(block.parityScore), 
+                        lineHeight: 1 
+                      }}>
+                        {block.parityScore}%
+                      </span>
+                      <span style={{ 
+                        fontSize: '0.9rem', 
+                        color: '#8b949e', 
+                        fontWeight: 500 
+                      }}>
+                        Parity
+                      </span>
+                    </div>
+                    <span style={{ 
+                      padding: '6px 12px', 
+                      background: 'rgba(255,255,255,0.1)', 
+                      borderRadius: '8px', 
+                      color: '#e0e0e0', 
+                      fontSize: '0.85rem', 
+                      fontWeight: 500 
+                    }}>
+                      {block.status}
+                    </span>
+                  </div>
+                </>
+              )}
+
+              {isOpportunity && (
+                <>
+                  {/* Macro Icon for CONCEPTUAL_COMPACTION */}
+                  <div style={{ 
+                    width: '48px', 
+                    height: '48px', 
+                    borderRadius: '10px', 
+                    background: 'var(--danger)', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    fontSize: '1.8rem',
+                    color: 'var(--background)',
+                    marginBottom: '12px',
+                    boxShadow: '0 0 15px var(--danger)40'
+                  }}>
+                    💡
+                  </div>
+                  <h3 style={{ 
+                    fontSize: '1.5rem', 
+                    fontWeight: 700, 
+                    color: 'var(--danger)', 
+                    margin: 0 
+                  }}>
+                    Opportunity: {block.proprietaryName}
+                  </h3>
+                  <p style={{ 
+                    fontSize: '1rem', 
+                    color: 'var(--foreground)', 
+                    lineHeight: '1.5', 
+                    flexGrow: 1 
+                  }}>
+                    No viable open-source alternative currently tracked for this proprietary solution ({block.proprietaryCategory}).
+                  </p>
+                  <p style={{ 
+                    fontSize: '0.9rem', 
+                    color: '#8b949e', 
+                    marginTop: '16px' 
+                  }}>
+                    Consider this a strategic area for open-source development.
+                  </p>
+                </>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

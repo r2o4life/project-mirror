@@ -10,12 +10,12 @@ type MatchmakingIssue = {
   issue: string;
   tags: string[];
   
-  // VERCEL_STYLE_DEPLOYMENT_TELEMETRY (Chronological Velocity)
-  matchScore: number; // e.g., 98
-  velocityDelta: string; // e.g., "+12% 30d"
-  timeOpen: string; // e.g., "2d ago"
+  // VERCEL_STYLE_DEPLOYMENT_TELEMETRY (Chronological Velocity) - REMOVED TEMPORAL ASPECTS for ATEMPORAL_PERMANENCE
+  matchScore: number; // e.g., 98 (This is a static metric, compliant)
+  // velocityDelta: string; // Removed: Temporal metric
+  // timeOpen: string; // Removed: Temporal metric
   
-  // OPERATIONAL_COMMAND state
+  // OPERATIONAL_COMMAND state - Status kept as ATEMPORAL_PERMANENCE, actions removed for PASSIVE_CONSUMPTION
   status: 'AVAILABLE' | 'CLAIMED' | 'PORTFOLIO';
 };
 
@@ -38,16 +38,14 @@ export default function Matchmaking() {
         const res = await fetch('http://127.0.0.1:8000/api/core/matchmaking/', { headers });
         if (res.ok) {
           const rawData = await res.json();
-          // Augment raw data with telemetry metrics to satisfy VERCEL_STYLE_DEPLOYMENT_TELEMETRY
+          // Augment raw data with telemetry metrics, removing temporal aspects for ATEMPORAL_PERMANENCE
           const augmented = rawData.map((item: any, i: number) => ({
             id: `issue-${i}`,
             repo: item.repo,
             issue: item.issue,
             tags: item.tags || [],
-            matchScore: 98 - (i * 3), // Mock score
-            velocityDelta: i % 2 === 0 ? '+14% 30d avg' : '-2% 30d avg', // Mock delta
-            timeOpen: `${i + 1}d ago`,
-            status: 'AVAILABLE'
+            matchScore: 98 - (i * 3), // Mock score (static)
+            status: 'AVAILABLE' // Default status, displayed statically
           }));
           setIssues(augmented);
         } else {
@@ -64,205 +62,296 @@ export default function Matchmaking() {
     loadIssues();
   }, []);
 
-  // OPERATIONAL_COMMAND Actions
-  const handleClaim = (id: string) => {
-    setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'CLAIMED' } : issue));
-  };
-
-  const handleSaveToPortfolio = (id: string) => {
-    setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'PORTFOLIO' } : issue));
-  };
+  // OPERATIONAL_COMMAND Actions - Removed due to KINETICS: [PASSIVE_CONSUMPTION]
+  // const handleClaim = (id: string) => {
+  //   setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'CLAIMED' } : issue));
+  // };
+  // const handleSaveToPortfolio = (id: string) => {
+  //   setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'PORTFOLIO' } : issue));
+  // };
 
   const filteredIssues = issues.filter(issue => 
     issue.repo.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    issue.issue.toLowerCase().includes(searchQuery.toLowerCase())
+    issue.issue.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    issue.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) // Enhanced search for LATERAL_DISCOVERY
   );
 
   return (
-    <div style={{ padding: '48px', maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+    <div style={{ 
+      padding: '48px', 
+      maxWidth: '1400px', 
+      margin: '0 auto', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      gap: '48px', // Increased gap for spaciousness (STRIPE_STYLE_MEGA_FLYOUT influence)
+      fontFamily: 'Inter, sans-serif' // Modern font for SENSORIAL: [CONCEPTUAL_COMPACTION]
+    }}>
       
       {/* Header aligned with SYNTACTIC Granular Precision */}
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '1px solid var(--border)', paddingBottom: '16px' }}>
+      <header style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'flex-end', 
+        paddingBottom: '24px', 
+        borderBottom: '1px solid var(--border)',
+        gap: '24px',
+        flexWrap: 'wrap' 
+      }}>
         <div>
-          <h1 className="animate-fade-in" style={{ fontSize: '2rem', fontWeight: 600, color: 'var(--foreground)', margin: 0 }}>
+          <h1 className="animate-fade-in" style={{ 
+            fontSize: '2.5rem', 
+            fontWeight: 700, 
+            color: 'var(--foreground)', 
+            margin: 0,
+            letterSpacing: '-0.02em' 
+          }}>
             Developer Matchmaking
           </h1>
-          <p style={{ color: '#8b949e', marginTop: '8px', fontSize: '0.9rem' }}>
+          <p style={{ 
+            color: 'var(--accents-5)', 
+            marginTop: '12px', 
+            fontSize: '1.1rem', 
+            maxWidth: '600px',
+            lineHeight: '1.6'
+          }}>
             High-density skill correlation matrix. Analyzing active codebase gaps against your portfolio signature.
+            Discover opportunities for impactful contributions.
           </p>
         </div>
         
         {/* LINEAR_STYLE_COMMAND_K_MATRIX: Input Field */}
-        <div style={{ position: 'relative', width: '300px' }}>
+        <div style={{ position: 'relative', width: '300px', minWidth: '200px' }}>
           <input 
             type="text" 
-            placeholder="Search matrix..." 
+            placeholder="Search issues, repos, tags..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{ 
               width: '100%', 
-              padding: '10px 14px', 
-              background: 'var(--surface)', 
+              padding: '12px 16px', 
+              background: 'var(--accents-1)', 
               border: '1px solid var(--border)', 
               color: 'var(--foreground)', 
-              borderRadius: '6px', 
-              fontSize: '0.9rem'
+              borderRadius: '8px', 
+              fontSize: '1rem', 
+              outline: 'none',
+              boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+              transition: 'border-color 0.2s, box-shadow 0.2s',
             }} 
+            onFocus={(e) => e.currentTarget.style.borderColor = 'var(--primary)'}
+            onBlur={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
           />
-          <div style={{ position: 'absolute', right: '12px', top: '10px', color: '#8b949e', fontSize: '0.8rem', pointerEvents: 'none', border: '1px solid var(--border)', padding: '2px 6px', borderRadius: '4px' }}>
+          <div style={{ 
+            position: 'absolute', 
+            right: '12px', 
+            top: '50%', 
+            transform: 'translateY(-50%)', 
+            color: 'var(--accents-4)', 
+            fontSize: '0.8rem', 
+            pointerEvents: 'none', 
+            border: '1px solid var(--accents-3)', 
+            padding: '4px 8px', 
+            borderRadius: '6px', 
+            background: 'var(--accents-2)',
+            fontWeight: 500
+          }}>
             ⌘K
           </div>
         </div>
       </header>
 
-      {/* High-Density Columnar Schema (VERCEL_STYLE_DEPLOYMENT_TELEMETRY) */}
-      <div className="glass-container animate-fade-in" style={{ padding: '0', overflow: 'hidden' }}>
+      {/* APPLE_STYLE_BENTO_GRID for Matchmaking Issues (SENSORIAL: [CONCEPTUAL_COMPACTION], EPISTEMOLOGY: [ATEMPORAL_PERMANENCE]) */}
+      <div className="glass-container animate-fade-in" style={{ 
+        padding: '0', 
+        overflow: 'hidden',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', // Uneven layout matrix grid
+        gridAutoRows: 'minmax(180px, auto)', // Ensures minimum height, allows content to dictate more
+        gap: '24px', 
+        alignItems: 'stretch', 
+      }}>
         
-        {/* Table Header */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '80px 3fr 1.5fr 1fr 180px', 
-          gap: '16px', 
-          padding: '12px 24px', 
-          background: 'rgba(22, 27, 34, 0.9)', 
-          borderBottom: '1px solid var(--border)',
-          fontSize: '0.8rem',
-          color: '#8b949e',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-          fontWeight: 600
-        }}>
-          <div>Match</div>
-          <div>Repository / Issue Target</div>
-          <div>Telemetry (Age / PR Velocity)</div>
-          <div>Capabilities</div>
-          <div style={{ textAlign: 'right' }}>Operational Command</div>
-        </div>
-
         {/* Loading State */}
         {loading && (
-          <div style={{ padding: '48px', textAlign: 'center', color: '#8b949e', fontSize: '0.9rem' }}>
+          <div style={{ 
+            gridColumn: '1 / -1', 
+            padding: '64px', 
+            textAlign: 'center', 
+            color: 'var(--accents-5)', 
+            fontSize: '1.1rem',
+            background: 'var(--surface)',
+            borderRadius: '12px',
+            border: '1px solid var(--border)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '16px'
+          }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+            </svg>
             Synchronizing with global contribution graph...
           </div>
         )}
 
         {/* Data Rows */}
         {!loading && filteredIssues.length === 0 && (
-          <div style={{ padding: '48px', textAlign: 'center', color: '#8b949e', fontSize: '0.9rem' }}>
+          <div style={{ 
+            gridColumn: '1 / -1', 
+            padding: '64px', 
+            textAlign: 'center', 
+            color: 'var(--accents-5)', 
+            fontSize: '1.1rem',
+            background: 'var(--surface)',
+            borderRadius: '12px',
+            border: '1px solid var(--border)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '16px'
+          }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
             No viable match vectors found matching your parameters.
           </div>
         )}
 
         {!loading && filteredIssues.map(issue => (
-          <div key={issue.id} style={{ 
-            display: 'grid', 
-            gridTemplateColumns: '80px 3fr 1.5fr 1fr 180px', 
-            gap: '16px', 
-            padding: '16px 24px', 
-            borderBottom: '1px solid var(--border)',
-            alignItems: 'center',
-            transition: 'background-color 0.2s',
-            cursor: 'default',
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)'}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+          <div 
+            key={issue.id} 
+            style={{ 
+              background: 'var(--surface)', 
+              border: '1px solid var(--border)', 
+              borderRadius: '12px', 
+              padding: '24px', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '16px',
+              transition: 'all 0.2s ease-in-out',
+              cursor: 'pointer', // Indicates LATERAL_DISCOVERY potential
+              position: 'relative',
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            }}
+            onMouseEnter={(e) => { // Subtle interactive hover states (VERCEL_STYLE_SITEMAP_FOOTER influence)
+              e.currentTarget.style.borderColor = 'var(--primary)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
           >
-            
-            {/* Match Score */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ 
-                width: '10px', 
-                height: '10px', 
-                borderRadius: '50%', 
-                background: issue.matchScore > 90 ? 'var(--success)' : (issue.matchScore > 75 ? 'orange' : 'var(--danger)'),
-                boxShadow: `0 0 8px ${issue.matchScore > 90 ? 'var(--success)' : (issue.matchScore > 75 ? 'orange' : 'var(--danger)')}`
-              }} />
-              <span style={{ color: 'var(--foreground)', fontWeight: 600, fontSize: '0.95rem' }}>{issue.matchScore}%</span>
+            {/* Macro Icon & Match Score (CONCEPTUAL_COMPACTION) */}
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '12px', 
+              color: 'var(--primary)', 
+              marginBottom: '8px' 
+            }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+              <span style={{ 
+                fontSize: '1.5rem', 
+                fontWeight: 700, 
+                color: issue.matchScore > 90 ? 'var(--success)' : (issue.matchScore > 75 ? 'var(--warning)' : 'var(--danger)'),
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}>
+                {issue.matchScore}% Match
+              </span>
             </div>
 
-            {/* Target Vector (Repo & Issue) */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <a href={`https://github.com/${issue.repo}`} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', fontWeight: 500, fontSize: '0.95rem' }}>
-                {issue.repo}
-              </a>
-              <a href={`https://github.com/${issue.repo}/issues`} target="_blank" rel="noreferrer" style={{ color: 'var(--foreground)', fontSize: '1.05rem', fontWeight: 600 }}>
-                {issue.issue}
-              </a>
-            </div>
+            {/* Bold Headline (Issue) - LATERAL_DISCOVERY */}
+            <a 
+              href={`https://github.com/${issue.repo}/issues`} 
+              target="_blank" 
+              rel="noreferrer" 
+              style={{ 
+                color: 'var(--foreground)', 
+                fontSize: '1.4rem', 
+                fontWeight: 700, 
+                lineHeight: '1.3',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--foreground)'}
+            >
+              {issue.issue}
+            </a>
 
-            {/* Chronological Velocity Telemetry */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.85rem' }}>
-              <div style={{ color: 'var(--foreground)' }}>Opened {issue.timeOpen}</div>
-              <div style={{ color: issue.velocityDelta.startsWith('+') ? 'var(--success)' : 'orange', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ fontSize: '1rem' }}>{issue.velocityDelta.startsWith('+') ? '↑' : '↓'}</span>
-                {issue.velocityDelta}
-              </div>
-            </div>
+            {/* Short Narrative Sentence (Repo) - LATERAL_DISCOVERY */}
+            <a 
+              href={`https://github.com/${issue.repo}`} 
+              target="_blank" 
+              rel="noreferrer" 
+              style={{ 
+                color: 'var(--accents-6)', 
+                fontSize: '0.95rem', 
+                fontWeight: 500,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--primary)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--accents-6)'}
+            >
+              {issue.repo}
+            </a>
 
-            {/* Tags / Capabilities */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {/* Tags / Capabilities - CONCEPTUAL_COMPACTION */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
               {issue.tags.map(tag => (
                 <span key={tag} style={{ 
-                  background: 'rgba(255,255,255,0.1)', 
-                  color: '#e0e0e0', 
-                  padding: '2px 8px', 
-                  borderRadius: '12px', 
-                  fontSize: '0.75rem',
-                  fontWeight: 500
+                  background: 'var(--accents-2)', 
+                  color: 'var(--accents-7)', 
+                  padding: '6px 12px', 
+                  borderRadius: '20px', 
+                  fontSize: '0.8rem',
+                  fontWeight: 500,
+                  border: '1px solid var(--accents-3)'
                 }}>
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Operational Command: Explicit Actions */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-              {issue.status === 'AVAILABLE' && (
-                <button 
-                  onClick={() => handleClaim(issue.id)}
-                  style={{
-                    background: 'var(--primary)',
-                    color: 'white',
-                    border: 'none',
-                    padding: '6px 14px',
-                    borderRadius: '6px',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Claim Issue
-                </button>
-              )}
-              {issue.status === 'CLAIMED' && (
-                <button 
-                  onClick={() => handleSaveToPortfolio(issue.id)}
-                  style={{
-                    background: 'var(--surface)',
-                    color: 'var(--foreground)',
-                    border: '1px solid var(--border)',
-                    padding: '6px 14px',
-                    borderRadius: '6px',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Verify & Save
-                </button>
-              )}
-              {issue.status === 'PORTFOLIO' && (
-                <span style={{ 
-                  color: 'var(--success)', 
-                  fontSize: '0.85rem', 
-                  fontWeight: 600, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '6px' 
-                }}>
-                  ✓ Portfolio Verified
-                </span>
-              )}
+            {/* Status Badge - ATEMPORAL_PERMANENCE, PASSIVE_CONSUMPTION */}
+            <div style={{ 
+              position: 'absolute', 
+              top: '24px', 
+              right: '24px', 
+              padding: '6px 12px', 
+              borderRadius: '20px', 
+              fontSize: '0.8rem', 
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              background: issue.status === 'AVAILABLE' ? 'rgba(0,128,255,0.1)' : 
+                          issue.status === 'CLAIMED' ? 'rgba(255,165,0,0.1)' : 
+                          'rgba(0,128,0,0.1)',
+              color: issue.status === 'AVAILABLE' ? 'var(--primary)' : 
+                     issue.status === 'CLAIMED' ? 'var(--warning)' : 
+                     'var(--success)',
+              border: `1px solid ${issue.status === 'AVAILABLE' ? 'var(--primary)' : 
+                                  issue.status === 'CLAIMED' ? 'var(--warning)' : 
+                                  'var(--success)'}`
+            }}>
+              {issue.status}
             </div>
 
           </div>
