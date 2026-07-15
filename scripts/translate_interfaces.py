@@ -15,19 +15,19 @@ def main():
     pages_to_translate = [
         {
             "filepath": "frontend/src/app/benchmarks/page.tsx",
-            "context": {"auth_state": "UNAUTHENTICATED", "current_view": "MARKETING_PAGE"}
+            "context": {"auth_state": "UNAUTHENTICATED", "current_view": "MARKETING_PAGE", "is_wizard_flow": False}
         },
         {
             "filepath": "frontend/src/app/matchmaking/page.tsx",
-            "context": {"auth_state": "UNAUTHENTICATED", "current_view": "MARKETING_PAGE"}
+            "context": {"auth_state": "UNAUTHENTICATED", "current_view": "MARKETING_PAGE", "is_wizard_flow": False}
         },
         {
             "filepath": "frontend/src/app/spawn/page.tsx",
-            "context": {"auth_state": "AUTHENTICATED", "current_view": "APP_DASHBOARD"}
+            "context": {"auth_state": "AUTHENTICATED", "current_view": "APP_DASHBOARD", "is_wizard_flow": True}
         },
         {
             "filepath": "frontend/src/app/dashboard/page.tsx",
-            "context": {"auth_state": "AUTHENTICATED", "current_view": "APP_DASHBOARD"}
+            "context": {"auth_state": "AUTHENTICATED", "current_view": "APP_DASHBOARD", "is_wizard_flow": False}
         }
     ]
 

@@ -7,15 +7,22 @@ from google import genai
 
 @dataclass(frozen=True)
 class PolicyProfile:
-    density_mode: str       # CONCEPTUAL_COMPACTION | GRANULAR_PRECISION
+    # 1. Ontology (Information Architecture & Content)
+    routing_mode: str       # LATERAL_DISCOVERY     | TARGETED_ROUTING
+    # 2. Epistemology (Information Design)
     temporal_mode: str      # ATEMPORAL_PERMANENCE  | CHRONOLOGICAL_VELOCITY
-    functional_intent: str  # LATERAL_ORIENTATION   | OPERATIONAL_COMMAND
+    # 3. Kinetics (Interaction Design - IxD)
+    functional_intent: str  # PASSIVE_CONSUMPTION   | OPERATIONAL_COMMAND
+    # 4. Sensorial (Interface & Visual Design)
+    density_mode: str       # CONCEPTUAL_COMPACTION | GRANULAR_PRECISION
+    # 5. Teleology (System Orchestration & Macro-Flow)
+    macro_flow_mode: str    # ISOLATED_NODE         | SEQUENTIAL_ORCHESTRATION
 
 @dataclass(frozen=True)
 class GlobalBlueprint:
     paradigm_name: str
+    ux_taxonomy_pillars: List[str]
     core_utility: str
-    density_target: str
     implementation_dna: str
 
 @dataclass
@@ -61,27 +68,26 @@ class GeminiClient(LLMClientInterface):
 
 class GlobalWebParadigmEngine:
     """
-    Acts as a blueprint repository of world-class, open-web design paradigms.
-    Injects industry-standard UI DNA into the agent via parametric research data,
-    allowing the harness to enforce elite patterns on entirely greenfield builds.
+    Blueprint repository mapping world-class, open-web design paradigms
+    directly to the 5 Pillars of the MECE UX Taxonomy.
     """
     def __init__(self):
         self._registry: Dict[str, List[GlobalBlueprint]] = {
             "SEMANTIC": [
                 GlobalBlueprint(
                     paradigm_name="STRIPE_STYLE_MEGA_FLYOUT",
+                    ux_taxonomy_pillars=["Information Architecture", "Interface & Visual Design"],
                     core_utility="Contextual navigation with fluid spatial continuity.",
-                    density_target="CONCEPTUAL_COMPACTION",
                     implementation_dna=(
                         "Leverage standard semantic layout wrappers. Use clean, spacious container "
-                        "groupings with highly descriptive link subtext to favor LATERAL_ORIENTATION. "
-                        "Keep interactions exploratory; avoid placing raw data streams inside."
+                        "groupings with highly descriptive link subtext to favor LATERAL_DISCOVERY. "
+                        "Keep interactions purely exploratory; avoid placing raw data streams inside."
                     )
                 ),
                 GlobalBlueprint(
                     paradigm_name="APPLE_STYLE_BENTO_GRID",
+                    ux_taxonomy_pillars=["Interface & Visual Design", "Information Design"],
                     core_utility="High-impact macro grouping of disparate value propositions.",
-                    density_target="CONCEPTUAL_COMPACTION",
                     implementation_dna=(
                         "Utilize an uneven layout matrix grid. Each block must prioritize a singular macro icon, "
                         "a bold headline, and a short narrative sentence. Maintain absolute ATEMPORAL_PERMANENCE "
@@ -90,8 +96,8 @@ class GlobalWebParadigmEngine:
                 ),
                 GlobalBlueprint(
                     paradigm_name="VERCEL_STYLE_SITEMAP_FOOTER",
+                    ux_taxonomy_pillars=["Information Architecture", "Interface & Visual Design"],
                     core_utility="Expansive architectural discovery and compliance grounding.",
-                    density_target="CONCEPTUAL_COMPACTION",
                     implementation_dna=(
                         "Render a multi-column text sitemap mapping the entire architectural surface area. "
                         "Emphasize strict typographical hierarchy, subtle interactive hover states, and "
@@ -102,22 +108,32 @@ class GlobalWebParadigmEngine:
             "SYNTACTIC": [
                 GlobalBlueprint(
                     paradigm_name="LINEAR_STYLE_COMMAND_K_MATRIX",
+                    ux_taxonomy_pillars=["Interaction Design (IxD)", "Information Architecture"],
                     core_utility="Blazing fast, high-density keyboard-driven operational execution.",
-                    density_target="GRANULAR_PRECISION",
                     implementation_dna=(
-                        "Render a ultra-high-density list interface optimized for rapid cognitive scanning. "
+                        "Render an ultra-high-density list interface optimized for rapid cognitive scanning. "
                         "Every element must feature clear state indicators, action badges, and localized shortcut layouts. "
                         "Expose clear mutation entry points to fulfill OPERATIONAL_COMMAND."
                     )
                 ),
                 GlobalBlueprint(
                     paradigm_name="VERCEL_STYLE_DEPLOYMENT_TELEMETRY",
+                    ux_taxonomy_pillars=["Information Design", "Interface & Visual Design"],
                     core_utility="Real-time multi-dimensional infrastructure tracking and triage.",
-                    density_target="GRANULAR_PRECISION",
                     implementation_dna=(
                         "Structure a dense columnar schema layout where records are treated as vectors. "
                         "Incorporate relative delta markers, metrics, or performance trajectories mapping velocity vectors "
-                        "(e.g., performance variances over 30d, 90d, 365d) to rigidly enforce CHRONOLOGICAL_VELOCITY."
+                        "to rigidly enforce CHRONOLOGICAL_VELOCITY."
+                    )
+                ),
+                GlobalBlueprint(
+                    paradigm_name="SHOPIFY_STYLE_LINEAR_CHECKOUT",
+                    ux_taxonomy_pillars=["System Orchestration & Macro-Flow", "Interaction Design (IxD)"],
+                    core_utility="High-conversion, multi-state data collection pipeline.",
+                    implementation_dna=(
+                        "Break complex data collection into discrete, sequential chronological views. "
+                        "Enforce strict teleological momentum: hide lateral navigation options (like the main header) "
+                        "to prevent the user from breaking the sequence. Validate state at each node before permitting progression."
                     )
                 )
             ]
@@ -128,69 +144,69 @@ class GlobalWebParadigmEngine:
 
 class PolicyValidator:
     """
-    Evaluates generated components against the abstract MECE PolicyProfile 
-    and checks compliance against the authorized open-web paradigms.
+    Evaluates generated components against the 5 abstract MECE PolicyProfile dials.
+    Uses heuristic regex checks for structural bounds, and an LLM critic for semantic gaps.
     """
     def __init__(self, llm_client: LLMClientInterface):
         self.llm = llm_client
 
     def verify(self, generated_code: str, policy: PolicyProfile, blueprints: List[GlobalBlueprint]) -> ValidationResult:
-        # Heuristic Guard 1: Verify Temporal Horizon boundaries
+        # Pillar 2: Epistemology Guard (Information Design)
         if policy.temporal_mode == "CHRONOLOGICAL_VELOCITY":
             temporal_signals = ["delta", "trend", "history", "forecast", "horizon", "trajectory", "30d", "90d"]
             if not any(signal in generated_code.lower() for signal in temporal_signals):
                 return ValidationResult(
-                    is_valid=False,
-                    confidence_score=1.0,
-                    drift_diagnosis="TEMPORAL OMISSION: The active profile requires CHRONOLOGICAL_VELOCITY, but the output renders a static snapshot with no delta trackers.",
+                    is_valid=False, confidence_score=1.0,
+                    drift_diagnosis="TEMPORAL OMISSION (Pillar 2): The active profile requires CHRONOLOGICAL_VELOCITY, but the output renders a static snapshot with no delta trackers.",
                     suggested_remedy="Refactor the data structure or UI layer to ingest baseline trajectories and relative time-horizon deltas."
                 )
 
-        # Heuristic Guard 2: Verify Functional Control layout
+        # Pillar 3: Kinetics Guard (Interaction Design)
         if policy.functional_intent == "OPERATIONAL_COMMAND":
-            control_signals = ["toggle", "action", "handler", "onchange", "onclick", "button", "update", "mutate", "form", "submit", "input"]
+            control_signals = ["toggle", "action", "handler", "onchange", "onclick", "button", "update", "mutate"]
             if not any(signal in generated_code.lower() for signal in control_signals):
                 return ValidationResult(
-                    is_valid=False,
-                    confidence_score=1.0,
-                    drift_diagnosis="FUNCTIONAL DRIFT: The active profile requires OPERATIONAL_COMMAND, but the output contains zero transactional mutations.",
+                    is_valid=False, confidence_score=1.0,
+                    drift_diagnosis="FUNCTIONAL DRIFT (Pillar 3): The active profile requires OPERATIONAL_COMMAND, but the output contains zero transactional mutations.",
                     suggested_remedy="Flatten deep display paths and expose actionable parameters as immediately accessible primary-level controls."
                 )
 
-        # Deep Semantic Inspection via LLM Critic
+        # Pillar 5: Teleology Guard (System Orchestration)
+        if policy.macro_flow_mode == "SEQUENTIAL_ORCHESTRATION":
+            state_signals = ["step", "next", "prev", "dispatch", "context", "state", "wizard", "payload"]
+            if not any(signal in generated_code.lower() for signal in state_signals):
+                return ValidationResult(
+                    is_valid=False, confidence_score=1.0,
+                    drift_diagnosis="ORCHESTRATION FAILURE (Pillar 5): The artifact renders isolated UI screens but lacks cross-step state management logic linking them together.",
+                    suggested_remedy="Inject a state-retention context, sequential validators, and step-transition handlers to ensure payload persistence across the macro-flow."
+                )
+
+        # Pillars 1 & 4 (IA and Visual Design) evaluated contextually via the LLM Critic
         return self._run_semantic_critique(generated_code, policy, blueprints)
 
     def _run_semantic_critique(self, generated_code: str, policy: PolicyProfile, blueprints: List[GlobalBlueprint]) -> ValidationResult:
         system_prompt = (
             "You are an automated structural validator for an engineering harness.\n"
-            "Analyze the provided greenfield code artifact against the designated operational policies and global blueprints. "
-            "Ensure it reconstructs the core behavioral intent of the assigned web paradigm without straying into prohibited design patterns.\n"
+            "Analyze the provided greenfield code artifact against the designated 5-Pillar operational policies and global blueprints. "
             "Output your analysis strictly in valid JSON with keys: 'is_valid', 'diagnosis', 'remedy'."
         )
         
         serialized_blueprints = [asdict(b) for b in blueprints]
         user_prompt = f"""
-        TARGET POLICY CONFIGURATION:
-        - Information Density: {policy.density_mode}
-        - Temporal Horizon: {policy.temporal_mode}
-        - Functional Intent: {policy.functional_intent}
+        TARGET 5-PILLAR POLICY CONFIGURATION:
+        1. Ontology (Routing): {policy.routing_mode}
+        2. Epistemology (Temporal): {policy.temporal_mode}
+        3. Kinetics (Function): {policy.functional_intent}
+        4. Sensorial (Density): {policy.density_mode}
+        5. Teleology (Orchestration): {policy.macro_flow_mode}
 
-        AUTHORIZED RECONSTRUCTION BLUEPRINTS (FROM OPEN-WEB PARADIGMS):
+        AUTHORIZED RECONSTRUCTION BLUEPRINTS:
         {json.dumps(serialized_blueprints, indent=2)}
 
         CODE ARTIFACT TO EVALUATE:
         ```
         {generated_code}
         ```
-
-        CRITERIA DEFINITIONS:
-        - CONCEPTUAL_COMPACTION: Low alphanumeric saturation. Narrative-oriented. Relational proximity over explicit raw fields.
-        - GRANULAR_PRECISION: High data throughput. Multi-columnar schemas, filtering matrices, clear value densities.
-        - ATEMPORAL_PERMANENCE: Timeless structural constants. Exclude time-series progressions.
-        - CHRONOLOGICAL_VELOCITY: Ensure some element of time, velocity, trend, or deltas exist.
-        - LATERAL_ORIENTATION: Exploratory navigation pathways, nested summaries, relational progressive discovery.
-        - OPERATIONAL_COMMAND: Explicit transactional inputs, action buttons, dynamic toggles.
-
         Examine if the code drifts from these parameters or violates the core structural intent of the global web blueprint.
         """
         
@@ -207,16 +223,15 @@ class PolicyValidator:
         except Exception as e:
             print(f"[Validator Error] Semantic critique failed: {str(e)}")
             return ValidationResult(
-                is_valid=False, 
-                confidence_score=0.0,
-                drift_diagnosis="Validator pipeline encountered an internal parsing or connectivity error.",
-                suggested_remedy="Escalate to human review to evaluate global web pattern alignment manually."
+                is_valid=False, confidence_score=0.0,
+                drift_diagnosis=f"Validator pipeline crashed: {str(e)}",
+                suggested_remedy="Escalate to human review."
             )
 
 class ClosedLoopAgentHarness:
     """
-    Main execution wrapper that routes development prompts through policy vectors,
-    manages automated healing retries using global blueprints, and handles interactive chat escalation.
+    Executes development prompts through 5-Pillar policy vectors,
+    manages automated transparent healing, and handles chat escalation.
     """
     def __init__(self, llm_client: LLMClientInterface, validator: PolicyValidator, engine: GlobalWebParadigmEngine):
         self.llm = llm_client
@@ -224,25 +239,20 @@ class ClosedLoopAgentHarness:
         self.engine = engine
 
     def execute_harness_loop(self, feature_prompt: str, app_context: dict, max_healing_attempts: int = 3) -> dict:
-        # Step 1: Parse environmental state to resolve the abstract policy mapping
         interpretation_mode = self._determine_interpretation_mode(app_context)
-        policy = self._resolve_policy_profile(interpretation_mode)
-        
-        # Step 2: Fetch global web design primitives from the engine
+        policy = self._resolve_policy_profile(interpretation_mode, app_context)
         blueprints = self.engine.fetch_blueprints(interpretation_mode)
         system_directives = self._build_system_directives(policy, blueprints)
         
         feedback_history: List[Dict[str, str]] = []
 
-        # Step 3: Automated Self-Healing Generation Loop
         for attempt in range(1, max_healing_attempts + 1):
             print(f"--- Harness Attempt {attempt}/{max_healing_attempts} ---")
             current_user_prompt = feature_prompt
             if feedback_history:
                 latest_feedback = feedback_history[-1]
                 current_user_prompt += (
-                    f"\n\n⚠️ GLOBAL PARADIGM DEVIATION MANDATE (ATTEMPT {attempt}):\n"
-                    f"Your generated greenfield code drifted from the authorized open-web pattern.\n"
+                    f"\n\n⚠️ MECE PILLAR DEVIATION MANDATE (ATTEMPT {attempt}):\n"
                     f"DIAGNOSIS: {latest_feedback['diagnosis']}\n"
                     f"REQUIRED REFACTORING: {latest_feedback['remedy']}\n"
                     f"Re-analyze the architectural layout parameters and rebuild the component to reconcile this variance."
@@ -267,9 +277,14 @@ class ClosedLoopAgentHarness:
             validation = self.validator.verify(generated_artifact, policy, blueprints)
             
             if validation.is_valid:
-                print("Validation: PASSED")
+                # Transparent Healing Intercept
+                if attempt > 1:
+                    self._report_auto_repair_to_chat(policy, feedback_history)
+                else:
+                    print("Validation: PASSED")
+
                 return {
-                    "status": "STABLE",
+                    "status": "STABLE_WITH_REPAIRS" if attempt > 1 else "STABLE",
                     "mode_executed": asdict(policy),
                     "artifact": generated_artifact.strip(),
                     "healing_cycles": attempt - 1
@@ -278,8 +293,8 @@ class ClosedLoopAgentHarness:
             print(f"Validation: FAILED - {validation.drift_diagnosis}")
             drift_entry = {
                 "attempt": str(attempt),
-                "diagnosis": validation.drift_diagnosis or "Unknown global template breach.",
-                "remedy": validation.suggested_remedy or "Align code structure with authorized global blueprint parameters."
+                "diagnosis": validation.drift_diagnosis or "Unknown UX Pillar breach.",
+                "remedy": validation.suggested_remedy or "Align code structure with authorized 5-pillar parameters."
             }
             feedback_history.append(drift_entry)
 
@@ -292,45 +307,42 @@ class ClosedLoopAgentHarness:
             return "SEMANTIC"
         return "SYNTACTIC"
 
-    def _resolve_policy_profile(self, mode: str) -> PolicyProfile:
+    def _resolve_policy_profile(self, mode: str, context: dict) -> PolicyProfile:
+        is_wizard = context.get("is_wizard_flow", False)
+        
         if mode == "SEMANTIC":
             return PolicyProfile(
-                density_mode="CONCEPTUAL_COMPACTION",
+                routing_mode="LATERAL_DISCOVERY",
                 temporal_mode="ATEMPORAL_PERMANENCE",
-                functional_intent="LATERAL_ORIENTATION"
+                functional_intent="PASSIVE_CONSUMPTION",
+                density_mode="CONCEPTUAL_COMPACTION",
+                macro_flow_mode="SEQUENTIAL_ORCHESTRATION" if is_wizard else "ISOLATED_NODE"
             )
         else:
             return PolicyProfile(
-                density_mode="GRANULAR_PRECISION",
+                routing_mode="TARGETED_ROUTING",
                 temporal_mode="CHRONOLOGICAL_VELOCITY",
-                functional_intent="OPERATIONAL_COMMAND"
+                functional_intent="OPERATIONAL_COMMAND",
+                density_mode="GRANULAR_PRECISION",
+                macro_flow_mode="SEQUENTIAL_ORCHESTRATION" if is_wizard else "ISOLATED_NODE"
             )
 
     def _build_system_directives(self, policy: PolicyProfile, blueprints: List[GlobalBlueprint]) -> str:
         serialized_blueprints = [asdict(b) for b in blueprints]
         return f"""
         You are a highly contextual generation engine operating inside a strict structural harness.
-        You are building a greenfield codebase from the ground up. You must use native structural layouts, clean logic, and modern styling utilities.
-        
-        Your output code must rigidly conform to the following architectural policy configuration:
+        You are building a greenfield codebase. Your output must conform to these 5 UX Taxonomy Pillars:
 
-        - INFORMATION DENSITY: [{policy.density_mode}]
-          * CONCEPTUAL_COMPACTION: Condense data schemas into clear narrative definitions. Focus on system visibility without alphanumeric clutter.
-          * GRANULAR_PRECISION: Structure code to maximize informational density. Surface clear metrics, fields, and tables for deep operational tracking.
+        1. ONTOLOGY (Routing): [{policy.routing_mode}]
+        2. EPISTEMOLOGY (Information Design): [{policy.temporal_mode}]
+        3. KINETICS (Interaction Design): [{policy.functional_intent}]
+        4. SENSORIAL (Visual Design & Density): [{policy.density_mode}]
+        5. TELEOLOGY (Macro-Flow): [{policy.macro_flow_mode}]
 
-        - TEMPORAL HORIZON: [{policy.temporal_mode}]
-          * ATEMPORAL_PERMANENCE: Render structures as timeless, permanent invariants. Omit time-series delta streams, tracking code, or chronological changes.
-          * CHRONOLOGICAL_VELOCITY: Render data models as dynamic trajectories. Expose historical baseline variations, trend properties, or predictive analytics.
-
-        - FUNCTIONAL INTENT: [{policy.functional_intent}]
-          * LATERAL_ORIENTATION: Prioritize read-only relational exploration, deep-linking, configuration discoverability, and contextual summaries.
-          * OPERATIONAL_COMMAND: Expose high-fidelity, immediate manipulation controls, transactional status indicators, state handlers, and optimization actions.
+        If SEQUENTIAL_ORCHESTRATION is active, you MUST author state-management logic that links UI nodes sequentially.
 
         AUTHORIZED GLOBAL OPEN-WEB BLUEPRINTS:
-        You are explicitly instructed to study, adapt, and copy the structural, functional, and behavioral DNA of these industry-wide web paradigms:
         {json.dumps(serialized_blueprints, indent=2)}
-
-        Never generate code patterns that step across these designated boundary states or break the utility intentions of the authorized paradigms.
         
         CRITICAL: 
         - Apply elite CSS styling to explicitly mimic the authorized paradigms.
@@ -338,33 +350,45 @@ class ClosedLoopAgentHarness:
         - Return ONLY the updated code block, without any markdown formatting wrappers or conversational text outside of the block.
         """
 
+    def _report_auto_repair_to_chat(self, policy: PolicyProfile, history: List[dict]):
+        latest_repair = history[-1]
+        receipt_block = f"""
+================================================================================
+🛠️  AGENT HARNESS NOTIFICATION: TRANSPARENT HEALING EXECUTED
+================================================================================
+The agent generated the framework but required automated intervention to 
+align with the 5-Pillar MECE constraints.
+
+[DRIFT DETECTED]: {latest_repair['diagnosis']}
+[REPAIR APPLIED]: {latest_repair['remedy']}
+
+System velocity maintained. Please review the repaired artifact.
+================================================================================
+"""
+        print(receipt_block)
+
     def _escalate_to_chat_modality(self, policy: PolicyProfile, artifact: str, history: List[dict]) -> dict:
         escalation_block = f"""
 ================================================================================
-🚨 AGENT HARNESS ESCALATION: GLOBAL POLICY ALIGNMENT BREACH
+🚨 AGENT HARNESS ESCALATION: 5-PILLAR ALIGNMENT BREACH
 ================================================================================
 The automated self-healing pipeline has exhausted its retry budget. The generation 
 agent is trapped in an architectural loop, consistently drifting from compliance.
 
-TARGET POLICY INJECTION PROFILE:
-- Information Density : {policy.density_mode}
-- Temporal Horizon    : {policy.temporal_mode}
-- Functional Intent   : {policy.functional_intent}
+TARGET 5-PILLAR PROFILE:
+{json.dumps(asdict(policy), indent=2)}
 
-DRIFT ENFORCEMENT SUMMARY LOG:{json.dumps(history, indent=2)}
+DRIFT ENFORCEMENT SUMMARY LOG:
+{json.dumps(history, indent=2)}
 
 NARROW RESOLUTION QUESTION FOR THE CHAT THREAD:
-The agent cannot satisfy the requirement for `{policy.temporal_mode}` and `{policy.functional_intent}` 
-using the authorized global open-web paradigms without altering the core functional scope requested in your prompt.
-
-Please reply in the chat thread with one of the following directives:
-1. "Override policy: Force downshift to SEMANTIC variants (COMPACTION / ATEMPORAL)."
-2. "Adjust intent: Provide specific layout constraints to manually seed the generator."
-3. Provide direct clarification on how your data schema wraps historical trend metrics.
+The agent cannot satisfy the current Pillar requirements. Please reply in the chat:
+1. "Override policy: Force downshift to SEMANTIC variants."
+2. "Adjust intent: Provide specific layout constraints."
+3. Provide direct clarification on how your data schema resolves the blocked Pillar.
 ================================================================================
 """
         print(escalation_block)
-        
         return {
             "status": "ESCALATED_TO_CHAT",
             "active_policy": asdict(policy),
