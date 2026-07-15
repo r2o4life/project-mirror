@@ -210,16 +210,7 @@ export default async function Dashboard() {
                 gap: '8px',
                 transition: 'background-color 0.2s, border-color 0.2s',
                 boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#2a2a2a';
-                e.currentTarget.style.borderColor = '#444444';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#1a1a1a';
-                e.currentTarget.style.borderColor = '#282828';
-              }}
-            >
+              }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/>
               </svg>
@@ -273,11 +264,7 @@ export default async function Dashboard() {
               borderBottom: i < metrics.length - 1 ? '1px solid #282828' : 'none', // Mimics var(--border)
               alignItems: 'center',
               background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)', // Subtle zebra striping
-              transition: 'background-color 0.15s ease-in-out',
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)'}
-            >
+            }}>
               
               {/* Metric Name & Status (Granular Precision) */}
               <div style={{ 
@@ -369,19 +356,7 @@ export default async function Dashboard() {
                   fontWeight: 600,
                   cursor: 'pointer',
                   boxShadow: '0 1px 2px rgba(0,0,0,0.2)',
-                  transition: 'background 0.2s, border-color 0.2s, box-shadow 0.2s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(180deg, #3a3a3a, #2a2a2a)';
-                  e.currentTarget.style.borderColor = '#5a5a5a';
-                  e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'linear-gradient(180deg, #2a2a2a, #1a1a1a)';
-                  e.currentTarget.style.borderColor = '#3a3a3a';
-                  e.currentTarget.style.boxShadow = '0 1px 2px rgba(0,0,0,0.2)';
-                }}
-                >
+                }}>
                   {metric.actionLabel}
                 </button>
               </div>
