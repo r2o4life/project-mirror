@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createClient } from '@/utils/supabase/client'
 
 // --- UX Taxonomy Pillars & Blueprints ---
@@ -10,18 +10,33 @@ import { createClient } from '@/utils/supabase/client'
 // 4. SENSORIAL (Visual Design & Density): [GRANULAR_PRECISION] - LINEAR_STYLE_COMMAND_K_MATRIX, VERCEL_STYLE_DEPLOYMENT_TELEMETRY
 // 5. TELEOLOGY (Macro-Flow): [SEQUENTIAL_ORCHESTRATION] - SHOPIFY_STYLE_LINEAR_CHECKOUT
 
-type SpawnStatus = 'IDLE' | 'AUTHENTICATING' | 'VALIDATING_INPUTS' | 'INITIATING_SPAWN' | 'CREATING_REPOSITORY' | 'CONFIGURING_PROJECT' | 'COMPLETE' | 'FAILED' | 'CANCELED';
+type SpawnStatus = 'IDLE' | 'AUTHENTICATING' | 'VALIDATING_INPUTS' | 'INITIATING_SPAWN' | 'CREATING_REPOSITORY' | 'CONFIGURING_PROJECT' | 'COMPLETE' | 'FAILED' | 'CANCELED' | 'DELETING';
 type FormStep = 'PROJECT_DETAILS' | 'CONFIGURATION' | 'REVIEW' | 'INITIATE_PROCESS';
 
-const SPAWN_STEPS: SpawnStatus[] = [
-  'VALIDATING_INPUTS',
-  'AUTHENTICATING',
-  'INITIATING_SPAWN',
-  'CREATING_REPOSITORY',
-  'CONFIGURING_PROJECT',
+// Enhanced SPAWN_STEPS with expected durations for metrics
+const SPAWN_STEPS_CONFIG: Array<{ status: SpawnStatus, label: string, expectedDurationMs: number }> = [
+  { status: 'VALIDATING_INPUTS', label: 'Validating Inputs', expectedDurationMs: 200 },
+  { status: 'AUTHENTICATING', label: 'Authenticating Session', expectedDurationMs: 500 },
+  { status: 'INITIATING_SPAWN', label: 'Initiating Spawn API', expectedDurationMs: 300 },
+  { status: 'CREATING_REPOSITORY', label: 'Creating Repository', expectedDurationMs: 1000 },
+  { status: 'CONFIGURING_PROJECT', label: 'Configuring Project', expectedDurationMs: 1500 },
 ];
 
 const FORM_STEPS: FormStep[] = ['PROJECT_DETAILS', 'CONFIGURATION', 'REVIEW', 'INITIATE_PROCESS'];
+
+type TelemetryLogEntry = {
+  timestamp: string;
+  message: string;
+  type: 'INFO' | 'WARN' | 'ERROR' | 'SUCCESS' | 'METRIC';
+  step?: SpawnStatus;
+  duration?: number; // Duration for a specific step
+};
+
+type StepMetric = {
+  startTime: number | null;
+  endTime: number | null;
+  duration: number | null;
+};
 
 export default function Spawn() {
   // --- Core Spawn Process State ---
@@ -30,7 +45,18 @@ export default function Spawn() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
   const [repositoryUrl, setRepositoryUrl] = useState<string | null>(null)
-  const [telemetryLog, setTelemetryLog] = useState<string[]>([]); // For VERCEL_STYLE_DEPLOYMENT_TELEMETRY
+  const [telemetryLog, setTelemetryLog] = useState<TelemetryLogEntry[]>([]); // For VERCEL_STYLE_DEPLOYMENT_TELEMETRY
+  const telemetryLogRef = useRef<HTMLDivElement>(null); // For auto-scrolling
+
+  // --- Metrics State (VERCEL_STYLE_DEPLOYMENT_TELEMETRY) ---
+  const [spawnStepMetrics, setSpawnStepMetrics] = useState<Record<SpawnStatus, StepMetric>>(() =>
+    SPAWN_STEPS_CONFIG.reduce((acc, config) => ({
+      ...acc,
+      [config.status]: { startTime: null, endTime: null, duration: null }
+    }), {} as Record<SpawnStatus, StepMetric>)
+  );
+  const [totalSpawnTime, setTotalSpawnTime] = useState<number | null>(null);
+  const spawnProcessStartTime = useRef<number | null>(null);
 
   // --- Form Input State ---
   const [targetProduct, setTargetProduct] = useState('')
@@ -42,17 +68,28 @@ export default function Spawn() {
   // --- Sequential Orchestration State (SHOPIFY_STYLE_LINEAR_CHECKOUT) ---
   const [currentFormStep, setCurrentFormStep] = useState<FormStep>('PROJECT_DETAILS');
 
+  // --- Delete Operation State ---
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+
   // --- Derived States ---
-  const isProcessingSpawn = spawnStatus !== 'IDLE' && spawnStatus !== 'COMPLETE' && spawnStatus !== 'FAILED' && spawnStatus !== 'CANCELED';
+  const isProcessingSpawn = spawnStatus !== 'IDLE' && spawnStatus !== 'COMPLETE' && spawnStatus !== 'FAILED' && spawnStatus !== 'CANCELED' && spawnStatus !== 'DELETING';
   const isComplete = spawnStatus === 'COMPLETE';
   const isFailed = spawnStatus === 'FAILED';
   const isCanceled = spawnStatus === 'CANCELED';
-  const isFormLocked = isProcessingSpawn || isComplete || isFailed || isCanceled;
+  const isFormLocked = isProcessingSpawn || isComplete || isFailed || isCanceled || isDeleting;
+
+  // --- Auto-scroll telemetry log ---
+  useEffect(() => {
+    if (telemetryLogRef.current) {
+      telemetryLogRef.current.scrollTop = telemetryLogRef.current.scrollHeight;
+    }
+  }, [telemetryLog]);
 
   // --- Telemetry Logging Function ---
-  const addTelemetryLog = (msg: string, type: 'INFO' | 'WARN' | 'ERROR' | 'SUCCESS' = 'INFO') => {
+  const addTelemetryLog = (msg: string, type: 'INFO' | 'WARN' | 'ERROR' | 'SUCCESS' | 'METRIC' = 'INFO', step?: SpawnStatus, duration?: number) => {
     const timestamp = new Date().toLocaleTimeString('en-US', { hour12: false });
-    setTelemetryLog((prev) => [...prev, `[${timestamp}] [${type}] ${msg}`]);
+    setTelemetryLog((prev) => [...prev, { timestamp: `[${timestamp}]`, message: msg, type, step, duration }]);
   };
 
   // --- Sequential Form Navigation Handlers (SHOPIFY_STYLE_LINEAR_CHECKOUT) ---
@@ -91,18 +128,49 @@ export default function Spawn() {
     setError('')
     setRepositoryUrl(null)
     setTelemetryLog([]); // Clear log for new spawn attempt
+    setSpawnStepMetrics(SPAWN_STEPS_CONFIG.reduce((acc, config) => ({
+      ...acc,
+      [config.status]: { startTime: null, endTime: null, duration: null }
+    }), {} as Record<SpawnStatus, StepMetric>));
+    setTotalSpawnTime(null);
+    spawnProcessStartTime.current = Date.now();
+
     addTelemetryLog('Initiating spawn sequence...');
 
+    const updateStepMetric = (status: SpawnStatus, type: 'start' | 'end', duration?: number) => {
+      setSpawnStepMetrics(prev => {
+        const newMetrics = { ...prev };
+        if (type === 'start') {
+          newMetrics[status] = { ...newMetrics[status], startTime: Date.now() };
+        } else {
+          const start = newMetrics[status].startTime;
+          const end = Date.now();
+          const dur = start ? end - start : null;
+          newMetrics[status] = { ...newMetrics[status], endTime: end, duration: dur };
+          if (dur !== null) {
+            addTelemetryLog(`Step '${SPAWN_STEPS_CONFIG.find(s => s.status === status)?.label}' completed in ${dur}ms.`, 'METRIC', status, dur);
+          }
+        }
+        return newMetrics;
+      });
+    };
+
+    // VALIDATING_INPUTS
+    updateStepMetric('VALIDATING_INPUTS', 'start');
     if (!targetProduct || !openSourceName || !projectDescription) {
       setError('All primary project parameters are required for initialization.')
       setSpawnStatus('FAILED')
       setProgress(0)
+      updateStepMetric('VALIDATING_INPUTS', 'end');
       addTelemetryLog('Validation failed: Missing critical project parameters.', 'ERROR');
       return
     }
+    updateStepMetric('VALIDATING_INPUTS', 'end');
 
+    // AUTHENTICATING
     setSpawnStatus('AUTHENTICATING')
     setProgress(20)
+    updateStepMetric('AUTHENTICATING', 'start');
     addTelemetryLog('Authenticating user session...');
     const supabase = createClient()
     const { data: { session } } = await supabase.auth.getSession()
@@ -111,13 +179,17 @@ export default function Spawn() {
       setError('Authentication required: You must be logged in to initiate a project spawn.')
       setSpawnStatus('FAILED')
       setProgress(0)
+      updateStepMetric('AUTHENTICATING', 'end');
       addTelemetryLog('Authentication failed: No active session.', 'ERROR');
       return
     }
+    updateStepMetric('AUTHENTICATING', 'end');
     addTelemetryLog('Authentication successful.');
 
+    // INITIATING_SPAWN
     setSpawnStatus('INITIATING_SPAWN')
     setProgress(40)
+    updateStepMetric('INITIATING_SPAWN', 'start');
     addTelemetryLog('Initiating project spawn API call...');
 
     try {
@@ -129,8 +201,10 @@ export default function Spawn() {
       for (const step of steps) {
         setSpawnStatus(step.status as SpawnStatus);
         setProgress(step.progress);
-        addTelemetryLog(`Executing step: ${step.status}...`);
+        updateStepMetric(step.status as SpawnStatus, 'start');
+        addTelemetryLog(`Executing step: ${SPAWN_STEPS_CONFIG.find(s => s.status === step.status)?.label}...`);
         await new Promise(resolve => setTimeout(resolve, step.delay));
+        updateStepMetric(step.status as SpawnStatus, 'end');
       }
 
       const res = await fetch('http://127.0.0.1:8000/api/core/spawn/', {
@@ -158,6 +232,11 @@ export default function Spawn() {
         setProgress(100)
         addTelemetryLog(`Project '${openSourceName}' successfully initialized.`, 'SUCCESS');
         addTelemetryLog(`Repository URL: ${data.repository_url}`, 'INFO');
+        if (spawnProcessStartTime.current) {
+          const totalTime = Date.now() - spawnProcessStartTime.current;
+          setTotalSpawnTime(totalTime);
+          addTelemetryLog(`Total spawn process time: ${totalTime}ms.`, 'METRIC');
+        }
       } else {
         setError(data.error || 'Failed to spawn project. Review server logs for detailed diagnostics.')
         setSpawnStatus('FAILED')
@@ -178,6 +257,57 @@ export default function Spawn() {
     setMessage('Spawn operation proactively canceled by user.');
     setError('');
     addTelemetryLog('Spawn operation proactively canceled by user.', 'WARN');
+  };
+
+  // --- Delete Project Logic ---
+  const handleDeleteProject = async () => {
+    setShowDeleteConfirmation(false);
+    setIsDeleting(true);
+    setSpawnStatus('DELETING');
+    addTelemetryLog(`Initiating deletion for project: ${openSourceName}...`, 'WARN');
+    setError('');
+    setMessage('');
+
+    try {
+      // Simulate API call for deletion
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+
+      // In a real scenario, you'd call an API endpoint to delete the repository
+      // const res = await fetch(`http://127.0.0.1:8000/api/core/delete-spawn/${openSourceName}`, {
+      //   method: 'DELETE',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Authorization': `Bearer ${session.access_token}` // Assuming auth is needed
+      //   },
+      // });
+      // if (!res.ok) {
+      //   const data = await res.json();
+      //   throw new Error(data.error || 'Failed to delete project.');
+      // }
+
+      addTelemetryLog(`Project '${openSourceName}' successfully decommissioned.`, 'SUCCESS');
+      setMessage(`Project '${openSourceName}' successfully decommissioned.`);
+      setSpawnStatus('IDLE'); // Reset to IDLE after deletion
+      setRepositoryUrl(null);
+      setTargetProduct('');
+      setOpenSourceName('');
+      setProjectDescription('');
+      setVisibility('public');
+      setTemplate('default-template');
+      setCurrentFormStep('PROJECT_DETAILS');
+      setTelemetryLog([]);
+      setSpawnStepMetrics(SPAWN_STEPS_CONFIG.reduce((acc, config) => ({
+        ...acc,
+        [config.status]: { startTime: null, endTime: null, duration: null }
+      }), {} as Record<SpawnStatus, StepMetric>));
+      setTotalSpawnTime(null);
+    } catch (err: any) {
+      setError(`Failed to decommission project: ${err.message}`);
+      addTelemetryLog(`Deletion failed: ${err.message}`, 'ERROR');
+      setSpawnStatus('FAILED'); // Indicate deletion failed
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   // --- Styles (GRANULAR_PRECISION, LINEAR_STYLE_COMMAND_K_MATRIX, VERCEL_STYLE_DEPLOYMENT_TELEMETRY) ---
@@ -233,7 +363,7 @@ export default function Spawn() {
 
   const dangerButtonStyle: React.CSSProperties = {
     ...buttonStyle,
-    background: 'transparent',
+    background: 'var(--danger-alpha)',
     color: 'var(--danger)',
     border: '1px solid var(--danger)',
   };
@@ -421,14 +551,16 @@ export default function Spawn() {
       case 'INITIATE_PROCESS':
         return (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
-            {isProcessingSpawn ? (
+            {isProcessingSpawn || isDeleting ? (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--primary)' }}>
-                  Initiating Spawn Sequence...
+                <div style={{ fontSize: '1.2rem', fontWeight: 600, color: isDeleting ? 'var(--danger)' : 'var(--primary)' }}>
+                  {isDeleting ? 'Decommissioning Project...' : 'Initiating Spawn Sequence...'}
                 </div>
-                <div style={{ width: '100%', maxWidth: '300px', ...progressBarStyle }}>
-                  <div style={progressBarFillStyle} />
-                </div>
+                {!isDeleting && (
+                  <div style={{ width: '100%', maxWidth: '300px', ...progressBarStyle }}>
+                    <div style={progressBarFillStyle} />
+                  </div>
+                )}
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                   Current Status: <span style={{ color: 'var(--foreground)', fontFamily: 'var(--font-mono), monospace' }}>{spawnStatus}</span>
                 </p>
@@ -447,6 +579,13 @@ export default function Spawn() {
                     View Repository <span style={{ opacity: 0.6, fontSize: '0.75em' }}>↗</span>
                   </a>
                 )}
+                <button
+                  type="button"
+                  onClick={() => setShowDeleteConfirmation(true)}
+                  style={{ ...dangerButtonStyle, marginTop: '20px' }}
+                >
+                  Decommission Project
+                </button>
               </div>
             ) : isFailed || isCanceled ? (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
@@ -466,6 +605,11 @@ export default function Spawn() {
                     setMessage('');
                     setProgress(0);
                     setTelemetryLog([]);
+                    setSpawnStepMetrics(SPAWN_STEPS_CONFIG.reduce((acc, config) => ({
+                      ...acc,
+                      [config.status]: { startTime: null, endTime: null, duration: null }
+                    }), {} as Record<SpawnStatus, StepMetric>));
+                    setTotalSpawnTime(null);
                   }}
                   style={primaryButtonStyle}
                 >
@@ -588,17 +732,18 @@ export default function Spawn() {
             Deployment Telemetry
           </h3>
 
-          <div style={{ flex: 1, overflowY: 'auto', maxHeight: '400px', marginBottom: '20px', paddingRight: '8px' }}>
+          <div ref={telemetryLogRef} style={{ flex: 1, overflowY: 'auto', maxHeight: '400px', marginBottom: '20px', paddingRight: '8px' }}>
             {telemetryLog.map((logEntry, index) => {
               let color = 'var(--text-muted)';
-              if (logEntry.includes('[ERROR]')) color = 'var(--danger)';
-              else if (logEntry.includes('[WARN]')) color = '#ffc107'; // Yellow for warnings
-              else if (logEntry.includes('[SUCCESS]')) color = 'var(--success)';
-              else if (logEntry.includes('[INFO]')) color = 'var(--foreground)';
+              if (logEntry.type === 'ERROR') color = 'var(--danger)';
+              else if (logEntry.type === 'WARN') color = '#ffc107'; // Yellow for warnings
+              else if (logEntry.type === 'SUCCESS') color = 'var(--success)';
+              else if (logEntry.type === 'INFO') color = 'var(--foreground)';
+              else if (logEntry.type === 'METRIC') color = 'var(--primary)'; // Metrics get primary color
 
               return (
                 <div key={index} style={{ color: color, whiteSpace: 'pre-wrap' }}>
-                  {logEntry}
+                  <span style={{ color: 'var(--text-dim)' }}>{logEntry.timestamp}</span> {logEntry.message}
                 </div>
               );
             })}
@@ -606,14 +751,14 @@ export default function Spawn() {
 
           <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
             <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
-              Process Status
+              Process Status & Metrics
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {SPAWN_STEPS.map((step, index) => {
-                const currentStatusIndex = SPAWN_STEPS.indexOf(spawnStatus);
-                const stepIndex = index;
-                const isCurrent = step === spawnStatus;
-                const isCompletedStep = currentStatusIndex > stepIndex || (isComplete && stepIndex < SPAWN_STEPS.length);
+              {SPAWN_STEPS_CONFIG.map((stepConfig) => {
+                const currentStatusIndex = SPAWN_STEPS_CONFIG.findIndex(s => s.status === spawnStatus);
+                const stepIndex = SPAWN_STEPS_CONFIG.findIndex(s => s.status === stepConfig.status);
+                const isCurrent = stepConfig.status === spawnStatus;
+                const isCompletedStep = spawnStepMetrics[stepConfig.status]?.endTime !== null;
                 const isFailedOrCanceledBeforeThis = (isFailed || isCanceled) && currentStatusIndex < stepIndex;
 
                 let stepColor = 'var(--text-dim)';
@@ -629,14 +774,43 @@ export default function Spawn() {
                   indicator = '✕'; // Failed/Canceled
                 }
 
+                const duration = spawnStepMetrics[stepConfig.status]?.duration;
+                const delta = duration !== null ? duration - stepConfig.expectedDurationMs : null;
+
                 return (
-                  <div key={step} style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: isFailedOrCanceledBeforeThis ? 0.4 : 1 }}>
+                  <div key={stepConfig.status} style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: isFailedOrCanceledBeforeThis ? 0.4 : 1 }}>
                     <span style={{ color: stepColor, fontSize: '0.9rem', width: '1em', textAlign: 'center' }}>
                       {indicator}
                     </span>
-                    <span style={{ color: stepColor, fontSize: '0.85rem' }}>
-                      {step.replace(/_/g, ' ')}
+                    <span style={{ color: stepColor, fontSize: '0.85rem', flexGrow: 1 }}>
+                      {stepConfig.label}
                     </span>
+                    {duration !== null && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        color: stepColor,
+                        background: 'var(--surface-dim)',
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        minWidth: '60px',
+                        textAlign: 'right',
+                      }}>
+                        {duration}ms
+                      </span>
+                    )}
+                    {delta !== null && (
+                      <span style={{
+                        fontSize: '0.75rem',
+                        color: delta > 0 ? 'var(--danger)' : (delta < 0 ? 'var(--success)' : 'var(--text-muted)'),
+                        background: delta > 0 ? 'var(--danger-alpha)' : (delta < 0 ? 'var(--primary-alpha)' : 'var(--surface-dim)'),
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        minWidth: '50px',
+                        textAlign: 'center',
+                      }}>
+                        {delta > 0 ? `+${delta}ms` : `${delta}ms`}
+                      </span>
+                    )}
                     {isCurrent && (
                       <span style={{
                         marginLeft: 'auto',
@@ -655,8 +829,13 @@ export default function Spawn() {
               })}
             </div>
 
-            {(isComplete || error || message) && (
+            {(isComplete || error || message || totalSpawnTime !== null) && (
               <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px dashed var(--border-dim)' }}>
+                {totalSpawnTime !== null && (
+                  <div style={{ color: 'var(--foreground)', fontSize: '0.85rem', marginBottom: '8px' }}>
+                    Total Spawn Time: <span style={{ color: 'var(--primary)', fontWeight: 600 }}>{totalSpawnTime}ms</span>
+                  </div>
+                )}
                 {error ? (
                   <div style={{ color: 'var(--danger)', fontSize: '0.85rem' }}>
                     ERROR: {error}
@@ -678,6 +857,60 @@ export default function Spawn() {
           </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirmation && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0,0,0,0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{
+            background: 'var(--surface)',
+            borderRadius: '8px',
+            padding: '30px',
+            width: '400px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+            border: '1px solid var(--border)',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
+          }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--danger)', margin: 0 }}>
+              Confirm Decommission
+            </h3>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+              Are you absolutely sure you want to decommission the project <strong style={{ color: 'var(--foreground)' }}>'{openSourceName}'</strong>? This action is irreversible and will permanently delete the repository and all associated data.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+              <button
+                type="button"
+                onClick={() => setShowDeleteConfirmation(false)}
+                style={secondaryButtonStyle}
+                disabled={isDeleting}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleDeleteProject}
+                style={dangerButtonStyle}
+                disabled={isDeleting}
+              >
+                {isDeleting ? 'Decommissioning...' : 'Confirm Decommission'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Global CSS for pulse animation */}
       <style jsx global>{`
         @keyframes pulse {

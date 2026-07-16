@@ -32,16 +32,24 @@ def main():
     harness = ClosedLoopAgentHarness(llm, validator, engine)
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    app_dir = os.path.join(base_dir, "frontend", "src", "app")
     
-    # Dynamically find all page.tsx
+    # Remaining files
+    remaining_files = [
+        "frontend/src/app/community/twitter/page.tsx",
+        "frontend/src/app/community/discord/page.tsx",
+        "frontend/src/app/community/blog/page.tsx",
+        "frontend/src/app/community/github/page.tsx",
+        "frontend/src/app/page.tsx",
+        "frontend/src/app/spawn/page.tsx",
+        "frontend/src/app/login/page.tsx"
+    ]
+    
     pages_to_translate = []
-    for path in Path(app_dir).rglob('page.tsx'):
-        rel_path = os.path.relpath(path, base_dir)
+    for rel_path in remaining_files:
         context = get_context_for_path(rel_path)
         pages_to_translate.append({"filepath": rel_path, "context": context})
 
-    print(f"Discovered {len(pages_to_translate)} pages for translation.")
+    print(f"Discovered {len(pages_to_translate)} remaining pages for translation.")
 
     for page in pages_to_translate:
         abs_path = os.path.join(base_dir, page["filepath"])
@@ -73,7 +81,6 @@ def main():
             print(f"✅ Validation PASSED after {result.get('healing_cycles', 0)} healing cycles.")
             new_code = result["artifact"]
             
-            # Clean up potential markdown formatting from LLM output
             if new_code.startswith("```tsx"):
                 new_code = new_code[6:]
             if new_code.endswith("```"):

@@ -11,7 +11,7 @@ async function fetchBenchmarksData(token?: string) {
       // Data is treated as historical/static, revalidated weekly.
       next: { revalidate: 3600 * 24 * 7 } // Revalidate every 7 days
     });
-    
+
     if (!res.ok) return [];
     return res.json();
   } catch (e) {
@@ -38,7 +38,7 @@ function getParityColor(score: number): string {
 export default async function Benchmarks() {
   const supabase = await createClient();
   const { data: { session } } = await supabase.auth.getSession();
-  
+
   const products = await fetchBenchmarksData(session?.access_token);
 
   // System metrics - these are now static, conceptual aggregates for bento blocks
@@ -49,13 +49,15 @@ export default async function Benchmarks() {
   const bentoBlocks: any[] = [];
 
   // Add summary blocks first, aligning with "High-impact macro grouping of disparate value propositions."
+  // These are smaller blocks for conceptual compaction.
   bentoBlocks.push({
     type: 'summary',
     title: 'Proprietary Monopolies',
     value: totalProprietaryProducts,
     description: 'Total proprietary products currently tracked.',
     color: 'var(--foreground)',
-    span: 'col-span-1' // Smaller block for conceptual compaction
+    gridColumn: 'span 1', // Small block
+    gridRow: 'span 1'
   });
 
   bentoBlocks.push({
@@ -64,13 +66,29 @@ export default async function Benchmarks() {
     value: totalTrackedAlternatives,
     description: 'Total open-source alternatives identified.',
     color: 'var(--success)',
-    span: 'col-span-1' // Smaller block for conceptual compaction
+    gridColumn: 'span 1', // Small block
+    gridRow: 'span 1'
   });
 
-  // Add benchmark and opportunity blocks
+  // Counter for applying a structured uneven layout pattern to benchmark/opportunity blocks
+  let benchmarkOpportunityCounter = 0;
+
+  // Add benchmark and opportunity blocks, applying the "uneven layout matrix grid"
   products.forEach((p: any) => {
     if (p.alternatives && p.alternatives.length > 0) {
       p.alternatives.forEach((alt: any) => {
+        let gridColumn = 'span 2'; // Default large block
+        let gridRow = 'span 1';
+
+        // Apply a deliberate uneven layout pattern for visual interest and LATERAL_DISCOVERY
+        if (benchmarkOpportunityCounter % 4 === 0) { // Every 4th block (0, 4, 8...)
+          gridColumn = 'span 3'; // Extra wide block for high impact
+        } else if (benchmarkOpportunityCounter % 4 === 1) { // Every 4th block (1, 5, 9...)
+          gridColumn = 'span 2';
+          gridRow = 'span 2'; // Taller block for varied density
+        }
+        // Other blocks (2, 3, 6, 7...) remain default 'span 2'
+
         bentoBlocks.push({
           type: 'benchmark',
           proprietaryName: p.name,
@@ -79,29 +97,44 @@ export default async function Benchmarks() {
           parityScore: alt.feature_parity_score,
           description: getParityDescription(alt.feature_parity_score),
           status: alt.feature_parity_score >= 90 ? 'Deployment Ready' : 'In Progress',
-          span: 'col-span-2' // Larger block for detailed benchmark
+          gridColumn,
+          gridRow
         });
+        benchmarkOpportunityCounter++;
       });
     } else {
+      let gridColumn = 'span 2'; // Default large block
+      let gridRow = 'span 1';
+
+      // Apply the same uneven layout pattern for consistency
+      if (benchmarkOpportunityCounter % 4 === 0) {
+        gridColumn = 'span 3';
+      } else if (benchmarkOpportunityCounter % 4 === 1) {
+        gridColumn = 'span 2';
+        gridRow = 'span 2';
+      }
+
       bentoBlocks.push({
         type: 'opportunity',
         proprietaryName: p.name,
         proprietaryCategory: p.category,
-        span: 'col-span-2' // Larger block for opportunity
+        gridColumn,
+        gridRow
       });
+      benchmarkOpportunityCounter++;
     }
   });
 
   return (
-    <div style={{ 
-      padding: '64px 48px', 
-      maxWidth: '1400px', 
-      margin: '0 auto', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      gap: '32px' 
+    <div style={{
+      padding: '64px 48px',
+      maxWidth: '1400px',
+      margin: '0 auto',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '32px'
     }}>
-      
+
       {/* Header - concise and static, aligning with ISOLATED_NODE and CONCEPTUAL_COMPACTION */}
       <header style={{ marginBottom: '16px' }}>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
@@ -109,14 +142,14 @@ export default async function Benchmarks() {
         </h1>
         <p style={{ color: '#8b949e', marginTop: '12px', fontSize: '1.1rem', lineHeight: '1.6' }}>
           A conceptual overview of open-source feature parity against proprietary solutions.
-          All metrics are historical snapshots, reflecting a specific point in time.
+          All metrics are historical snapshots, reflecting a specific point in time, ensuring <strong style={{ color: 'var(--primary)' }}>ATEMPORAL_PERMANENCE</strong>.
         </p>
       </header>
 
       {/* APPLE_STYLE_BENTO_GRID implementation */}
       <div style={{
         display: 'grid',
-        // CRITICAL: Uneven layout matrix grid for high-impact macro grouping
+        // CRITICAL: Uneven layout matrix grid for high-impact macro grouping, favoring LATERAL_DISCOVERY
         gridTemplateColumns: 'repeat(4, 1fr)', // Base 4-column grid
         gridAutoRows: 'minmax(180px, auto)', // Minimum row height for bento feel
         gap: '20px',
@@ -127,27 +160,12 @@ export default async function Benchmarks() {
           const isOpportunity = block.type === 'opportunity';
           const isBenchmark = block.type === 'benchmark';
 
-          // Determine grid span for uneven layout, favoring LATERAL_DISCOVERY
-          let gridColumnSpan = 'span 1'; // Default for summary blocks
-          let gridRowSpan = 'span 1';
-
-          if (isBenchmark || isOpportunity) {
-            gridColumnSpan = 'span 2'; // Larger blocks for detailed benchmarks/opportunities
-          }
-          // Introduce more unevenness for visual interest and varied information density
-          if (index % 3 === 0 && (isBenchmark || isOpportunity)) { 
-            gridColumnSpan = 'span 3'; // Every third large block is extra wide
-          } else if (index % 4 === 1 && (isBenchmark || isOpportunity)) { 
-            gridRowSpan = 'span 2'; // Every fourth large block is taller
-          }
-
-
           return (
-            <div 
-              key={index} 
+            <div
+              key={index}
               style={{
-                gridColumn: gridColumnSpan,
-                gridRow: gridRowSpan,
+                gridColumn: block.gridColumn, // Use pre-calculated span for uneven layout
+                gridRow: block.gridRow,       // Use pre-calculated span for uneven layout
                 background: 'rgba(22, 27, 34, 0.7)', // Darker background for bento blocks
                 border: '1px solid var(--border)',
                 borderRadius: '12px',
@@ -163,27 +181,27 @@ export default async function Benchmarks() {
             >
               {isSummary && (
                 <>
-                  <div style={{ 
-                    fontSize: '0.9rem', 
-                    color: '#8b949e', 
-                    textTransform: 'uppercase', 
+                  <div style={{
+                    fontSize: '0.9rem',
+                    color: '#8b949e',
+                    textTransform: 'uppercase',
                     letterSpacing: '0.05em',
                     fontWeight: 500
                   }}>
                     {block.title}
                   </div>
-                  <div style={{ 
-                    fontSize: '3rem', 
-                    fontWeight: 800, 
-                    color: block.color, 
-                    lineHeight: 1 
+                  <div style={{
+                    fontSize: '3rem',
+                    fontWeight: 800,
+                    color: block.color,
+                    lineHeight: 1
                   }}>
                     {block.value}
                   </div>
-                  <p style={{ 
-                    fontSize: '0.9rem', 
-                    color: '#8b949e', 
-                    marginTop: '8px' 
+                  <p style={{
+                    fontSize: '0.9rem',
+                    color: '#8b949e',
+                    marginTop: '8px'
                   }}>
                     {block.description}
                   </p>
@@ -193,19 +211,19 @@ export default async function Benchmarks() {
               {isBenchmark && (
                 <>
                   {/* Macro Icon / Visual Element for CONCEPTUAL_COMPACTION */}
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '12px', 
-                    marginBottom: '12px' 
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    marginBottom: '12px'
                   }}>
-                    <div style={{ 
-                      width: '48px', 
-                      height: '48px', 
-                      borderRadius: '10px', 
-                      background: getParityColor(block.parityScore), 
-                      display: 'flex', 
-                      alignItems: 'center', 
+                    <div style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '10px',
+                      background: getParityColor(block.parityScore),
+                      display: 'flex',
+                      alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '1.5rem',
                       fontWeight: 700,
@@ -215,18 +233,18 @@ export default async function Benchmarks() {
                       {block.alternativeName.charAt(0).toUpperCase()}
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <h3 style={{ 
-                        fontSize: '1.5rem', 
-                        fontWeight: 700, 
-                        color: 'var(--primary)', 
-                        margin: 0 
+                      <h3 style={{
+                        fontSize: '1.5rem',
+                        fontWeight: 700,
+                        color: 'var(--primary)',
+                        margin: 0
                       }}>
                         {block.alternativeName}
                       </h3>
-                      <p style={{ 
-                        fontSize: '0.9rem', 
-                        color: '#8b949e', 
-                        margin: '4px 0 0 0' 
+                      <p style={{
+                        fontSize: '0.9rem',
+                        color: '#8b949e',
+                        margin: '4px 0 0 0'
                       }}>
                         vs. {block.proprietaryName} ({block.proprietaryCategory})
                       </p>
@@ -234,46 +252,46 @@ export default async function Benchmarks() {
                   </div>
 
                   {/* Short Narrative Sentence for ATEMPORAL_PERMANENCE */}
-                  <p style={{ 
-                    fontSize: '1rem', 
-                    color: 'var(--foreground)', 
-                    lineHeight: '1.5', 
-                    flexGrow: 1 
+                  <p style={{
+                    fontSize: '1rem',
+                    color: 'var(--foreground)',
+                    lineHeight: '1.5',
+                    flexGrow: 1
                   }}>
                     {block.description}
                   </p>
 
                   {/* Key Metric & Status (Static, not dynamic) */}
-                  <div style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'flex-end', 
-                    marginTop: '16px' 
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-end',
+                    marginTop: '16px'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                      <span style={{ 
-                        fontSize: '2.5rem', 
-                        fontWeight: 800, 
-                        color: getParityColor(block.parityScore), 
-                        lineHeight: 1 
+                      <span style={{
+                        fontSize: '2.5rem',
+                        fontWeight: 800,
+                        color: getParityColor(block.parityScore),
+                        lineHeight: 1
                       }}>
                         {block.parityScore}%
                       </span>
-                      <span style={{ 
-                        fontSize: '0.9rem', 
-                        color: '#8b949e', 
-                        fontWeight: 500 
+                      <span style={{
+                        fontSize: '0.9rem',
+                        color: '#8b949e',
+                        fontWeight: 500
                       }}>
                         Parity
                       </span>
                     </div>
-                    <span style={{ 
-                      padding: '6px 12px', 
-                      background: 'rgba(255,255,255,0.1)', 
-                      borderRadius: '8px', 
-                      color: '#e0e0e0', 
-                      fontSize: '0.85rem', 
-                      fontWeight: 500 
+                    <span style={{
+                      padding: '6px 12px',
+                      background: 'rgba(255,255,255,0.1)',
+                      borderRadius: '8px',
+                      color: '#e0e0e0',
+                      fontSize: '0.85rem',
+                      fontWeight: 500
                     }}>
                       {block.status}
                     </span>
@@ -284,13 +302,13 @@ export default async function Benchmarks() {
               {isOpportunity && (
                 <>
                   {/* Macro Icon for CONCEPTUAL_COMPACTION */}
-                  <div style={{ 
-                    width: '48px', 
-                    height: '48px', 
-                    borderRadius: '10px', 
-                    background: 'var(--danger)', 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    background: 'var(--danger)',
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '1.8rem',
                     color: 'var(--background)',
@@ -299,26 +317,26 @@ export default async function Benchmarks() {
                   }}>
                     💡
                   </div>
-                  <h3 style={{ 
-                    fontSize: '1.5rem', 
-                    fontWeight: 700, 
-                    color: 'var(--danger)', 
-                    margin: 0 
+                  <h3 style={{
+                    fontSize: '1.5rem',
+                    fontWeight: 700,
+                    color: 'var(--danger)',
+                    margin: 0
                   }}>
                     Opportunity: {block.proprietaryName}
                   </h3>
-                  <p style={{ 
-                    fontSize: '1rem', 
-                    color: 'var(--foreground)', 
-                    lineHeight: '1.5', 
-                    flexGrow: 1 
+                  <p style={{
+                    fontSize: '1rem',
+                    color: 'var(--foreground)',
+                    lineHeight: '1.5',
+                    flexGrow: 1
                   }}>
                     No viable open-source alternative currently tracked for this proprietary solution ({block.proprietaryCategory}).
                   </p>
-                  <p style={{ 
-                    fontSize: '0.9rem', 
-                    color: '#8b949e', 
-                    marginTop: '16px' 
+                  <p style={{
+                    fontSize: '0.9rem',
+                    color: '#8b949e',
+                    marginTop: '16px'
                   }}>
                     Consider this a strategic area for open-source development.
                   </p>

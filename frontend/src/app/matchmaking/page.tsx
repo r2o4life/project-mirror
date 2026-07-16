@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
 
 // Define the augmented issue type for our telemetry & matchmaking
+// EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] - Temporal aspects like velocityDelta and timeOpen are explicitly removed.
 type MatchmakingIssue = {
   id: string;
   repo: string;
@@ -11,12 +12,12 @@ type MatchmakingIssue = {
   tags: string[];
   
   // VERCEL_STYLE_DEPLOYMENT_TELEMETRY (Chronological Velocity) - REMOVED TEMPORAL ASPECTS for ATEMPORAL_PERMANENCE
-  matchScore: number; // e.g., 98 (This is a static metric, compliant)
+  matchScore: number; // e.g., 98 (This is a static metric, compliant with ATEMPORAL_PERMANENCE)
   // velocityDelta: string; // Removed: Temporal metric
   // timeOpen: string; // Removed: Temporal metric
   
   // OPERATIONAL_COMMAND state - Status kept as ATEMPORAL_PERMANENCE, actions removed for PASSIVE_CONSUMPTION
-  status: 'AVAILABLE' | 'CLAIMED' | 'PORTFOLIO';
+  status: 'AVAILABLE' | 'CLAIMED' | 'PORTFOLIO'; // Status is static, displayed passively.
 };
 
 export default function Matchmaking() {
@@ -44,8 +45,8 @@ export default function Matchmaking() {
             repo: item.repo,
             issue: item.issue,
             tags: item.tags || [],
-            matchScore: 98 - (i * 3), // Mock score (static)
-            status: 'AVAILABLE' // Default status, displayed statically
+            matchScore: 98 - (i * 3), // Mock score (static) - Compliant with ATEMPORAL_PERMANENCE
+            status: 'AVAILABLE' // Default status, displayed statically - Compliant with ATEMPORAL_PERMANENCE
           }));
           setIssues(augmented);
         } else {
@@ -63,31 +64,29 @@ export default function Matchmaking() {
   }, []);
 
   // OPERATIONAL_COMMAND Actions - Removed due to KINETICS: [PASSIVE_CONSUMPTION]
-  // const handleClaim = (id: string) => {
-  //   setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'CLAIMED' } : issue));
-  // };
-  // const handleSaveToPortfolio = (id: string) => {
-  //   setIssues(prev => prev.map(issue => issue.id === id ? { ...issue, status: 'PORTFOLIO' } : issue));
-  // };
+  // The original component correctly removed these interactive elements.
+  // const handleClaim = (id: string) => { ... };
+  // const handleSaveToPortfolio = (id: string) => { ... };
 
   const filteredIssues = issues.filter(issue => 
     issue.repo.toLowerCase().includes(searchQuery.toLowerCase()) || 
     issue.issue.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    issue.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) // Enhanced search for LATERAL_DISCOVERY
+    issue.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase())) // Enhanced search for ONTOLOGY: [LATERAL_DISCOVERY]
   );
 
   return (
+    // TELEOLOGY: [ISOLATED_NODE] - The component provides a complete, self-contained experience.
     <div style={{ 
       padding: '48px', 
       maxWidth: '1400px', 
       margin: '0 auto', 
       display: 'flex', 
       flexDirection: 'column', 
-      gap: '48px', // Increased gap for spaciousness (STRIPE_STYLE_MEGA_FLYOUT influence)
+      gap: '48px', // Increased gap for spaciousness (STRIPE_STYLE_MEGA_FLYOUT influence on SENSORIAL)
       fontFamily: 'Inter, sans-serif' // Modern font for SENSORIAL: [CONCEPTUAL_COMPACTION]
     }}>
       
-      {/* Header aligned with SYNTACTIC Granular Precision */}
+      {/* Header aligned with STRIPE_STYLE_MEGA_FLYOUT for spaciousness and clear information hierarchy */}
       <header style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
@@ -115,11 +114,11 @@ export default function Matchmaking() {
             lineHeight: '1.6'
           }}>
             High-density skill correlation matrix. Analyzing active codebase gaps against your portfolio signature.
-            Discover opportunities for impactful contributions.
+            Discover opportunities for impactful contributions. {/* ONTOLOGY: [LATERAL_DISCOVERY] - Descriptive text */}
           </p>
         </div>
         
-        {/* LINEAR_STYLE_COMMAND_K_MATRIX: Input Field */}
+        {/* LINEAR_STYLE_COMMAND_K_MATRIX: Input Field for search, supporting ONTOLOGY: [LATERAL_DISCOVERY] */}
         <div style={{ position: 'relative', width: '300px', minWidth: '200px' }}>
           <input 
             type="text" 
@@ -171,7 +170,7 @@ export default function Matchmaking() {
         alignItems: 'stretch', 
       }}>
         
-        {/* Loading State */}
+        {/* Loading State - EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] (static message) */}
         {loading && (
           <div style={{ 
             gridColumn: '1 / -1', 
@@ -195,7 +194,7 @@ export default function Matchmaking() {
           </div>
         )}
 
-        {/* Data Rows */}
+        {/* Empty State - EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] (static message) */}
         {!loading && filteredIssues.length === 0 && (
           <div style={{ 
             gridColumn: '1 / -1', 
@@ -221,6 +220,7 @@ export default function Matchmaking() {
           </div>
         )}
 
+        {/* Data Rows - Each div represents a "block" in the APPLE_STYLE_BENTO_GRID */}
         {!loading && filteredIssues.map(issue => (
           <div 
             key={issue.id} 
@@ -238,7 +238,8 @@ export default function Matchmaking() {
               overflow: 'hidden',
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
             }}
-            onMouseEnter={(e) => { // Subtle interactive hover states (VERCEL_STYLE_SITEMAP_FOOTER influence)
+            // KINETICS: [PASSIVE_CONSUMPTION] - Hover effects are purely visual feedback, not state-changing interactions.
+            onMouseEnter={(e) => { 
               e.currentTarget.style.borderColor = 'var(--primary)';
               e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
               e.currentTarget.style.transform = 'translateY(-2px)';
@@ -249,7 +250,8 @@ export default function Matchmaking() {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            {/* Macro Icon & Match Score (CONCEPTUAL_COMPACTION) */}
+            {/* Macro Icon & Match Score (SENSORIAL: [CONCEPTUAL_COMPACTION], EPISTEMOLOGY: [ATEMPORAL_PERMANENCE]) */}
+            {/* This serves as the "singular macro icon" and part of the "bold headline" for the value proposition. */}
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
@@ -272,11 +274,12 @@ export default function Matchmaking() {
                 alignItems: 'center',
                 gap: '4px'
               }}>
-                {issue.matchScore}% Match
+                {issue.matchScore}% Match {/* Static score, ATEMPORAL_PERMANENCE */}
               </span>
             </div>
 
-            {/* Bold Headline (Issue) - LATERAL_DISCOVERY */}
+            {/* Bold Headline (Issue) - ONTOLOGY: [LATERAL_DISCOVERY] & SENSORIAL: [CONCEPTUAL_COMPACTION] */}
+            {/* This is the "bold headline" for the specific opportunity. */}
             <a 
               href={`https://github.com/${issue.repo}/issues`} 
               target="_blank" 
@@ -295,7 +298,8 @@ export default function Matchmaking() {
               {issue.issue}
             </a>
 
-            {/* Short Narrative Sentence (Repo) - LATERAL_DISCOVERY */}
+            {/* Short Narrative Sentence (Repo) - ONTOLOGY: [LATERAL_DISCOVERY] & SENSORIAL: [CONCEPTUAL_COMPACTION] */}
+            {/* This provides the "short narrative sentence" context. */}
             <a 
               href={`https://github.com/${issue.repo}`} 
               target="_blank" 
@@ -313,7 +317,7 @@ export default function Matchmaking() {
               {issue.repo}
             </a>
 
-            {/* Tags / Capabilities - CONCEPTUAL_COMPACTION */}
+            {/* Tags / Capabilities - SENSORIAL: [CONCEPTUAL_COMPACTION] & ONTOLOGY: [LATERAL_DISCOVERY] */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
               {issue.tags.map(tag => (
                 <span key={tag} style={{ 
@@ -330,7 +334,8 @@ export default function Matchmaking() {
               ))}
             </div>
 
-            {/* Status Badge - ATEMPORAL_PERMANENCE, PASSIVE_CONSUMPTION */}
+            {/* Status Badge - EPISTEMOLOGY: [ATEMPORAL_PERMANENCE], KINETICS: [PASSIVE_CONSUMPTION], SENSORIAL: [CONCEPTUAL_COMPACTION] */}
+            {/* This is a static display of status, not an interactive element. */}
             <div style={{ 
               position: 'absolute', 
               top: '24px', 

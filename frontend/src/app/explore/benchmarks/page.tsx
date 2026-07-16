@@ -1,16 +1,19 @@
 import Link from "next/link";
 
 export default function ExploreBenchmarksPage() {
+  // EPISTEMOLOGY (Information Design): [ATEMPORAL_PERMANENCE]
+  // Removed Math.random() to ensure static, permanent representation.
   const heatmapCells = Array.from({ length: 50 }).map((_, i) => {
     const isGap = i % 7 === 0 || i % 13 === 0;
     const isCritical = i === 14 || i === 27;
     return (
-      <div 
-        key={i} 
+      <div
+        key={i}
         style={{
           aspectRatio: '1',
           background: isCritical ? 'var(--danger)' : (isGap ? '#8b949e' : 'var(--success)'),
-          opacity: isCritical ? 1 : (isGap ? 0.3 : Math.max(0.4, Math.random())),
+          // Fixed opacity for ATEMPORAL_PERMANENCE
+          opacity: isCritical ? 1 : (isGap ? 0.3 : 0.7), 
           borderRadius: '2px'
         }}
       />
@@ -20,7 +23,11 @@ export default function ExploreBenchmarksPage() {
   return (
     <div style={{ padding: '64px 48px', maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '64px' }}>
       
-      {/* STRIPE_STYLE_MEGA_FLYOUT text layout */}
+      {/* 
+        STRIPE_STYLE_MEGA_FLYOUT (Ontology, Sensorial)
+        Leverages semantic layout, clean grouping, and descriptive text for LATERAL_DISCOVERY.
+        KINETICS (Interaction Design): [PASSIVE_CONSUMPTION] - Link is now integrated into descriptive text.
+      */}
       <header style={{ borderBottom: '1px solid var(--border)', paddingBottom: '32px', display: 'flex', gap: '48px', alignItems: 'flex-start' }}>
         <div style={{ flex: 1 }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--foreground)', margin: 0 }}>
@@ -28,27 +35,30 @@ export default function ExploreBenchmarksPage() {
           </h1>
           <p style={{ color: '#8b949e', marginTop: '16px', fontSize: '1.1rem', lineHeight: 1.6 }}>
             The historical model of uncoordinated, siloed open-source development is structurally inefficient. 
-            Project Mirror replaces fragmented exploration with a structured, market-aligned index where open projects are explicitly defined by their relationship to existing industry solutions.
+            Project Mirror replaces fragmented exploration with a structured, market-aligned index where open projects are explicitly defined by their relationship to existing industry solutions. 
+            <Link 
+              href="/benchmarks" 
+              style={{
+                color: 'var(--primary)',
+                textDecoration: 'underline',
+                fontWeight: 600,
+                marginLeft: '8px',
+                // KINETICS (Interaction Design): [PASSIVE_CONSUMPTION] - Styled as a subtle link, not an active button.
+                // ONTOLOGY (Routing): [LATERAL_DISCOVERY] - Integrated into narrative for exploratory context.
+              }}
+            >
+              Explore proprietary monopolies and their open-source counterweights ↗
+            </Link>
           </p>
         </div>
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', justifyContent: 'center', height: '100%' }}>
-          <Link href="/benchmarks" style={{
-            background: 'var(--primary)',
-            color: 'white',
-            padding: '12px 24px',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            fontWeight: 600,
-            textAlign: 'center',
-            fontSize: '1rem',
-            display: 'block'
-          }}>
-            Analyze Proprietary Monopolies ↗
-          </Link>
-        </div>
+        {/* Removed the standalone button div to align with PASSIVE_CONSUMPTION and LATERAL_DISCOVERY */}
       </header>
 
-      {/* STRIPE_STYLE_MEGA_FLYOUT / Text Columns for Lenses */}
+      {/* 
+        STRIPE_STYLE_MEGA_FLYOUT (Ontology, Sensorial)
+        Text Columns for Lenses - Clean, spacious container groupings with descriptive content.
+        SENSORIAL (Visual Design & Density): [CONCEPTUAL_COMPACTION] - Concise headings and paragraphs.
+      */}
       <section style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -71,7 +81,11 @@ export default function ExploreBenchmarksPage() {
         </div>
       </section>
 
-      {/* APPLE_STYLE_BENTO_GRID with CSS_PRIMITIVE_DATA_VISUALIZATION */}
+      {/* 
+        APPLE_STYLE_BENTO_GRID (Sensorial, Epistemology) with CSS_PRIMITIVE_DATA_VISUALIZATION
+        SENSORIAL (Visual Design & Density): [CONCEPTUAL_COMPACTION] - Uneven grid, bold headlines, short narratives.
+        EPISTEMOLOGY (Information Design): [ATEMPORAL_PERMANENCE] - Heatmap is static, no dynamic metrics.
+      */}
       <section>
         <h2 style={{ fontSize: '1.5rem', color: 'var(--foreground)', marginBottom: '24px' }}>The Big Tech Matchup Board</h2>
         
@@ -79,9 +93,10 @@ export default function ExploreBenchmarksPage() {
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '24px',
-          gridAutoRows: 'minmax(250px, auto)'
+          gridAutoRows: 'minmax(250px, auto)' // Ensures consistent row height for bento feel
         }}>
           
+          {/* Bento Block 1: Parity Heatmap (Spans 2 columns for uneven layout) */}
           <div style={{ 
             background: 'var(--surface)', 
             border: '1px solid var(--border)', 
@@ -90,10 +105,12 @@ export default function ExploreBenchmarksPage() {
             display: 'flex',
             flexDirection: 'column',
             gap: '24px',
-            gridColumn: 'span 2'
+            gridColumn: 'span 2' // APPLE_STYLE_BENTO_GRID: Uneven layout matrix grid
           }}>
             <div>
+              {/* Bold Headline for APPLE_STYLE_BENTO_GRID */}
               <h3 style={{ fontSize: '1.2rem', margin: 0, color: 'var(--primary)' }}>Parity Heatmap</h3>
+              {/* Short Narrative Sentence for APPLE_STYLE_BENTO_GRID */}
               <p style={{ color: '#8b949e', lineHeight: 1.6, margin: '8px 0 0 0' }}>
                 Abstract visualization of feature parity between an open-source project and its proprietary target.
               </p>
@@ -111,7 +128,7 @@ export default function ExploreBenchmarksPage() {
               {heatmapCells}
             </div>
 
-            <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem' }}>
+            <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem', flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <div style={{ width: '12px', height: '12px', background: 'var(--success)', borderRadius: '2px' }} />
                 <span style={{ color: '#8b949e' }}>Feature Parity Reached</span>
@@ -127,6 +144,7 @@ export default function ExploreBenchmarksPage() {
             </div>
           </div>
 
+          {/* Bento Block 2: Capabilities (Implicitly spans 1 column) */}
           <div style={{ 
             background: 'var(--surface)', 
             border: '1px solid var(--border)', 
@@ -136,7 +154,9 @@ export default function ExploreBenchmarksPage() {
             flexDirection: 'column',
             gap: '16px'
           }}>
+            {/* Bold Headline for APPLE_STYLE_BENTO_GRID */}
             <h3 style={{ fontSize: '1.2rem', margin: 0, color: 'var(--foreground)' }}>Capabilities</h3>
+            {/* Short Narrative Sentence for APPLE_STYLE_BENTO_GRID */}
             <p style={{ color: '#8b949e', lineHeight: 1.6, margin: 0, flex: 1 }}>
               Instantly track and benchmark open-source initiatives against proprietary targets.
             </p>
