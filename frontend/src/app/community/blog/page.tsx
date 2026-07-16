@@ -1,3 +1,5 @@
+"use client";
+
 import CrowdsourceOptIn from '@/components/CrowdsourceOptIn';
 
 export default function BlogPage() {

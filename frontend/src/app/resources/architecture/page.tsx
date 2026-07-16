@@ -1,3 +1,5 @@
+"use client";
+
 export default function ArchitecturePage() {
   const stakes = [
     { key: "Governance", stake: "Code provenance, licensing, & project trust", impact: "High", metric: "100% CLA Verification" },

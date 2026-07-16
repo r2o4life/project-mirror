@@ -6,7 +6,7 @@ def main():
     app_dir = os.path.join(base_dir, "frontend", "src", "app")
     
     fixed_count = 0
-    hooks = ["useState", "useEffect", "useRouter", "onClick", "onChange", "onSubmit"]
+    hooks = ["useState", "useEffect", "useRouter", "onClick", "onChange", "onSubmit", "onMouseEnter", "onMouseLeave", "onMouseOver", "onMouseOut", "onKeyDown", "onKeyUp", "onFocus", "onBlur"]
     
     for path in Path(app_dir).rglob('page.tsx'):
         with open(path, 'r') as f:

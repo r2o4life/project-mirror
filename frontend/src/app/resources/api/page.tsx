@@ -21,7 +21,7 @@ export default function APIReferencePage() {
     }
     acc[segment].push(endpoint);
     return acc;
-  }, {});
+  }, {} as Record<string, typeof allEndpoints>);
 
   // Define structured groups with titles and descriptions for enhanced LATERAL_DISCOVERY
   const endpointGroups = [

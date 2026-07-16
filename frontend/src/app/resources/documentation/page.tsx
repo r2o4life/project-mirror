@@ -1,3 +1,5 @@
+"use client";
+
 export default function DocumentationPage() {
   return (
     <div style={{ padding: '64px 48px', maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '48px' }}>
