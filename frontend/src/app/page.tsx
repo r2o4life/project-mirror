@@ -4,6 +4,31 @@ import Link from "next/link";
 
 export default function Home() {
   return (
+    <>
+      <style>{`
+        .bento-link:hover .motif {
+          opacity: 1 !important;
+        }
+        /* Cell 1: Benchmarks (Bars grow) */
+        .bento-link:hover .motif-bar-1 { height: clamp(40px, 5vw, 60px) !important; }
+        .bento-link:hover .motif-bar-2 { height: clamp(55px, 7vw, 85px) !important; }
+        .bento-link:hover .motif-bar-3 { height: clamp(45px, 6vw, 70px) !important; }
+        
+        /* Cell 2: Matchmaking (Dots converge) */
+        .bento-link:hover .motif-line { width: clamp(10px, 1.5vw, 15px) !important; }
+        .bento-link:hover .motif-dot-1 { transform: scale(1.2) translateX(4px); }
+        .bento-link:hover .motif-dot-2 { transform: scale(1.2) translateX(-4px); }
+        
+        /* Cell 3: Inception (Dashes extend to form a solid block) */
+        .bento-link:hover .motif-dash-1 { width: clamp(50px, 7vw, 75px) !important; }
+        .bento-link:hover .motif-dash-2 { width: clamp(45px, 6vw, 60px) !important; }
+        .bento-link:hover .motif-dash-3 { width: clamp(60px, 8vw, 85px) !important; }
+        
+        /* Cell 4: Governance (Box rotates, indicator glows) */
+        .bento-link:hover .motif-box { transform: rotate(90deg) scale(1.1); }
+        .bento-link:hover .motif-indicator { background: #ffffff !important; box-shadow: 0 0 12px var(--success); }
+      `}</style>
+      
     // Outer container: Establishes the ISOLATED_NODE context for the page.
     // SENSORIAL: [CONCEPTUAL_COMPACTION] - Ample padding and min-height ensure a spacious, focused presentation.
     <div style={{
@@ -170,7 +195,7 @@ export default function Home() {
         }}>
 
           {/* Bento Cell 1: Competitive Benchmarks */}
-          <Link href="/explore/benchmarks" style={{
+          <Link href="/explore/benchmarks" className="bento-link" style={{
             background: 'var(--surface)',
             border: '1px solid var(--border)',
             borderRadius: '16px',
@@ -188,21 +213,21 @@ export default function Home() {
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
           >
             {/* Macro Icon: Singular, abstract visual for high impact and quick recognition. */}
-            <div style={{ position: 'absolute', top: '24px', left: '24px', display: 'flex', gap: '4px', alignItems: 'flex-end', height: '48px', opacity: 0.5, transform: 'scale(1.3)', transformOrigin: 'top left' }}>
-              <div style={{ width: '18px', height: '36px', background: 'var(--primary)', borderRadius: '2px' }} />
-              <div style={{ width: '18px', height: '72px', background: 'var(--success)', borderRadius: '2px' }} />
-              <div style={{ width: '18px', height: '45px', background: '#ffffff', borderRadius: '2px' }} />
+            <div className="motif" style={{ position: 'absolute', top: 'clamp(16px, 2vw, 24px)', left: 'clamp(16px, 2vw, 24px)', display: 'flex', gap: 'clamp(3px, 0.5vw, 4px)', alignItems: 'flex-end', height: 'clamp(36px, 5vw, 48px)', opacity: 0.5, transition: 'all 0.3s ease-in-out' }}>
+              <div className="motif-bar-1" style={{ width: 'clamp(14px, 1.8vw, 18px)', height: 'clamp(24px, 3.5vw, 36px)', background: 'var(--primary)', borderRadius: '2px', transition: 'height 0.3s ease-in-out' }} />
+              <div className="motif-bar-2" style={{ width: 'clamp(14px, 1.8vw, 18px)', height: 'clamp(48px, 7vw, 72px)', background: 'var(--success)', borderRadius: '2px', transition: 'height 0.3s ease-in-out' }} />
+              <div className="motif-bar-3" style={{ width: 'clamp(14px, 1.8vw, 18px)', height: 'clamp(30px, 4.5vw, 45px)', background: '#ffffff', borderRadius: '2px', transition: 'height 0.3s ease-in-out' }} />
             </div>
             <div style={{ zIndex: 10 }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Competitive Benchmarks</h2>
-              <p style={{ color: '#8b949e', fontSize: '1.1rem', margin: 0 }}>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2rem)', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Competitive Benchmarks</h2>
+              <p style={{ color: '#8b949e', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', margin: 0 }}>
                 Explore the global market graph. Compare open-source alternatives directly against proprietary monopolies.
               </p>
             </div>
           </Link>
 
           {/* Bento Cell 2: Matchmaking */}
-          <Link href="/explore/matchmaking" style={{
+          <Link href="/explore/matchmaking" className="bento-link" style={{
             background: 'var(--surface)',
             border: '1px solid var(--border)',
             borderRadius: '16px',
@@ -219,21 +244,21 @@ export default function Home() {
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
           >
             {/* Macro Icon */}
-            <div style={{ position: 'absolute', top: '24px', left: '24px', display: 'flex', alignItems: 'center', gap: '10px', height: '48px', opacity: 0.5, transform: 'scale(1.3)', transformOrigin: 'top left' }}>
-              <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'var(--primary)' }} />
-              <div style={{ width: '35px', height: '4px', background: '#ffffff' }} />
-              <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'var(--success)' }} />
+            <div className="motif" style={{ position: 'absolute', top: 'clamp(16px, 2vw, 24px)', left: 'clamp(16px, 2vw, 24px)', display: 'flex', alignItems: 'center', gap: 'clamp(6px, 1vw, 10px)', height: 'clamp(36px, 5vw, 48px)', opacity: 0.5, transition: 'all 0.3s ease-in-out' }}>
+              <div className="motif-dot-1" style={{ width: 'clamp(16px, 2vw, 22px)', height: 'clamp(16px, 2vw, 22px)', borderRadius: '50%', background: 'var(--primary)', transition: 'transform 0.3s' }} />
+              <div className="motif-line" style={{ width: 'clamp(25px, 3.5vw, 35px)', height: 'clamp(3px, 0.5vw, 4px)', background: '#ffffff', transition: 'width 0.3s' }} />
+              <div className="motif-dot-2" style={{ width: 'clamp(16px, 2vw, 22px)', height: 'clamp(16px, 2vw, 22px)', borderRadius: '50%', background: 'var(--success)', transition: 'transform 0.3s' }} />
             </div>
             <div style={{ zIndex: 10 }}>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Matchmaking</h2>
-              <p style={{ color: '#8b949e', fontSize: '1.05rem', margin: 0 }}>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Matchmaking</h2>
+              <p style={{ color: '#8b949e', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', margin: 0 }}>
                 Frictionless skill mapping to immediate codebase gaps.
               </p>
             </div>
           </Link>
 
           {/* Bento Cell 3: Autonomous Inception */}
-          <Link href="/explore/spawn" style={{
+          <Link href="/explore/spawn" className="bento-link" style={{
             background: 'rgba(163, 113, 247, 0.05)',
             border: '1px solid rgba(163, 113, 247, 0.3)',
             borderRadius: '16px',
@@ -250,21 +275,21 @@ export default function Home() {
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
           >
             {/* Macro Icon */}
-            <div style={{ position: 'absolute', top: '24px', left: '24px', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'center', height: '48px', opacity: 0.5, transform: 'scale(1.3)', transformOrigin: 'top left' }}>
-              <div style={{ width: '55px', height: '10px', background: 'var(--primary)', borderRadius: '3px' }} />
-              <div style={{ width: '40px', height: '10px', background: '#ffffff', borderRadius: '3px' }} />
-              <div style={{ width: '65px', height: '10px', background: 'var(--success)', borderRadius: '3px' }} />
+            <div className="motif" style={{ position: 'absolute', top: 'clamp(16px, 2vw, 24px)', left: 'clamp(16px, 2vw, 24px)', display: 'flex', flexDirection: 'column', gap: 'clamp(5px, 1vw, 8px)', justifyContent: 'center', height: 'clamp(36px, 5vw, 48px)', opacity: 0.5, transition: 'all 0.3s ease-in-out' }}>
+              <div className="motif-dash-1" style={{ width: 'clamp(40px, 5vw, 55px)', height: 'clamp(6px, 1vw, 10px)', background: 'var(--primary)', borderRadius: '3px', transition: 'width 0.3s' }} />
+              <div className="motif-dash-2" style={{ width: 'clamp(30px, 4vw, 40px)', height: 'clamp(6px, 1vw, 10px)', background: '#ffffff', borderRadius: '3px', transition: 'width 0.3s' }} />
+              <div className="motif-dash-3" style={{ width: 'clamp(50px, 6vw, 65px)', height: 'clamp(6px, 1vw, 10px)', background: 'var(--success)', borderRadius: '3px', transition: 'width 0.3s' }} />
             </div>
             <div style={{ zIndex: 10 }}>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Autonomous Inception</h2>
-              <p style={{ color: 'var(--primary)', fontSize: '1.05rem', margin: 0 }}>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Autonomous Inception</h2>
+              <p style={{ color: 'var(--primary)', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', margin: 0 }}>
                 Instantiate a new codebase rivaling proprietary tools with one click.
               </p>
             </div>
           </Link>
 
           {/* Bento Cell 4: Governance & Health */}
-          <Link href="/explore/governance" style={{
+          <Link href="/explore/governance" className="bento-link" style={{
             background: 'var(--surface)',
             border: '1px solid var(--border)',
             borderRadius: '16px',
@@ -281,13 +306,13 @@ export default function Home() {
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
           >
             {/* Macro Icon */}
-            <div style={{ position: 'absolute', top: '24px', right: '24px', width: '65px', height: '65px', opacity: 0.5, transform: 'scale(1.3)', transformOrigin: 'top right' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, border: '6px solid var(--primary)', borderRadius: '12px' }} />
-              <div style={{ position: 'absolute', top: '22px', left: '12px', width: '18px', height: '18px', background: 'var(--success)', borderRadius: '50%' }} />
+            <div className="motif" style={{ position: 'absolute', top: 'clamp(16px, 2vw, 24px)', right: 'clamp(16px, 2vw, 24px)', width: 'clamp(45px, 6vw, 65px)', height: 'clamp(45px, 6vw, 65px)', opacity: 0.5, transition: 'all 0.3s ease-in-out' }}>
+              <div className="motif-box" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, border: 'clamp(3px, 0.5vw, 6px) solid var(--primary)', borderRadius: '12px', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} />
+              <div className="motif-indicator" style={{ position: 'absolute', top: '35%', left: '20%', width: 'clamp(12px, 1.5vw, 18px)', height: 'clamp(12px, 1.5vw, 18px)', background: 'var(--success)', borderRadius: '50%', transition: 'all 0.3s ease-in-out' }} />
             </div>
             <div style={{ zIndex: 10 }}>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Governance & Health</h2>
-              <p style={{ color: '#8b949e', fontSize: '1.05rem', margin: 0 }}>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.8rem)', fontWeight: 'bold', color: '#ffffff', marginBottom: '8px' }}>Governance & Health</h2>
+              <p style={{ color: '#8b949e', fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)', margin: 0 }}>
                 High-fidelity tracking of project licensing, PR velocity, and distributed operational command.
               </p>
             </div>
@@ -322,5 +347,6 @@ export default function Home() {
 
       </main>
     </div>
+    </>
   );
 }
