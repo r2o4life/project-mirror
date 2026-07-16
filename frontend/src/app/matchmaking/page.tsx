@@ -259,7 +259,7 @@ export default function Matchmaking() {
               color: 'var(--primary)', 
               marginBottom: '8px' 
             }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -267,12 +267,13 @@ export default function Matchmaking() {
                 <line x1="10" y1="9" x2="8" y2="9"></line>
               </svg>
               <span style={{ 
-                fontSize: '1.5rem', 
+                fontSize: 'clamp(1.1rem, 3.5vw, 1.5rem)', 
                 fontWeight: 700, 
                 color: issue.matchScore > 90 ? 'var(--success)' : (issue.matchScore > 75 ? 'var(--warning)' : 'var(--danger)'),
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px'
+                gap: '4px',
+                whiteSpace: 'nowrap'
               }}>
                 {issue.matchScore}% Match {/* Static score, ATEMPORAL_PERMANENCE */}
               </span>
@@ -286,7 +287,7 @@ export default function Matchmaking() {
               rel="noreferrer" 
               style={{ 
                 color: 'var(--foreground)', 
-                fontSize: '1.4rem', 
+                fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', 
                 fontWeight: 700, 
                 lineHeight: '1.3',
                 textDecoration: 'none',
@@ -340,9 +341,9 @@ export default function Matchmaking() {
               position: 'absolute', 
               top: '24px', 
               right: '24px', 
-              padding: '6px 12px', 
+              padding: 'clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px)', 
               borderRadius: '20px', 
-              fontSize: '0.8rem', 
+              fontSize: 'clamp(0.65rem, 2vw, 0.8rem)', 
               fontWeight: 600,
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
