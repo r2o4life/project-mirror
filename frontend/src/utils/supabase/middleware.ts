@@ -28,7 +28,20 @@ export async function updateSession(request: NextRequest) {
       }
     )
 
-    await supabase.auth.getUser()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+
+    if (
+      !user &&
+      request.nextUrl.pathname.startsWith('/dashboard')
+    ) {
+      // no user, potentially respond by redirecting the user to the login page
+      const url = request.nextUrl.clone()
+      url.pathname = '/login'
+      return NextResponse.redirect(url)
+    }
+
   } catch (e) {
     // If Supabase throws an error (e.g. missing or invalid environment variables),
     // we catch it so it doesn't crash the entire Next.js application with a 500 Error.
