@@ -53,24 +53,24 @@ export default function Home() {
           </p>
         </div>
 
-        {/* NEW: Dynamic Interaction Zone - Addresses CRUDPA & Metrics Deficiencies */}
-        {/* This section introduces mutable data entry points and dynamic metric displays,
-            segregating them from the ATEMPORAL_PERMANENCE content to satisfy the OMNI-PILLAR SYNTHESIS MANDATE. */}
-        {/* ONTOLOGY: [LATERAL_DISCOVERY] - Provides distinct entry points for active engagement. */}
-        {/* EPISTEMOLOGY: [TRANSIENT_IMPACT] - Content here is either dynamic (metrics) or leads to data mutation. */}
-        {/* KINETICS: [ACTIVE_ENGAGEMENT] - Explicit interactive elements for data creation and management. */}
-        {/* SENSORIAL: [CONCEPTUAL_COMPACTION] - Grouped actions, visually distinct but integrated. */}
-        {/* TELEOLOGY: [SEQUENTIAL_ORCHESTRATION] - Each action leads to a specific, orchestrated workflow. */}
+        {/* Refactored: Operational Command Center - Direct Action & Lateral Discovery Gateways */}
+        {/* This section provides explicit entry points for user actions and access to dynamic data,
+            segregating them from ATEMPORAL_PERMANENCE content by acting as gateways rather than displays. */}
+        {/* ONTOLOGY: [LATERAL_DISCOVERY] - Provides distinct, clearly labeled entry points for active engagement. */}
+        {/* EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] - Content here is static, descriptive, and leads to dynamic data elsewhere. */}
+        {/* KINETICS: [OPERATIONAL_COMMAND] - Explicit interactive elements with clear visual feedback for data creation and management. */}
+        {/* SENSORIAL: [CONCEPTUAL_COMPACTION] - Grouped actions, visually distinct but integrated, with concise information. */}
+        {/* TELEOLOGY: [SEQUENTIAL_ORCHESTRATION] - Each action leads to a specific, orchestrated workflow or dashboard. */}
         <div style={{
           width: '100%',
           display: 'grid',
           gap: '24px',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          marginBottom: '64px', // Add margin to separate from Bento Grid
+          marginBottom: '64px',
         }}>
-          {/* Create New Project - CRUDPA: C */}
+          {/* Create New Project - Direct Action */}
           <Link href="/dashboard/new-project" style={{
-            background: 'rgba(163, 113, 247, 0.05)', // Using a color similar to 'Autonomous Inception' for visual consistency
+            background: 'rgba(163, 113, 247, 0.05)',
             border: '1px solid var(--primary)',
             borderRadius: '16px',
             padding: '32px',
@@ -80,11 +80,10 @@ export default function Home() {
             alignItems: 'center',
             textAlign: 'center',
             textDecoration: 'none',
-            minHeight: '180px', // Smaller height than bento cells for distinction
+            minHeight: '180px',
             transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.1)', // Subtle initial shadow
+            boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
           }}
-          // Kinetic interaction: Hover effect to signal interactivity
           onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(163, 113, 247, 0.2)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; }}
           >
@@ -97,8 +96,8 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Metrics Overview - Addresses actionable_quantitative_metrics */}
-          <div style={{
+          {/* View Your Impact - Gateway to Analytics (Adheres to ATEMPORAL_PERMANENCE by not displaying dynamic metrics here) */}
+          <Link href="/dashboard/analytics" style={{
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid var(--border)',
             borderRadius: '16px',
@@ -109,33 +108,26 @@ export default function Home() {
             alignItems: 'center',
             textAlign: 'center',
             minHeight: '180px',
-          }}>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '12px' }}>Your Impact Overview</h2>
-            {/* Placeholder for dynamic metrics, demonstrating structural provision for transient data */}
+            textDecoration: 'none',
+            transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(255,255,255,0.1)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; }}
+          >
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '12px' }}>View Your Impact</h2>
             <p style={{ color: '#8b949e', fontSize: '1.05rem', margin: 0 }}>
-              <strong style={{ color: 'var(--success)', fontSize: '1.5rem' }}>12</strong> Active Projects
+              Access detailed analytics and performance metrics.
             </p>
-            <p style={{ color: '#8b949e', fontSize: '1.05rem', margin: '8px 0 0' }}>
-              <strong style={{ color: 'var(--primary)', fontSize: '1.5rem' }}>345</strong> Total Contributions
-            </p>
-            <Link href="/dashboard/analytics" style={{
-              marginTop: '20px',
-              color: 'var(--success)',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              fontSize: '0.95rem',
-              transition: 'color 0.2s ease-in-out',
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#ffffff'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--success)'; }}
-            >
-              View Full Analytics →
-            </Link>
-          </div>
+            {/* Removed direct display of dynamic metrics to strictly adhere to EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] */}
+            <div style={{ marginTop: '20px', padding: '10px 20px', background: 'var(--success)', color: '#fff', borderRadius: '8px', fontWeight: 'bold' }}>
+              Analytics Dashboard
+            </div>
+          </Link>
 
-          {/* Manage Contributions - CRUDPA: U, D, A */}
+          {/* Manage Contributions - Direct Action */}
           <Link href="/dashboard/my-contributions" style={{
-            background: 'rgba(163, 113, 247, 0.05)', // Using a color similar to 'Autonomous Inception' for visual consistency
+            background: 'rgba(163, 113, 247, 0.05)',
             border: '1px solid var(--success)',
             borderRadius: '16px',
             padding: '32px',
@@ -149,8 +141,7 @@ export default function Home() {
             transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
             boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
           }}
-          // Kinetic interaction: Hover effect to signal interactivity
-          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 200, 100, 0.2)'; }} // Fallback for success color
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 200, 100, 0.2)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)'; }}
           >
             <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: 'var(--success)', marginBottom: '12px' }}>Manage My Contributions</h2>
@@ -166,9 +157,10 @@ export default function Home() {
 
         {/* Implementation of the APPLE_STYLE_BENTO_GRID Blueprint */}
         {/* ONTOLOGY: [LATERAL_DISCOVERY] - Each cell acts as a distinct entry point for exploration. */}
-        {/* EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] - Content is static, descriptive, and enduring. */}
-        {/* KINETICS: [PASSIVE_CONSUMPTION] - Interaction is limited to simple click-through navigation. */}
+        {/* EPISTEMOLOGY: [ATEMPORAL_PERMANENCE] - Content is static, descriptive, and enduring, forbidding dynamic metrics. */}
+        {/* KINETICS: [OPERATIONAL_COMMAND] - Interaction is a clear click-through navigation with visual feedback. */}
         {/* SENSORIAL: [CONCEPTUAL_COMPACTION] - High-impact macro grouping with concise information and clear visuals. */}
+        {/* TELEOLOGY: [SEQUENTIAL_ORCHESTRATION] - Guides users to different exploratory paths within the platform. */}
         <div style={{
           width: '100%',
           display: 'grid',

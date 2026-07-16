@@ -335,10 +335,17 @@ class ClosedLoopAgentHarness:
             return PolicyProfile(
                 routing_mode="LATERAL_DISCOVERY",
                 temporal_mode="ATEMPORAL_PERMANENCE",
-                functional_intent="PASSIVE_CONSUMPTION",
+                
+                # Upgrade 1: Allow kinetic control even on unauthenticated screens
+                functional_intent="OPERATIONAL_COMMAND" if is_complex_artifact else "PASSIVE_CONSUMPTION",
+                
                 density_mode="CONCEPTUAL_COMPACTION",
-                macro_flow_mode="SEQUENTIAL_ORCHESTRATION" if is_complex_artifact else "ISOLATED_NODE",
-                synthesis_level="OMNI_PILLAR_SYNTHESIS" if is_complex_artifact else "STANDARD"
+                
+                # Upgrade 2: Default to sequential transitions to allow fluid exploration loops
+                macro_flow_mode="SEQUENTIAL_ORCHESTRATION", 
+                
+                # Upgrade 3: Force full-spectrum synthesis so the visuals respond to click states
+                synthesis_level="OMNI_PILLAR_SYNTHESIS"
             )
         else:
             return PolicyProfile(
