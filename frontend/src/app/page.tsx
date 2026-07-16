@@ -29,8 +29,8 @@ export default function Home() {
         .bento-link:hover .motif-indicator { background: #ffffff !important; box-shadow: 0 0 12px var(--success); }
       `}</style>
       
-    // Outer container: Establishes the ISOLATED_NODE context for the page.
-    // SENSORIAL: [CONCEPTUAL_COMPACTION] - Ample padding and min-height ensure a spacious, focused presentation.
+    {/* Outer container: Establishes the ISOLATED_NODE context for the page.
+        SENSORIAL: [CONCEPTUAL_COMPACTION] - Ample padding and min-height ensure a spacious, focused presentation. */}
     <div style={{
       minHeight: '80vh',
       display: 'flex',
