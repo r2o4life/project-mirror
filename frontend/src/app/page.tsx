@@ -37,8 +37,9 @@ export default function Home() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '64px 24px',
+      padding: 'clamp(32px, 8vw, 64px) clamp(16px, 4vw, 24px)',
       position: 'relative',
+      boxSizing: 'border-box'
     }}>
 
       {/* Main content area: Constrains width and centers elements for optimal readability. */}
@@ -56,7 +57,7 @@ export default function Home() {
         {/* SENSORIAL: [CONCEPTUAL_COMPACTION] - Large, impactful typography to convey the core concept concisely. */}
         <div style={{ textAlign: 'center', marginBottom: '64px', maxWidth: '800px' }}>
           <h1 style={{
-            fontSize: '4.5rem',
+            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
             fontWeight: 800,
             color: '#ffffff',
             letterSpacing: '-0.02em',
@@ -90,7 +91,7 @@ export default function Home() {
           width: '100%',
           display: 'grid',
           gap: '24px',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           marginBottom: '64px',
         }}>
           {/* Create New Project - Direct Action */}
@@ -191,7 +192,7 @@ export default function Home() {
           display: 'grid',
           gap: '24px',
           gridAutoRows: '280px', // Consistent row height for a structured matrix feel.
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', // Responsive, uneven layout as per blueprint.
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', // Responsive, uneven layout as per blueprint.
         }}>
 
           {/* Bento Cell 1: Competitive Benchmarks */}
@@ -328,9 +329,11 @@ export default function Home() {
             background: 'rgba(255,255,255,0.02)',
             border: '1px solid var(--border)',
             borderRadius: '8px',
-            padding: '16px 32px',
+            padding: '16px clamp(16px, 4vw, 32px)',
             display: 'flex',
-            gap: '32px',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 'clamp(12px, 3vw, 32px)',
             color: '#8b949e',
             fontSize: '0.85rem',
             textTransform: 'uppercase',

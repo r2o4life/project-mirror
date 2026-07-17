@@ -6,7 +6,7 @@ export default function Footer() {
     <footer style={{ 
       borderTop: '1px solid var(--border)', 
       background: 'var(--surface)', 
-      padding: '64px 48px 32px 48px',
+      padding: 'clamp(32px, 8vw, 64px) clamp(16px, 5vw, 48px) clamp(16px, 4vw, 32px)',
       marginTop: 'auto',
       fontFamily: 'var(--font-sans)'
     }}>
@@ -21,7 +21,7 @@ export default function Footer() {
         {/* VERCEL_STYLE_SITEMAP_FOOTER: Multi-column sitemap grid */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
           gap: '32px' 
         }}>
           

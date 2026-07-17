@@ -6,6 +6,7 @@ import { BrandLogo } from "./BrandLogo";
 
 export default function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems: {
     label: string;
@@ -73,6 +74,20 @@ export default function Navigation() {
   ];
 
   return (
+    <>
+    <style>{`
+      .desktop-nav { display: flex; gap: 32px; position: relative; }
+      .mobile-hamburger { display: none; background: none; border: none; color: var(--foreground); font-size: 1.5rem; cursor: pointer; padding: 4px; margin: 0; }
+      .mobile-menu-container { display: none; }
+      .desktop-access-btn { display: block; }
+      
+      @media (max-width: 768px) {
+        .desktop-nav { display: none !important; }
+        .desktop-access-btn { display: none !important; }
+        .mobile-hamburger { display: block; }
+        .mobile-menu-container { display: flex; flex-direction: column; width: 100%; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border); margin-top: 16px; }
+      }
+    `}</style>
     <header 
       style={{ 
         position: 'sticky', 
@@ -81,19 +96,21 @@ export default function Navigation() {
         background: 'rgba(13, 17, 23, 0.85)', 
         backdropFilter: 'blur(12px)', 
         borderBottom: '1px solid var(--border)',
-        padding: '16px 48px',
+        padding: 'clamp(12px, 4vw, 16px) clamp(16px, 5vw, 48px)',
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        flexDirection: 'column',
+        width: '100%',
+        boxSizing: 'border-box'
       }}
       onMouseLeave={() => setActiveMenu(null)}
     >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
       <Link href="/" style={{ textDecoration: 'none' }}>
         <BrandLogo />
       </Link>
 
       {/* STRIPE_STYLE_MEGA_FLYOUT Implementation */}
-      <nav style={{ display: 'flex', gap: '32px', position: 'relative' }}>
+      <nav className="desktop-nav">
         {menuItems.map((item) => (
           <div 
             key={item.label}
@@ -171,7 +188,7 @@ export default function Navigation() {
       </nav>
 
       {/* Optional Auth / Action Button area */}
-      <div>
+      <div className="desktop-access-btn">
         <Link href="/dashboard" style={{ 
           padding: '8px 16px', 
           background: 'var(--primary)', 
@@ -184,6 +201,44 @@ export default function Navigation() {
           Access Terminal
         </Link>
       </div>
+      
+      {/* Hamburger Toggle */}
+      <button 
+        className="mobile-hamburger" 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle Menu"
+      >
+        ☰
+      </button>
+      </div>
+      
+      {/* Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-container">
+          {menuItems.map((item) => (
+            <div key={item.label} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)} style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', fontSize: '1.1rem' }}>
+                {item.label}
+              </Link>
+              <span style={{ color: '#8b949e', fontSize: '0.9rem' }}>{item.description}</span>
+            </div>
+          ))}
+          <Link href="/dashboard" onClick={() => setIsMobileMenuOpen(false)} style={{ 
+            padding: '12px 16px', 
+            background: 'var(--primary)', 
+            color: 'white', 
+            borderRadius: '6px', 
+            fontWeight: 600,
+            fontSize: '1rem',
+            textAlign: 'center',
+            textDecoration: 'none',
+            marginTop: '8px'
+          }}>
+            Access Terminal
+          </Link>
+        </div>
+      )}
     </header>
+    </>
   );
 }
