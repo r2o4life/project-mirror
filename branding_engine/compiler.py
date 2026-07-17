@@ -394,9 +394,9 @@ class CSSBrandingCompiler:
   --brand-neutral: {healed_neutral};
   --brand-bg: {archetype['base_bg']};
 
-  --font-size-primary: clamp(0.9rem, 3.5vw, {font_size_val});
+  --font-size-primary: clamp(0.9rem, 2.5vw, 1.35rem);
   --font-weight-primary: {archetype['weight']};
-  --font-spacing-primary: clamp(0.1em, 1vw, {tracking_val});
+  --font-spacing-primary: clamp(0.1em, 1vw, 0.25em);
 
   --organic-curve: {computed_curve};
   --structural-tilt: {tilt_degrees}deg;
@@ -406,7 +406,7 @@ class CSSBrandingCompiler:
   display: flex;
   flex-direction: {archetype['layout_orientation']};
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 1.2rem);
+  gap: clamp(0.4rem, 1.5vw, 0.75rem);
   padding: 0;
   background-color: var(--brand-bg);
   border-radius: 12px;
@@ -415,24 +415,37 @@ class CSSBrandingCompiler:
 }}
 
 .brandIconArtifact {{
-  width: clamp(24px, 6vw, 45px);
-  height: clamp(24px, 6vw, 45px);
-  background-color: var(--brand-primary);
-  border-radius: clamp(6px, 1.5vw, 10px);
-  display: grid;
-  place-items: center;
+  width: clamp(20px, 4vw, 32px);
+  height: clamp(20px, 4vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  overflow: hidden;
   flex-shrink: 0;
 }}
 
-.brandGeometricShard {{
-  width: 72%;
-  height: 72%;
+.brandNodeLeft {{
+  width: 55%;
+  height: 55%;
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+  z-index: 2;
+}}
+
+.brandNodeRight {{
+  width: 55%;
+  height: 55%;
   background-color: var(--brand-secondary);
-  border-radius: var(--organic-curve);
-  transform: rotate(var(--structural-tilt));
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  border-radius: 50%;
+  position: absolute;
+  right: 5%;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 12px rgba(112, 0, 255, 0.6);
+  z-index: 1;
 }}
 
 .brandTextBlock {{
@@ -457,10 +470,10 @@ class CSSBrandingCompiler:
 }}
 
 .brandTagline {{
-  font-size: clamp(0.45rem, 1.5vw, 0.6rem);
+  font-size: clamp(0.4rem, 1.2vw, 0.55rem);
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: clamp(0.1em, 0.5vw, 0.2em);
+  letter-spacing: clamp(0.1em, 0.5vw, 0.25em);
   font-weight: 600;
   color: var(--brand-primary);
   opacity: 0.9;
@@ -484,7 +497,8 @@ class CSSBrandingCompiler:
         compiled_html = f"""
 <div class="brandEngineContainer">
   <div class="brandIconArtifact" aria-hidden="true">
-    <div class="brandGeometricShard"></div>
+    <div class="brandNodeLeft"></div>
+    <div class="brandNodeRight"></div>
   </div>
   <div class="brandTextBlock">
     <h1 class="brandWordmark">{cleaned_name}</h1>

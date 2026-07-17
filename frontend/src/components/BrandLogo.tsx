@@ -5,7 +5,8 @@ export function BrandLogo() {
   return (
     <div className={styles.brandEngineContainer}>
       <div className={styles.brandIconArtifact} aria-hidden="true">
-        <div className={styles.brandGeometricShard}></div>
+        <div className={styles.brandNodeLeft}></div>
+        <div className={styles.brandNodeRight}></div>
       </div>
       <div className={styles.brandTextBlock}>
         <h1 className={styles.brandWordmark}>Project Mirror</h1>
