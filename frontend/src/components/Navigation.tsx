@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, ReactNode } from "react";
+import { BrandLogo } from "./BrandLogo";
 
 export default function Navigation() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -88,15 +89,7 @@ export default function Navigation() {
       onMouseLeave={() => setActiveMenu(null)}
     >
       <Link href="/" style={{ textDecoration: 'none' }}>
-        <div style={{ 
-          fontSize: '1.5rem', 
-          fontWeight: 'bold', 
-          background: 'linear-gradient(90deg, var(--primary), #a371f7)', 
-          WebkitBackgroundClip: 'text', 
-          WebkitTextFillColor: 'transparent' 
-        }}>
-          Project Mirror
-        </div>
+        <BrandLogo />
       </Link>
 
       {/* STRIPE_STYLE_MEGA_FLYOUT Implementation */}

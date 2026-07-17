@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "./BrandLogo";
 
 export default function Footer() {
   return (
@@ -96,14 +97,8 @@ export default function Footer() {
           gap: '16px'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ 
-              fontSize: '1.2rem', 
-              fontWeight: 'bold', 
-              background: 'linear-gradient(90deg, var(--primary), #a371f7)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent' 
-            }}>
-              Project Mirror
+            <div style={{ transform: 'scale(0.8)', transformOrigin: 'left center' }}>
+              <BrandLogo />
             </div>
             <span style={{ color: '#8b949e', fontSize: '0.85rem' }}>© 2026 Open Web Int.</span>
           </div>
